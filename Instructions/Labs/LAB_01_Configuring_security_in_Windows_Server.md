@@ -44,7 +44,7 @@ Contoso Pharmaceuticals 是一家在世界各地约有 5000 名员工的医疗�
 
 ### <a name="scenario"></a>场景
 
-你决定在服务器和管理工作站上实现 Windows Defender Credential Guard，以防范通过哈希传递攻击和票证传递攻击盗窃凭据。 你将使用组策略在现有服务器上启用 Credential Guard。 对于所有新服务器，你将使用 Hypervisor 保护的代码完整性 (HVCI) 和 Windows Defender Credential Guard 硬件准备工具在新服务器加入域之前启用 Credential Guard。
+你决定在服务器和管理工作站上实现 Windows Defender Credential Guard，以防范通过哈希传递攻击和票证传递攻击盗窃凭据。 你将使用组策略在现有服务器上启用 Credential Guard。 对于所有新服务器，你将使用 虚拟机监控程序 保护的代码完整性 (HVCI) 和 Windows Defender Credential Guard 硬件准备工具在新服务器加入域之前启用 Credential Guard。
 
 在本实验室中，你将设置组策略并在现有服务器上运行 HVCI 和 Windows Defender Credential Guard 硬件准备工具。
 
@@ -58,7 +58,7 @@ Contoso Pharmaceuticals 是一家在世界各地约有 5000 名员工的医疗�
 #### <a name="task-1-enable-windows-defender-credential-guard-using-group-policy"></a>任务 1：使用组策略启用 Windows Defender Credential Guard
 
 1. 在 SEA-SVR2* 上，打开组策略管理控制台。
-1. 在组策略管理控制台中，浏览林：Contoso.com、域、Contoso.com，然后创建一个名为 CredentialGuard_GPO 链接到 IT 组织单元 (OU) 的组策略对象 (GPO)     。
+1. 在组策略管理控制台中，浏览林 Contoso.com 和域 Contoso.com，然后创建一个名为 CredentialGuard_GPO 链接到 IT 组织单元 (OU) 的组策略对象 (GPO)     。
 1. 在组策略管理编辑器中打开“CredentialGuard_GPO”，浏览到 Computer Configuration\\Policies\\Administrative Templates\\\\Device Guard 节点 。
 1. 启用“打开基于虚拟化的安全”选项并采用以下设置：
 
@@ -189,7 +189,7 @@ Contoso Pharmaceuticals 是一家在世界各地约有 5000 名员工的医疗�
    ```
 
 1. 在 SEA-SVR2* 上，打开组策略管理控制台。
-1. 在组策略管理控制台中，浏览林：Contoso.com、域、Contoso.com，然后创建一个名为 LAPS_GPO 链接到 Seattle_ServersOU 的组策略对象 (GPO)     。
+1. 在组策略管理控制台中，浏览林 Contoso.com 和域 Contoso.com，然后创建一个名为 LAPS_GPO 链接到 Seattle_ServersOU 的组策略对象 (GPO)     。
 1. 在组策略管理编辑器中打开 LAPS_GPO，并浏览到 Computer Configuration\\Policies\\Administrative Templates\\LAPS 节点 。
 1. 启用“启用本地管理员密码管理”选项。
 1. 使用以下设置配置“密码设置”选项：

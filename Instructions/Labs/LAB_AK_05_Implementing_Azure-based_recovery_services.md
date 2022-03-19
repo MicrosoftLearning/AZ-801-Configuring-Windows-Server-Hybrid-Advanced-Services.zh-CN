@@ -10,7 +10,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 01/28/2022
 ms.locfileid: "137907080"
 ---
-# <a name="lab-answer-key-implementing-azure-based-recovery-services"></a>实验室答案：实现基于 Azure 的恢复服务
+# <a name="lab-answer-key-implementing-azure-based-recovery-services"></a>实验室解答：实现基于 Azure 的恢复服务
 
 ## <a name="exercise-1-creating-and-configuring-an-azure-site-recovery-vault"></a>练习 1：创建和配置 Azure Site Recovery 保管库
 

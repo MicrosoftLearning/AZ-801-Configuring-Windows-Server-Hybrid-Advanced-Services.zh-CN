@@ -248,7 +248,7 @@ ms.locfileid: "137907069"
 #### <a name="task-3-enable-azure-automation-solutions-for-azure-vms"></a>任务 3：为 Azure VM 启用 Azure 自动化解决方案
 
 1. 在 SEA-SVR2 上，切换到显示 Azure 门户的 Microsoft Edge 窗口，然后浏览到之前你在此实验室中预配的 Azure 自动化帐户页。 
-1. 在自动化帐户页面中，浏览到它的“清单”页。
+1. 在“自动化帐户”页面中，浏览到它的“清单”页。
 1. 在“清单”页上，使用工具栏中的“+ 添加 Azure VM”按钮为 az801l02-vm0 Azure VM 启用清单和更改跟踪  。 
 
    > 备注：VM 必须连接到与自动化帐户解决方案关联的 Log Analytics 工作区才能被列为“准备启用” 。

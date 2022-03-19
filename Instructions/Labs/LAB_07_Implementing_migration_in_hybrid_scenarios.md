@@ -11,7 +11,7 @@ ms.locfileid: "137907066"
 ---
 # <a name="lab-migrating-hyper-v-vms-to-azure-by-using-azure-migrate"></a>实验室：使用 Azure Migrate 将 Hyper-V VM 迁移到 Azure
 
-## <a name="lab-scenario"></a>实验室方案
+## <a name="lab-scenario"></a>实验室场景
 
 尽管 Adatum 企业体系结构团队希望在迁移到 Azure 的过程中对其工作负载进行现代化处理，但他们意识到，由于时间安排紧张，在很多情况下，必须采用“直接迁移”方法。 为了简化此任务，该团队开始探索 Azure Migrate 的功能。 Azure Migrate 充当一个集中化中心，用于评估本地服务器、基础结构、应用程序和数据，并将它们迁移到 Azure。
 
@@ -76,7 +76,7 @@ Azure Migrate 提供以下功能：
    | 主机网络 Interface1Name | **az801l07a-hv-vm-nic1** |
    | 主机网络 Interface2Name | **az801l07a-hv-vm-nic2** |
    | 主机虚拟机名称 | **az801l07a-hv-vm** |
-   | 主机管理员用户名 | **学生** |
+   | 主机管理员用户名 | **Student** |
    | 主机管理员密码 | **Pa55w.rd1234** |
 
    > 注意：请等待部署完成。 部署可能需要大约 10 分钟时间。
@@ -124,7 +124,7 @@ Azure Migrate 提供以下功能：
 
    | 设置 | 值 | 
    | --- | --- |
-   | 用户名 |**学生** |
+   | 用户名 |**Student** |
    | 密码 |**Pa55w.rd1234** |
 
 1. 在与 az801l07a-hv-vm 的远程桌面会话中，在“服务器管理器”窗口中，禁用“IE 增强的安全配置”。  
@@ -237,8 +237,8 @@ Azure Migrate 提供以下功能：
    | 位置 | 之前在此任务中创建虚拟网络的 Azure 区域的名称 |
    | 性能 | **标准** |
    | 冗余 | **本地冗余存储 (LRS)** |
-   | 为 blob 启用软删除 | disabled |
-   | 启用容器软删除 | disabled |
+   | 为 blob 启用软删除 | 禁用 |
+   | 启用容器软删除 | 禁用 |
 
 ## <a name="exercise-3-assess-hyper-v-for-migration-by-using-azure-migrate"></a>练习 3：使用 Azure Migrate 评估 Hyper-V 的迁移
   
@@ -281,7 +281,7 @@ Azure Migrate 提供以下功能：
    | 设置 | 值 | 
    | --- | --- |
    | 友好名称 | **az801l07ahvcred** | 
-   | 用户名 | **学生** |
+   | 用户名 | **Student** |
    | 密码 | **Pa55w.rd1234** |
 
 1. 在浏览器窗口的“设备配置服务器”页面上，在“提供 Hyper-V 主机/群集详细信息”部分，添加设置为“Hyper-V 主机/群集”的发现源，将其友好名称设置为 az801l07ahvcred，并将其 IP 地址/FQDN 设置为 10.0.2.1。      

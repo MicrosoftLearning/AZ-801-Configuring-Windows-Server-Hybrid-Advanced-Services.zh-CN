@@ -10,7 +10,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 01/28/2022
 ms.locfileid: "137907060"
 ---
-# <a name="lab-answer-key-implementing-failover-clustering"></a>实验室参考答案：实现故障转移群集
+# <a name="lab-answer-key-implementing-failover-clustering"></a>实验室解答：实现故障转移群集
 
 ## <a name="exercise-1-configuring-iscsi-storage"></a>练习 1：配置 iSCSI 存储
 

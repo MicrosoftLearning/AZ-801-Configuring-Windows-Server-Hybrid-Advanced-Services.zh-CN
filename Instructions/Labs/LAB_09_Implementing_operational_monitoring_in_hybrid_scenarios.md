@@ -11,7 +11,7 @@ ms.locfileid: "137907058"
 ---
 # <a name="lab-implementing-operational-monitoring-in-hybrid-scenarios"></a>实验室：在混合场景中实现操作监视
 
-## <a name="lab-scenario"></a>实验室方案
+## <a name="lab-scenario"></a>实验室场景
 
 你需要评估 Microsoft Azure 功能，以便深入了解 Azure 资源的性能和配置，特别是 Azure 虚拟机 (VM)。 若要实现此目的，你打算检查 Azure Monitor 的功能，包括 Log Analytics。
 
@@ -264,7 +264,7 @@ ms.locfileid: "137907058"
    | 操作组名称 | **az801l09-ag1** |
    | 显示名称 | **az801l09-ag1** |
    | 通知类型 | **电子邮件/短信/推送/语音** |
-   | 通知名称 | **admin email** |
+   | 通知名称 | **管理员电子邮件** |
    | 通知电子邮件地址 | 你的电子邮件地址 | 
 
 1. 根据以下设置配置警报规则详细信息（其他设置保留默认值）：

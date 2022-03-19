@@ -10,7 +10,7 @@ ms.contentlocale: zh-CN
 ms.lasthandoff: 01/28/2022
 ms.locfileid: "137907075"
 ---
-# <a name="lab-answer-key-implementing-security-solutions-in-hybrid-scenarios"></a>实验室答案密钥：在混合场景中实现安全解决方案
+# <a name="lab-answer-key-implementing-security-solutions-in-hybrid-scenarios"></a>实验室解答：在混合场景中实现安全解决方案
 
 ## <a name="exercise-1-creating-an-azure-log-analytics-workspace-and-an-azure-automation-account"></a>练习 1：创建 Azure Log Analytics 工作区和 Azure 自动化帐户
 
