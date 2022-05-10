@@ -3,12 +3,12 @@ lab:
   title: 实验室：在 Windows Server 中升级和迁移
   type: Answer Key
   module: Module 6 - Upgrade and migrate in Windows Server
-ms.openlocfilehash: b1415ed88b8b97eabfd7849ebabbe291ed383805
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: 7d666444d9a0be48b6f398474a05a60a0902fee0
+ms.sourcegitcommit: fb0d39e25bc0fe182037587b772d217db126d3bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907078"
+ms.lasthandoff: 05/07/2022
+ms.locfileid: "144812994"
 ---
 # <a name="lab-answer-key-upgrade-and-migrate-in-windows-server"></a>实验室答案：在 Windows Server 中升级和迁移
 
@@ -60,7 +60,7 @@ ms.locfileid: "137907078"
    | 管理员用户名 | **学生** |
    | 管理员密码 | **Pa55w.rd1234** |
    | 域名 | **contoso.com** |
-   | VM 大小 | Standard D2s v3 |
+   | VM 大小 | **Standard_DS2_v2** |
    | 虚拟机名称 | az801l06a-dc1 |
    | 虚拟网络名称 | az801l06a-vnet |
    | 虚拟网络地址范围 | 10.6.0.0/16 |
@@ -348,7 +348,7 @@ ms.locfileid: "137907078"
 
    >注意：请等待扫描成功完成。 这大约需要 1 分钟。
 
-   >注意：在混合场景中，你也可以选择自动创建充当迁移作业目标的 Azure VM。
+   >注意：在混合方案中，还可以选择自动创建充当迁移作业目标的 Azure VM。
 
 1. 扫描完成后，在“指定此项的目标: sea-svr1.contoso.com”窗格中，查看“将每个源卷映射到目标卷”部分，并确保“S:”源卷映射到“S:”目标卷   。
 1. 在“指定此项的目标: sea-svr1.contoso.com”窗格中，查看“选择要传输的共享”部分，确保传输中包含 Data 源共享，然后选择“下一步”   。
@@ -359,7 +359,7 @@ ms.locfileid: "137907078"
    | 备份将被覆盖的文件夹（不备份启用了 Azure 文件同步的共享） | enabled |
    | 验证方法 | CRC 64 |
    | 最长持续时间（分钟） | **60** |
-   | 迁移用户和组 | 重复使用同名帐户 |
+   | 迁移用户和组 | “重复使用同名帐户” |
    | 最多重试次数 | **3** |
    | 重试之间的延迟（秒） | **60** |
 

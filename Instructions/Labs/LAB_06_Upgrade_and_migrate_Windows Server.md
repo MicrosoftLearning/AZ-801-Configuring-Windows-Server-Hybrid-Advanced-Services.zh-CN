@@ -2,12 +2,12 @@
 lab:
   title: 实验室：在 Windows Server 中升级和迁移
   module: 'Module 6: Upgrade and migrate in Windows Server'
-ms.openlocfilehash: 1befc684028b4e361c2d67f5ea01fa59ac02940d
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: 33f6ea57f4ffc31fb0f7279a9e0df9100039e29b
+ms.sourcegitcommit: fb0d39e25bc0fe182037587b772d217db126d3bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907077"
+ms.lasthandoff: 05/07/2022
+ms.locfileid: "144812997"
 ---
 # <a name="lab-upgrade-and-migrate-in-windows-server"></a>实验室：在 Windows Server 中升级和迁移
 
@@ -28,7 +28,7 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
   
 虚拟机：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 必须运行  。 其他 VM 可以运行，但本实验室不需要这些 VM。
 
-> 注意：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 虚拟机分别托管 SEA-DC1、SEA-SVR1 和 SEA-SVR2 的安装      。
+> 备注：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 虚拟机分别托管 SEA-DC1、SEA-SVR1 和 SEA-SVR2 的安装      。
 
 1. 选择 SEA-SVR2。
 1. 使用以下凭据登录：
@@ -92,10 +92,10 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
    | 资源组 | 新资源组 AZ801-L0601-RG 的名称 |
    | 区域 | 可以预配 Azure VM 的 Azure 区域的名称 |
-   | 管理员用户名 | **Student** |
+   | 管理员用户名 | **学生** |
    | 管理员密码 | **Pa55w.rd1234** |
    | 域名 | **contoso.com** |
-   | VM 大小 | Standard D2s v3 |
+   | VM 大小 | **Standard_DS2_v2** |
    | 虚拟机名称 | az801l06a-dc1 |
    | 虚拟网络名称 | az801l06a-vnet |
    | 虚拟网络地址范围 | 10.6.0.0/16 |
@@ -157,7 +157,7 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
    | Image | Windows Server 2022 Datacenter - Gen2 |
    | Azure Spot 实例 | **是** |
    | 大小 | Standard D2s v3 |
-   | 用户名 | **Student** |
+   | 用户名 | **学生** |
    | 密码 | **Pa55w.rd1234** |
    | 公共入站端口 | **无** |
    | 是否要使用现有的 Windows Server 许可证? | **是** |
@@ -169,8 +169,8 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
    | 子网 | adSubnet (10.6.0.0/24) |
    | 公共 IP | **无** |
    | NIC 网络安全组 | **无** |
-   | 加速网络 | 启用 |
-   | 是否将此虚拟机置于现有负载均衡解决方案之后？ | 禁用 |
+   | 加速网络 | enabled |
+   | 是否将此虚拟机置于现有负载均衡解决方案之后？ | disabled |
    | 启动诊断 | 使用托管存储帐户启用（推荐） |
    | 补丁业务流程选项 | **手动更新** |  
 
@@ -189,7 +189,7 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
 
    | 设置 | 值 | 
    | --- | --- |
-   | 用户名 |**Student** |
+   | 用户名 |**学生** |
    | 密码 |**Pa55w.rd1234** |
 
 1. 在与 az801l06a-dc2 的远程桌面会话中，启动 Windows PowerShell 会话。
@@ -330,7 +330,7 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
 
    | 设置 | 值 | 
    | --- | --- |
-   | 备份将被覆盖的文件夹（不备份启用了 Azure 文件同步的共享） | 启用 |
+   | 备份将被覆盖的文件夹（不备份启用了 Azure 文件同步的共享） | enabled |
    | 验证方法 | CRC 64 |
    | 最长持续时间（分钟） | **60** |
    | 迁移用户和组 | “重复使用同名帐户” |
@@ -351,7 +351,7 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
 
    | 设置 | 值 | 
    | --- | --- |
-   | 使用 DHCP | 禁用 |
+   | 使用 DHCP | disabled |
    | IP 地址 | 172.16.10.111 |
    | 子网 | **255.255.0.0** |
    | 网关 | 172.16.10.1 |
