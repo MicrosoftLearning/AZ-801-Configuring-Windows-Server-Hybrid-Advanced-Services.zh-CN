@@ -2,16 +2,16 @@
 lab:
   title: 实验室：在混合场景中实现操作监视
   module: 'Module 9: Implementing operational monitoring in hybrid scenarios'
-ms.openlocfilehash: c4f2f64b9027140c85099da700b4cdda49d55715
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: 8a6f823171076ecb430b7c8af3a5408778f53dd0
+ms.sourcegitcommit: e31cab525d98deeb444bd10846cbb38215bcdb29
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907058"
+ms.lasthandoff: 04/01/2022
+ms.locfileid: "141347653"
 ---
 # <a name="lab-implementing-operational-monitoring-in-hybrid-scenarios"></a>实验室：在混合场景中实现操作监视
 
-## <a name="lab-scenario"></a>实验室场景
+## <a name="lab-scenario"></a>实验室方案
 
 你需要评估 Microsoft Azure 功能，以便深入了解 Azure 资源的性能和配置，特别是 Azure 虚拟机 (VM)。 若要实现此目的，你打算检查 Azure Monitor 的功能，包括 Log Analytics。
 
@@ -132,6 +132,8 @@ ms.locfileid: "137907058"
 
    > 注意：请等待安装完成。 这大约需要 2 分钟。
 
+   > 注意：完成 Windows Admin Center 安装后，可能会收到错误 ERR_CONNECTION_REFUSED。 如果发生这种情况，请重启 SEA-SVR2，然后再继续。
+
 1. 在 SEA-ADM1 上，启动 Microsoft Edge 并连接到 Windows Admin Center 的本地实例 (https://SEA-ADM1.contoso.com ) 。 
 1. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
 
@@ -148,7 +150,7 @@ ms.locfileid: "137907058"
    | 设置 | 值 |
    | --- | --- |
    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
-   | 资源组 | **AZ801-L0901-RG** |
+   | 资源组 | **AZ801-L0902-RG** |
    | 资源组区域 | 在上一个练习中将虚拟机部署到的 Azure 区域的名称 |
    | Log Analytics 工作区 | 在上一个练习中创建的工作区的名称 |
    | 启用 Azure Arc | 已选定 |
@@ -362,7 +364,7 @@ ms.locfileid: "137907058"
    Get-AzResourceGroup -Name 'AZ801-L09*'
    ```
 
-   > 注意：验证输出中是否仅包含你在此实验室中创建的资源组。 将在此任务中删除这些组。
+   > 备注：验证输出中是否仅包含你在此实验室中创建的资源组。 将在此任务中删除这些组。
 
 1. 运行以下命令，删除在此实验室中创建的所有资源组：
 

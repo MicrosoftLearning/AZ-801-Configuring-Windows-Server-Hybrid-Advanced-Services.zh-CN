@@ -3,12 +3,12 @@ lab:
   title: 实验室：实现故障转移群集
   type: Answer Key
   module: 'Module 3: High availability in Windows Server'
-ms.openlocfilehash: 0aebdfd4b42079ec2266db4724a3087a3623723f
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: e2ddf5e078b054dd00f5dfba6bb75cb9ec1dcdb4
+ms.sourcegitcommit: e31cab525d98deeb444bd10846cbb38215bcdb29
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907060"
+ms.lasthandoff: 04/01/2022
+ms.locfileid: "141347659"
 ---
 # <a name="lab-answer-key-implementing-failover-clustering"></a>实验室解答：实现故障转移群集
 
@@ -215,7 +215,7 @@ ms.locfileid: "137907060"
 1. 在 SEA-SVR2 上，打开“文件资源管理器”并浏览到 \\\\FSCluster\\Docs 文件夹 。
 1. 在“Docs”文件夹中，右键单击或访问该文件夹空白区域中的上下文菜单，选择“新建”，然后选择“文本文档”  。
 1. 若要接受将 New Text Document.txt 用作文档的默认名称，请按 Enter。
-1. 在 SEA-SVR2 上，切换到“故障转移群集管理器”控制台，右键单击或访问“FSCluster”的上下文菜单，依次选择“移动”、“选择节点”、“确定”     。
+1. 在 SEA-SVR2 上，切换到“故障转移群集管理器”控制台，右键单击或访问“FSCluster”的上下文菜单，依次选择“移动”、“选择节点”、“SEA-SVR2”和“确定”      。
 1. 在 SEA-SVR2 上，切换回“文件资源管理器”并验证是否仍可访问 \\\\FSCluster\\Docs 文件夹的内容 。
 
 #### <a name="task-2-validate-the-failover-and-quorum-configuration-for-the-file-server-role"></a>任务 2：验证文件服务器角色的故障转移和仲裁配置

@@ -3,12 +3,12 @@ lab:
   title: 实验室：使用 Azure Migrate 将 Hyper-V VM 迁移到 Azure
   type: Answer Key
   module: 'Module 7: Design for Migration'
-ms.openlocfilehash: 0a93b992a4b7a6a1fe568af3cb0030d4b2f35962
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: f77acac8db0b799c232fae878f04d632ae49447a
+ms.sourcegitcommit: e31cab525d98deeb444bd10846cbb38215bcdb29
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907085"
+ms.lasthandoff: 04/01/2022
+ms.locfileid: "141347665"
 ---
 # <a name="lab-answer-key-migrating-hyper-v-vms-to-azure-by-using-azure-migrate"></a>实验室答案：使用 Azure Migrate 将 Hyper-V VM 迁移到 Azure
 
@@ -243,7 +243,10 @@ ms.locfileid: "137907085"
 
    >**注意**：等待下载完成。 这可能需要大约 5 分钟。
 
-1. 下载完成后，将下载的 .ZIP 内容提取到 F:\VM 文件夹中。 
+1. 下载完成后，将下载的 .ZIP 内容提取到 F:\VM 文件夹中。
+
+   >**注意**：由于 Microsoft Edge 默认不提示，你可能需要手动将 .VHD 文件复制到 F:\VMs 文件夹。
+
 1. 在与 az801l07a-hv-vm 的远程桌面会话中，切换到“Hyper-V 管理器”控制台，选择 AZ801L07A-VM1 节点，然后选择“导入虚拟机”   。 这将启动“导入虚拟机”向导。
 1. 在“导入虚拟机”向导的“准备工作”页面上，单击“下一步 >”  。
 1. 在“导入虚拟机”向导的“查找文件夹”页上，指定已提取的虚拟机文件夹的位置，然后选择“下一步 >”   ：
@@ -259,6 +262,7 @@ ms.locfileid: "137907085"
    >**注意**：等待导入完成。
 
 1. 在“Hyper-V 管理器”控制台中，选择新导入的虚拟机，选择“重命名”，然后将其名称设置为 az801l07a-vma1  。
+1. 将虚拟机的内存大小增加到 4096 GB。
 1. 在“Hyper-V 管理器”控制台中，选择新导入的虚拟机，然后选择“启动” 。 
 1. 在“Hyper-V 管理器”控制台中，验证虚拟机是否正在运行，然后选择“连接” 。 
 1. 在虚拟设备的“虚拟机连接”窗口中，在“许可条款”页面上，选择“接受”  。 

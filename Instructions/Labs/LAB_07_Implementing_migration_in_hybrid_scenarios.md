@@ -2,16 +2,16 @@
 lab:
   title: 实验室：使用 Azure Migrate 将 Hyper-V VM 迁移到 Azure
   module: 'Module 7: Design for Migration'
-ms.openlocfilehash: 9931ebc69ae739cf4996a7fb9ec233d49def3800
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: a8065c5e9f612e8ecfadfe4208d4175788482145
+ms.sourcegitcommit: e31cab525d98deeb444bd10846cbb38215bcdb29
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907066"
+ms.lasthandoff: 04/01/2022
+ms.locfileid: "141347656"
 ---
 # <a name="lab-migrating-hyper-v-vms-to-azure-by-using-azure-migrate"></a>实验室：使用 Azure Migrate 将 Hyper-V VM 迁移到 Azure
 
-## <a name="lab-scenario"></a>实验室场景
+## <a name="lab-scenario"></a>实验室方案
 
 尽管 Adatum 企业体系结构团队希望在迁移到 Azure 的过程中对其工作负载进行现代化处理，但他们意识到，由于时间安排紧张，在很多情况下，必须采用“直接迁移”方法。 为了简化此任务，该团队开始探索 Azure Migrate 的功能。 Azure Migrate 充当一个集中化中心，用于评估本地服务器、基础结构、应用程序和数据，并将它们迁移到 Azure。
 
@@ -76,7 +76,7 @@ Azure Migrate 提供以下功能：
    | 主机网络 Interface1Name | **az801l07a-hv-vm-nic1** |
    | 主机网络 Interface2Name | **az801l07a-hv-vm-nic2** |
    | 主机虚拟机名称 | **az801l07a-hv-vm** |
-   | 主机管理员用户名 | **Student** |
+   | 主机管理员用户名 | **学生** |
    | 主机管理员密码 | **Pa55w.rd1234** |
 
    > 注意：请等待部署完成。 部署可能需要大约 10 分钟时间。
@@ -124,7 +124,7 @@ Azure Migrate 提供以下功能：
 
    | 设置 | 值 | 
    | --- | --- |
-   | 用户名 |**Student** |
+   | 用户名 |**学生** |
    | 密码 |**Pa55w.rd1234** |
 
 1. 在与 az801l07a-hv-vm 的远程桌面会话中，在“服务器管理器”窗口中，禁用“IE 增强的安全配置”。  
@@ -237,8 +237,8 @@ Azure Migrate 提供以下功能：
    | 位置 | 之前在此任务中创建虚拟网络的 Azure 区域的名称 |
    | 性能 | **标准** |
    | 冗余 | **本地冗余存储 (LRS)** |
-   | 为 blob 启用软删除 | 禁用 |
-   | 启用容器软删除 | 禁用 |
+   | 为 blob 启用软删除 | disabled |
+   | 启用容器软删除 | disabled |
 
 ## <a name="exercise-3-assess-hyper-v-for-migration-by-using-azure-migrate"></a>练习 3：使用 Azure Migrate 评估 Hyper-V 的迁移
   
@@ -260,7 +260,10 @@ Azure Migrate 提供以下功能：
 
    >**注意**：等待下载完成。 这可能需要大约 5 分钟。
 
-1. 下载完成后，将下载的 .ZIP 内容提取到 F:\VMs 文件夹中。 
+1. 下载完成后，将下载的 .ZIP 内容提取到 F:\VM 文件夹中。
+
+   >**注意**：由于 Microsoft Edge 默认不提示，你可能需要手动将 .VHD 文件复制到 F:\VMs 文件夹。
+
 1. 在与 az801l07a-hv-vm 的远程桌面会话中，使用 Hyper-V 管理器控制台将复制其 VM 文件的虚拟机导入 F:\VMs 文件夹。   使用“就地注册虚拟机(使用现有的唯一 ID)”选项，将“虚拟处理器数”设置为 4，然后将它连接到 NestedSwitch。   
 
    >**注意**：在实验室环境中，可忽略任何引用虚拟处理器数量更改的错误消息。 在生产场景中，应确保虚拟设备分配了足够数量的计算资源。
@@ -281,7 +284,7 @@ Azure Migrate 提供以下功能：
    | 设置 | 值 | 
    | --- | --- |
    | 友好名称 | **az801l07ahvcred** | 
-   | 用户名 | **Student** |
+   | 用户名 | **学生** |
    | 密码 | **Pa55w.rd1234** |
 
 1. 在浏览器窗口的“设备配置服务器”页面上，在“提供 Hyper-V 主机/群集详细信息”部分，添加设置为“Hyper-V 主机/群集”的发现源，将其友好名称设置为 az801l07ahvcred，并将其 IP 地址/FQDN 设置为 10.0.2.1。      
@@ -417,7 +420,7 @@ Azure Migrate 提供以下功能：
    Get-AzResourceGroup -Name 'AZ801-L070*'
    ```
 
-   > 备注：验证输出是否仅包含你在此实验室中创建的资源组。 此任务中将删除该组。
+   > **注意**：验证输出中是否仅包含你在此实验室中创建的资源组。 此任务中将删除该组。
 
 1. 在 Cloud Shell 窗格中，运行以下命令，删除你在此实验室中创建的所有资源组：
 

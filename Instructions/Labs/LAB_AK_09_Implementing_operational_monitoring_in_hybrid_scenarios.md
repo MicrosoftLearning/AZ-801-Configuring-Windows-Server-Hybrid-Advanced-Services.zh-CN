@@ -3,12 +3,12 @@ lab:
   title: 实验室：在混合场景中实现操作监视
   type: Answer Key
   module: Module 9 - Implementing operational monitoring in hybrid scenarios
-ms.openlocfilehash: a0a3474c4db7bcebb3668e6728c3c4e002fc7487
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: 103013bf6732ecd022c20fac9e64ac25cbb0c1d5
+ms.sourcegitcommit: e31cab525d98deeb444bd10846cbb38215bcdb29
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907112"
+ms.lasthandoff: 04/01/2022
+ms.locfileid: "141347662"
 ---
 # <a name="lab-answer-key-implementing-operational-monitoring-in-hybrid-scenarios"></a>实验室答案：在混合场景中实现操作监视
 
@@ -27,7 +27,7 @@ ms.locfileid: "137907112"
 1. 重复上一步骤，将“C:\\Labfiles\\Lab09\\L09-rg_template.parameters.json”文件上传到 Cloud Shell 主目录中。
 1. 若要创建将托管实验室环境的资源组，请在 Cloud Shell 窗格中的 PowerShell 会话中，输入以下命令，并在输入每个命令后按 Enter（将 `<Azure_region>` 占位符替换为在此实验室中要向其中部署资源的 Azure 区域的名称）：
 
-   >注意：可以使用 (Get-AzLocation).Location 命令列出可用 Azure 区域的名称 ：
+   >备注：可以使用 (Get-AzLocation).Location 命令列出可用 Azure 区域的名称 ：
 
    ```powershell 
    $location = '<Azure_region>'
@@ -54,7 +54,7 @@ ms.locfileid: "137907112"
 
    >注意：若要验证注册状态，可以使用 Get-AzResourceProvider cmdlet 。
 
-   >注意：请不要等待注册过程完成，而是继续执行下一个任务。 注册大约需要 3 分钟的时间完成。
+   >注意：请不要等待注册过程完成，而是继续执行下一项任务。 注册大约需要 3 分钟的时间完成。
 
 1. 关闭 Cloud Shell。
 
@@ -95,6 +95,8 @@ ms.locfileid: "137907112"
 
    > 注意：请等待安装完成。 这大约需要 2 分钟。
 
+   > **注意**：完成 Windows Admin Center 安装后，可能会收到错误 ERR_CONNECTION_REFUSED。 如果发生这种情况，请重启 SEA-SVR2，然后再继续。
+
 1. 在 SEA-SVR2 上，启动 Microsoft Edge，然后浏览至 https://SEA-SVR2.contoso.com 。 
 1. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
 
@@ -126,12 +128,12 @@ ms.locfileid: "137907112"
    | 设置 | 值 |
    | --- | --- |
    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
-   | 资源组 | AZ801-L0901-RG |
+   | 资源组 | **AZ801-L0902-RG** |
    | 资源组区域 | 在上一个练习中将虚拟机部署到的 Azure 区域的名称 |
    | Log Analytics 工作区 | 在上一个练习中创建的工作区的名称 |
    | 启用 Azure Arc | 已选定 |
 
-   >注意：请不要等待设置完成，而是继续进行下一个练习。 设置大约需要 3 分钟的时间完成。
+   >注意：请不要等待安装完成，而是继续执行下一个练习。 安装过程大约需要 3 分钟。
 
    >注意：此过程会自动安装 Log Analytics Agent 和 Dependency Agent。
 
@@ -196,7 +198,7 @@ ms.locfileid: "137907112"
 
    >注意：此设置提供 Azure VM 见解功能。 VM 见解是一种 Azure Monitor 解决方案，可帮助监视 Azure VM 和运行 Windows 或 Linux 的本地计算机的性能和运行状况。
 
-1. 在 SEA-SVR2 上，在 Azure 门户的工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择“监视”，然后在“监视 \| 概述”页的“见解”下，选择“虚拟机”     。
+1. 在 SEA-SVR2 上，在 Azure 门户的工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择“监视”，然后在“监视 \| 概述”页的“见解”下，选择“VM 见解”     。
 1. 在“监视 \| 虚拟机”页上，选择“性能”选项卡，然后选择“升级”  。
 1. 在“升级”窗格中，选择“升级” 。
 1. 在“监视 \| 虚拟机”页上，选择“映射”选项卡，然后选择“立即试用”  。
@@ -233,14 +235,14 @@ ms.locfileid: "137907112"
    | 聚合粒度（期限） | **1 分钟** |
    | 评估频率 | **每 1 分钟** |
 
-1. 在“创建警报规则”页上的“操作”选项卡上，选择“添加操作组”，然后选择“+ 创建操作组”按钮   。
+1. 在“创建警报规则”页上的“操作”选项卡上，选择“+ 创建操作组”按钮  。
 1. 在“创建操作组”页的“基本信息”选项卡上，指定以下设置（将其他设置保留为默认值），然后选择“下一步: 通知 >”  ：
 
    | 设置 | 值 |
    | --- | --- |
    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
-   | 资源组 | AZ801-L0902-RG |
-   | 操作组名称 | az801l09-ag1 |
+   | 资源组 | **AZ801-L0902-RG** |
+   | 操作组名称 | **az801l09-ag1** |
    | 显示名称 | az801l09-ag1 |
 
 1. 在“创建操作组”页的“通知”选项卡上，在“通知类型”下拉列表中，选择“电子邮件/短信/推送/语音”   。 在“名称”文本框中，键入“管理员电子邮件”，然后选择“编辑详细信息”（铅笔）图标  。
@@ -251,9 +253,9 @@ ms.locfileid: "137907112"
 
    | 设置 | 值 |
    | --- | --- |
-   | 预警规则名称 | CPU 百分比高于测试阈值 |
-   | 说明 | CPU 百分比高于测试阈值 |
-   | 资源组 | AZ801-L0902-RG |
+   | 预警规则名称 | **CPU 百分比高于测试阈值** |
+   | 说明 | **CPU 百分比高于测试阈值** |
+   | 资源组 | **AZ801-L0902-RG** |
    | 严重性 | **Sev 3** |
    | 创建时启用规则 | **是** |
 
@@ -347,7 +349,7 @@ ms.locfileid: "137907112"
    Get-AzResourceGroup -Name 'AZ801-L09*'
    ```
 
-   > 注意：验证输出中是否仅包含你在此实验室中创建的资源组。 此任务中将删除该组。
+   > 备注：验证输出是否仅包含你在此实验室中创建的资源组。 此任务中将删除该组。
 
 1. 运行以下命令，删除在此实验室中创建的所有资源组：
 

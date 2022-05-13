@@ -2,12 +2,12 @@
 lab:
   title: 实验室：在混合场景中实现安全解决方案
   module: 'Module 2: Implementing Security Solutions in Hybrid Scenarios'
-ms.openlocfilehash: 33338f32e18797a64f2b6b18dc6d84f559f62276
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: e3f19b2b5aa5e7d87505f734b8b403408afc0c48
+ms.sourcegitcommit: bc527a1b1505fe86c1d7421fe407d32364baa52a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907069"
+ms.lasthandoff: 04/09/2022
+ms.locfileid: "141579990"
 ---
 # <a name="lab-implementing-security-solutions-in-hybrid-scenarios"></a>实验室：在混合场景中实现安全解决方案
 
@@ -40,7 +40,7 @@ ms.locfileid: "137907069"
    - 密码：Pa55w.rd
    - 域名：CONTOSO
 
-对于本实验室，你将使用可用的 VM 环境和 Azure 订阅。 在开始实验室之前，请确保拥有 Azure 订阅以及具有该订阅中“所有者”或“参与者”角色的用户帐户。
+对于此实验室，你将使用可用的 VM 环境和 Azure 订阅。 在开始实验室之前，请确保拥有 Azure 订阅以及具有该订阅中“所有者”或“参与者”角色的用户帐户。
 
 ## <a name="exercise-1-creating-an-azure-log-analytics-workspace-and-an-azure-automation-account"></a>练习 1：创建 Azure Log Analytics 工作区和 Azure 自动化帐户
 
@@ -182,7 +182,7 @@ ms.locfileid: "137907069"
    New-AzResourceGroupDeployment -Name az801l2002deployment -ResourceGroupName AZ801-L0202-RG -TemplateFile ./L02-rg_template.json -TemplateParameterFile ./L02-rg_template.parameters.json
    ```
 
-   >备注：请等待部署完成。 这大约需要 3 分钟的时间。
+   >备注：请等待部署完成。 这大约需要 3 分钟。
 
 1. 关闭 Cloud Shell。
 
@@ -219,7 +219,7 @@ ms.locfileid: "137907069"
 
 在此任务中，你将执行 Log Analytics 代理的无人参与安装。
 
-1. 在 SEA-ADM1 上，以管理员身份启动 Windows PowerShell 。
+1. 在 SEA-SVR2 上，以管理员身份启动 Windows PowerShell 。
 1. 若要提取 MMASetup-AMD64.exe 文件的内容，请在 Windows PowerShell 控制台中运行以下命令 ：
     
    ```powershell

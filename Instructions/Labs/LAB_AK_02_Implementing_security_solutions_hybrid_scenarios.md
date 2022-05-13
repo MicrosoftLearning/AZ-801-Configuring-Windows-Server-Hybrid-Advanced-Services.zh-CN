@@ -3,12 +3,12 @@ lab:
   title: 实验室：在混合场景中实现安全解决方案
   type: Answer Key
   module: 'Module 2: Implementing Security Solutions in Hybrid Scenarios'
-ms.openlocfilehash: b1f88c69277a241f8d27a68fb88ef1652232453a
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: 34c38131c3d92d6250260fd98da506dec1d42cda
+ms.sourcegitcommit: e31cab525d98deeb444bd10846cbb38215bcdb29
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907075"
+ms.lasthandoff: 04/01/2022
+ms.locfileid: "141347650"
 ---
 # <a name="lab-answer-key-implementing-security-solutions-in-hybrid-scenarios"></a>实验室解答：在混合场景中实现安全解决方案
 
@@ -23,12 +23,12 @@ ms.locfileid: "137907075"
 
    | 设置 | 值 |
    | --- | --- |
-   | 订阅 | 将在此实验室中使用的 Azure 订阅的名称 |
+   | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
    | 资源组 | 新资源组 AZ801-L0201-RG 的名称 |
    | Log Analytics 工作区 | 任何唯一名称 |
-   | 区域 | 在上一个任务中将虚拟机部署到的 Azure 区域的名称 |
+   | 区域 | 选择你附近的区域 |
 
-   >备注：请等待部署完成。 部署大约需要 1 分钟。
+   >备注：请等待部署完成。 部署大约需要 1 分钟的时间完成。
 
 #### <a name="task-2-create-and-configure-an-azure-automation-account"></a>任务 2：创建并配置 Azure 自动化帐户
 
@@ -37,7 +37,7 @@ ms.locfileid: "137907075"
 
    | 设置 | 值 |
    | --- | --- |
-   | 订阅 | 将在此实验室中使用的 Azure 订阅的名称 |
+   | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
    | 资源组 | AZ801-L0201-RG |
    | 名称 | 任何唯一名称 |
    | 区域 | 根据[工作区映射文档](https://docs.microsoft.com/en-us/azure/automation/how-to/region-mappings)确定的 Azure 区域的名称 |
@@ -50,7 +50,7 @@ ms.locfileid: "137907075"
 1. 在“自动化帐户”页的“配置管理”部分，选择“清单”  。
 1. 在“清单”页的“Log Analytics 工作区”下拉列表中，选择你之前在此任务中创建的 Log Analytics 工作区，然后选择“启用”  。
 
-   >备注：请等待相应 Log Analytics 解决方案的安装完成。 这可能需要大约 3 分钟。 
+   >备注：请等待相应 Log Analytics 解决方案的安装完成。 这可能需要大约 3 分钟的时间。 
 
    >备注：这还会自动安装“更改跟踪”解决方案 。
 
@@ -94,7 +94,7 @@ ms.locfileid: "137907075"
 1. 在“设置 \| Defender 计划”页左侧垂直菜单的“设置”部分，选择“数据收集”  。
 1. 在“设置 \| 数据收集”上，选择“所有事件”，然后选择“保存”  。
 
-   > 备注：在 Defender for Cloud 中选择数据收集层只会影响 Log Analytics 工作区中安全事件的存储。 无论你选择在工作区中存储哪一级别的安全事件，Log Analytics 代理仍将收集和分析 Defender for Cloud 威胁防护所需的安全事件。 选择存储安全事件可以在工作区中调查、搜索和审核这些事件。
+   > 备注：在 Defender for Cloud 中选择数据收集层只会影响 Log Analytics 工作区中安全事件的存储。 无论你选择在工作区中存储哪一级别的安全事件，Log Analytics 代理仍将收集和分析 Defender for Cloud 的威胁防护所需的安全事件。 选择存储安全事件可以在工作区中调查、搜索和审核这些事件。
 
 ## <a name="exercise-3-provisioning-azure-vms-running-windows-server"></a>练习 3：预配运行 Windows Server 的 Azure VM
 
@@ -284,7 +284,7 @@ ms.locfileid: "137907075"
 
 ## <a name="exercise-6-deprovisioning-the-azure-environment"></a>练习 6：取消预配 Azure 环境
 
-#### <a name="task-1-start-a-powershell-session-in-cloud-shell"></a>任务 1：在 Cloud Shell 中启动 PowerShell 会话
+#### <a name="task-1-start-a-powershell-session-in-cloud-shell"></a>任务 1：在 Cloud Shell 中启动一个 PowerShell 会话
 
 1. 在 SEA-SVR2 上，在显示 Azure 门户的 Microsoft Edge 窗口中，通过选择 Cloud Shell 图标打开 Cloud Shell 窗格。
 
