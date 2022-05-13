@@ -3,12 +3,12 @@ lab:
   title: 实验室：在混合场景中实现安全解决方案
   type: Answer Key
   module: 'Module 2: Implementing Security Solutions in Hybrid Scenarios'
-ms.openlocfilehash: 34c38131c3d92d6250260fd98da506dec1d42cda
-ms.sourcegitcommit: e31cab525d98deeb444bd10846cbb38215bcdb29
+ms.openlocfilehash: 02fcfe79dff809e8ec90690e4a3893be14c02fe4
+ms.sourcegitcommit: dad7571f21a69a2fd2213d91ef7e1d01639df716
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/01/2022
-ms.locfileid: "141347650"
+ms.lasthandoff: 04/27/2022
+ms.locfileid: "144334636"
 ---
 # <a name="lab-answer-key-implementing-security-solutions-in-hybrid-scenarios"></a>实验室解答：在混合场景中实现安全解决方案
 
@@ -82,8 +82,6 @@ ms.locfileid: "141347650"
 1. 返回“设置 \| 自动预配”页，将“Azure Arc Machine 的 Log Analytics 代理(预览版)”设置为“开”  。 这将自动显示“扩展部署配置”页。 
 1. 在“扩展部署配置”页的“选择 Log Analytics 工作区”下拉列表中，选择代表你在上一个练习中创建的工作区的条目，然后选择“应用”  。
 1. 返回“设置 \| 自动预配”页面，将“计算机的漏洞评估”设置为“开”  。 在“扩展部署配置”页中，确保选中“Microsoft 威胁和漏洞管理”选项，然后选择“应用”  。
-1. 返回“设置 \| 自动预配”页，将“来宾配置代理(预览版)”设置为“开”  。
-1. 返回“设置 \| 自动预配”页，将“Microsoft Dependency Agent(预览版)”设置为“开”  。
 1. 在页面顶部选择“保存”。
 1. 浏览回“Microsoft Defender for Cloud | 概览”页，然后在左侧垂直菜单的“管理”部分，选择“环境设置”  。
 1. 在“环境设置”页上，展开代表你的 Azure 订阅的条目，并选择代表你在上一个练习中创建的 Log Analytics 工作区的条目。
