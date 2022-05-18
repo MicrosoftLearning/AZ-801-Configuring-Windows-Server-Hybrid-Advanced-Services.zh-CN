@@ -3,12 +3,12 @@ lab:
   title: 实验室：在混合场景中实现操作监视
   type: Answer Key
   module: Module 9 - Implementing operational monitoring in hybrid scenarios
-ms.openlocfilehash: 103013bf6732ecd022c20fac9e64ac25cbb0c1d5
-ms.sourcegitcommit: e31cab525d98deeb444bd10846cbb38215bcdb29
+ms.openlocfilehash: b68d5e88d5a550967a2cba67b57465993299ee22
+ms.sourcegitcommit: fb0d39e25bc0fe182037587b772d217db126d3bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/01/2022
-ms.locfileid: "141347662"
+ms.lasthandoff: 05/07/2022
+ms.locfileid: "144813009"
 ---
 # <a name="lab-answer-key-implementing-operational-monitoring-in-hybrid-scenarios"></a>实验室答案：在混合场景中实现操作监视
 
@@ -199,8 +199,7 @@ ms.locfileid: "141347662"
    >注意：此设置提供 Azure VM 见解功能。 VM 见解是一种 Azure Monitor 解决方案，可帮助监视 Azure VM 和运行 Windows 或 Linux 的本地计算机的性能和运行状况。
 
 1. 在 SEA-SVR2 上，在 Azure 门户的工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择“监视”，然后在“监视 \| 概述”页的“见解”下，选择“VM 见解”     。
-1. 在“监视 \| 虚拟机”页上，选择“性能”选项卡，然后选择“升级”  。
-1. 在“升级”窗格中，选择“升级” 。
+1. 在“监视 \| 虚拟机”页上，选择“性能”选项卡，然后选择“立即试用”  。
 1. 在“监视 \| 虚拟机”页上，选择“映射”选项卡，然后选择“立即试用”  。
 1. 在“管理覆盖范围”页上，选择“配置工作区” 。
 1. 在“Azure Monitor”页上，从“选择 Log Analytics 工作区”下拉菜单中选择之前在此实验室中创建的工作区，然后选择“配置”  。

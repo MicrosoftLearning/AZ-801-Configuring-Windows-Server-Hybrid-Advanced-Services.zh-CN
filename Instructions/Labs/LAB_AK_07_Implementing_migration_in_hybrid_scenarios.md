@@ -3,12 +3,12 @@ lab:
   title: 实验室：使用 Azure Migrate 将 Hyper-V VM 迁移到 Azure
   type: Answer Key
   module: 'Module 7: Design for Migration'
-ms.openlocfilehash: f77acac8db0b799c232fae878f04d632ae49447a
-ms.sourcegitcommit: e31cab525d98deeb444bd10846cbb38215bcdb29
+ms.openlocfilehash: 861cac41c48cb6217f9c8737d216054f47d0ac8f
+ms.sourcegitcommit: fb0d39e25bc0fe182037587b772d217db126d3bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/01/2022
-ms.locfileid: "141347665"
+ms.lasthandoff: 05/07/2022
+ms.locfileid: "144812999"
 ---
 # <a name="lab-answer-key-migrating-hyper-v-vms-to-azure-by-using-azure-migrate"></a>实验室答案：使用 Azure Migrate 将 Hyper-V VM 迁移到 Azure
 
@@ -262,7 +262,7 @@ ms.locfileid: "141347665"
    >**注意**：等待导入完成。
 
 1. 在“Hyper-V 管理器”控制台中，选择新导入的虚拟机，选择“重命名”，然后将其名称设置为 az801l07a-vma1  。
-1. 将虚拟机的内存大小增加到 4096 GB。
+1. 在 VM 的“设置”中，将虚拟机的内存大小减少到 4096 GB。
 1. 在“Hyper-V 管理器”控制台中，选择新导入的虚拟机，然后选择“启动” 。 
 1. 在“Hyper-V 管理器”控制台中，验证虚拟机是否正在运行，然后选择“连接” 。 
 1. 在虚拟设备的“虚拟机连接”窗口中，在“许可条款”页面上，选择“接受”  。 
