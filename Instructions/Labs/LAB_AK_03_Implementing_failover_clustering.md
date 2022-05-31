@@ -3,12 +3,12 @@ lab:
   title: 实验室：实现故障转移群集
   type: Answer Key
   module: 'Module 3: High availability in Windows Server'
-ms.openlocfilehash: e2ddf5e078b054dd00f5dfba6bb75cb9ec1dcdb4
-ms.sourcegitcommit: e31cab525d98deeb444bd10846cbb38215bcdb29
+ms.openlocfilehash: 9f61985bbfde16e2653daff8032ebfb785cac219
+ms.sourcegitcommit: fb0d39e25bc0fe182037587b772d217db126d3bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/01/2022
-ms.locfileid: "141347659"
+ms.lasthandoff: 05/07/2022
+ms.locfileid: "144813003"
 ---
 # <a name="lab-answer-key-implementing-failover-clustering"></a>实验室解答：实现故障转移群集
 
@@ -138,7 +138,7 @@ ms.locfileid: "141347659"
    Format-Volume -DriveLetter G -FileSystem NTFS
    ```
 
-   > 注意：验证每个命令是否成功完成。
+   > **注意：** 在运行命令之前，验证磁盘编号是否与上一个命令的输出内容匹配。 验证每个命令是否成功完成。
 
 #### <a name="task-3-create-a-failover-cluster"></a>任务 3：创建故障转移群集
 
