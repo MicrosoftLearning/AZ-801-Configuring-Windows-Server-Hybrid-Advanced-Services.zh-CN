@@ -2,12 +2,12 @@
 lab:
   title: 实验室：使用 Azure Migrate 将 Hyper-V VM 迁移到 Azure
   module: 'Module 7: Design for Migration'
-ms.openlocfilehash: a8065c5e9f612e8ecfadfe4208d4175788482145
-ms.sourcegitcommit: e31cab525d98deeb444bd10846cbb38215bcdb29
+ms.openlocfilehash: e97b3ecfbeac22c3eafe8caccd3cac3ed0081ffc
+ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/01/2022
-ms.locfileid: "141347656"
+ms.lasthandoff: 07/10/2022
+ms.locfileid: "147046975"
 ---
 # <a name="lab-migrating-hyper-v-vms-to-azure-by-using-azure-migrate"></a>实验室：使用 Azure Migrate 将 Hyper-V VM 迁移到 Azure
 
@@ -129,7 +129,7 @@ Azure Migrate 提供以下功能：
 
 1. 在与 az801l07a-hv-vm 的远程桌面会话中，在“服务器管理器”窗口中，禁用“IE 增强的安全配置”。  
 1. 使用文件资源管理器创建两个文件夹：F:\\VHDs 和 F:\\VMs。 
-1. 使用 Microsoft Edge 从[Windows Server 评估](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022)中下载 Windows Server 2022 VHD 文件，并将其复制到 F:\VHDs 文件夹。  
+1. 使用 Microsoft Edge 从[Windows Server 评估](https://techcommunity.microsoft.com/t5/windows-11/accessing-trials-and-kits-for-windows-eval-center-workaround/m-p/3361125)中下载 Windows Server 2022 VHD 文件，并将其复制到 F:\VHDs 文件夹。  
 1. 使用 Hyper-V 管理器新建一个具有以下设置的虚拟机：
 
    | 设置 | 值 | 
@@ -224,7 +224,7 @@ Azure Migrate 提供以下功能：
    | 区域 | 在本实验室前面将虚拟机部署到的 Azure 区域的名称 |
    | 设置 | 值 |
    | --- | --- |
-   | 子网名称 | **subnet0** |
+   | 子网名称 | subnet0 |
    | 子网地址范围 | **10.7.0.0/24** |
 
 1. 在 Azure 门户中，使用以下设置创建一个存储帐户（其他设置保留默认值）：
@@ -291,7 +291,7 @@ Azure Migrate 提供以下功能：
 
    >**注意**：10.0.2.1 是附加到内部交换机的 Hyper-V 主机的网络接口的 IP 地址。
 
-1. 在“设备配置管理器”页上的“提供 Hyper-V 主机/群集详细信息”部分，启动发现功能。  
+1. 在“设备配置管理器”页上的“提供 Hyper-V 主机/群集详细信息”部分中，启用“如果不想执行这些功能，请禁用滑块”切换按钮，然后选择“开始发现”。    
 
    >**注意**：每个主机可能需要大约 15 分钟才能发现服务器的元数据显示在 Azure 门户。
 
@@ -420,7 +420,7 @@ Azure Migrate 提供以下功能：
    Get-AzResourceGroup -Name 'AZ801-L070*'
    ```
 
-   > **注意**：验证输出中是否仅包含你在此实验室中创建的资源组。 此任务中将删除该组。
+   > 备注：验证输出是否仅包含你在此实验室中创建的资源组。 此任务中将删除该组。
 
 1. 在 Cloud Shell 窗格中，运行以下命令，删除你在此实验室中创建的所有资源组：
 

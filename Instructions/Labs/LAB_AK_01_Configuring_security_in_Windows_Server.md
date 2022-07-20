@@ -3,12 +3,12 @@ lab:
   title: 实验室：配置 Windows Server 中的安全性
   type: Answer Key
   module: 'Module 1: Windows Server security'
-ms.openlocfilehash: aef08e21cdf3815e2dd1a99723002fddaad8b72d
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: 42202d9eb5bf7c9a371c3215120ec8b7f6da0d46
+ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907057"
+ms.lasthandoff: 07/10/2022
+ms.locfileid: "147046974"
 ---
 # <a name="lab-answer-key-configuring-security-in-windows-server"></a>实验室解答：配置 Windows Server 中的安全性
 
@@ -21,22 +21,22 @@ ms.locfileid: "137907057"
 1. 连接到 SEA-SVR2，并根据需要，以 CONTOSO\\Administrator 的身份使用密码 Pa55w.rd 登录  。
 1. 在“启动”按钮旁的“在此键入进行搜索”文本框中，输入“组策略管理”  。
 1. 在结果列表中，选择“组策略管理”。
-1. 在“组策略管理控制台”中，依次展开“林: Contoso.com”、“域名”和“Contoso.com”，右键单击或访问“IT”组织单位 (OU) 的“上下文”菜单，然后选择“在这个域中创建 GPO 并在此处链接”      。
+1. 在“组策略管理”控制台中，依次展开“林: contoso.com”、“域”和“contoso.com”，右键单击或访问“IT”组织单位 (OU) 的上下文菜单，然后选择“在这个域中创建 GPO 并在此处链接”      。
 1. 在“新建 GPO”对话框中，在“名称”文本框中输入“CredentialGuard_GPO”，然后选择“确定”   。
 1. 在“组策略管理”窗口中，在“IT”下，右键单击或访问“CredentialGuard_GPO”的“上下文”菜单，然后选择“编辑”    。
-1. 在“组策略管理编辑器”中，浏览到 Computer Configuration\\Policies\\Administrative Templates\\System\\Device Guard。
+1. 在“组策略管理编辑器”中，浏览到 Computer Configuration\\Policies\\Administrative Templates\\System\\Device Guard。 
 1. 选择“打开基于虚拟化的安全”，然后选择“策略设置”链接 。
 1. 在“打开基于虚拟化的安全”窗口中，选择“已启用”选项 。
 1. 在“选择平台安全级别”下拉列表中，确保已选中“安全启动和 DMA 保护”条目 。
 1. 在“Credential Guard 配置”下拉列表中，选择“已使用 UEFI 锁启用”条目 。
 1. 在“安全启动配置”下拉列表中，选择“已启用”条目，然后选择“确定”  。
 1. 关闭“组策略管理编辑器”窗口。
-1. 关闭“组策略管理控制台”窗口。
+1. 关闭“组策略管理”控制台窗口。
 
 #### <a name="task-2-enable-windows-defender-credential-guard-using-the-hypervisor-protected-code-integrity-hvci-and-windows-defender-credential-guard-hardware-readiness-tool"></a>任务 2：使用虚拟机监控程序保护的代码完整性 (HVCI) 和 Windows Defender Credential Guard 硬件准备工具启用 Windows Defender Credential Guard
 
 1. 在 SEA-SVR2 上，选择“开始”，右键单击或访问“Windows PowerShell”的“上下文”菜单，然后选择“以管理员身份运行”    。
-1. 若要运行 HVCI 和 Windows Defender Credential Guard 硬件准备工具，请在 Windows PowerShell 命令提示符处输入以下命令，并在输入每条命令后按 Enter 键：
+1. 若要运行 HVCI 和 Windows Defender Credential Guard 硬件准备工具，请在 Windows PowerShell 命令提示符处输入以下命令，在第一个提示符处选择“[R] 运行一次”，然后按 Enter 以获取其余提示：
 
    ```powershell
    Set-Location -Path C:\Labfiles\Lab01\
@@ -118,9 +118,9 @@ ms.locfileid: "137907057"
    $rule | Enable-NetFirewallRule
    ```
 
-   > 备注：这需要稍后在此实验室中从 SEA-SVR1 连接到 SEA-SVR2  。
+   > 注意：本实验室稍后需要从 SEA-SVR1 连接到 SEA-SVR2  。
 
-#### <a name="task-2-prepare-active-directory-for-laps"></a>任务 2：为 LAPS 准备 Active Directory
+#### <a name="task-2-prepare-ad-ds-for-laps"></a>任务 2：为 LAPS 准备 AD DS
 
 1. 若要为 LAPS 准备域，请在 SEA-SVR2 上的 Windows PowerShell 命令提示符处输入以下命令，并在输入每条命令后按 Enter 键：
 
@@ -132,7 +132,7 @@ ms.locfileid: "137907057"
 
 1. 在 SEA-SVR2 上，在“启动”按钮旁的“在此键入进行搜索”文本框中，输入“组策略管理”   。
 1. 在结果列表中，选择“组策略管理”。
-1. 在“组策略管理控制台”中，依次展开“林: Contoso.com”、“域名”和“Contoso.com”，右键单击或访问“Seattle_Servers”OU 的“上下文”菜单，然后选择“在这个域中创建 GPO 并在此处链接”      。
+1. 在“组策略管理”控制台中，依次展开“林: contoso.com”、“域”和“contoso.com”，右键单击或访问“Seattle_Servers”OU 的上下文菜单，然后选择“在这个域中创建 GPO 并在此处链接”      。
 1. 在“新建 GPO”对话框中，在“名称”文本框中输入“LAPS_GPO”，然后选择“确定”   。
 1. 在“组策略管理”窗口中，在“Seattle_Servers”下，右键单击或访问“LAPS_GPO”的“上下文”菜单，然后选择“编辑”    。
 1. 在“组策略管理编辑器”窗口中，在“Computer Configuration”下，依次展开“策略”节点和“管理模板”节点，然后选择“LAPS”    。
@@ -166,7 +166,7 @@ ms.locfileid: "137907057"
 
 1. 将控制台会话切换到 SEA-SVR2。
 1. 选择“开始”。 在“开始”菜单中，选择“LAPS”，然后选择“LAPS UI”  。
-1. 在“LAPS UI”对话框的“ComputerName”文本框中，输入“SEA-SVR1”，然后选择“搜索”   。
+1. 在“LAPS UI”对话框的“计算机名”文本框中，输入“SEA-SVR1”，然后选择“搜索”   。
 1. 查看“密码”和“密码过期”值，然后选择“退出”  。
 1. 切换到 Windows PowerShell 控制台，然后在 Windows PowerShell 命令提示符处输入以下命令并按 Enter 键以验证密码的值：
 

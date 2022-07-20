@@ -3,12 +3,12 @@ lab:
   title: 实验室：使用 Azure Migrate 将 Hyper-V VM 迁移到 Azure
   type: Answer Key
   module: 'Module 7: Design for Migration'
-ms.openlocfilehash: 861cac41c48cb6217f9c8737d216054f47d0ac8f
-ms.sourcegitcommit: fb0d39e25bc0fe182037587b772d217db126d3bb
+ms.openlocfilehash: f8130a11f54f6cc30a6db793dd6b9b35aa9629fd
+ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2022
-ms.locfileid: "144812999"
+ms.lasthandoff: 07/10/2022
+ms.locfileid: "147047019"
 ---
 # <a name="lab-answer-key-migrating-hyper-v-vms-to-azure-by-using-azure-migrate"></a>实验室答案：使用 Azure Migrate 将 Hyper-V VM 迁移到 Azure
 
@@ -93,7 +93,7 @@ ms.locfileid: "144812999"
 
 1. 在与 az801l07a-hv-vm 的远程桌面会话中，在“服务器管理器”窗口中，选择“本地服务器”，然后选择“IE 增强的安全配置”标签旁边的“开启”链接    。 在“IE 增强的安全配置”对话框中，选择两个“关闭”选项，然后选择“确定”  。
 1. 在远程桌面会话中，打开文件资源管理器并浏览到“F:”盘。 创建两个文件夹“F:\\VHD”和“F:\\VM” 。 
-1. 在与 az801l07a-hv-vm 的远程桌面会话中，启动 Microsoft Edge，完成初始设置，转到 [Windows Server 评估](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022)，提供请求的信息，下载 Windows Server 2022 VHD 文件，然后将其复制到“F:\VHD”文件夹  。 
+1. 在与 az801l07a-hv-vm 的远程桌面会话中，启动 Microsoft Edge，完成初始设置，转到 [Windows Server 评估](https://techcommunity.microsoft.com/t5/windows-11/accessing-trials-and-kits-for-windows-eval-center-workaround/m-p/3361125)，提供请求的信息，下载 Windows Server 2022 VHD 文件，然后将其复制到“F:\VHD”文件夹  。 
 1. 在与 az801l07a-hv-vm 的远程桌面会话中，选择“开始”，再选择“Windows 管理工具”，然后选择“Hyper-V 管理器”   。 
 1. 在“Hyper-V 管理器”控制台中 ，选择 az801l07a-hv-vm 节点 。 
 1. 选择“新建”，然后在级联菜单中选择“虚拟机” 。 这将启动“新建虚拟机向导”。 
@@ -106,7 +106,7 @@ ms.locfileid: "144812999"
    | 将虚拟机存储在其他位置 | 已选定 | 
    | 位置 | **F:\VM** |
 
-1. 在“新建虚拟机”向导的“指定代系”页面上，确保选中“第 1 代”选项，然后选择“下一步 >”   ：
+1. 在“新建虚拟机”向导的“指定代系”页上，确保选中“第 1 代”选项，然后选择“下一步 >”   。
 1. 在“新建虚拟机”向导的“分配内存”页上，将“启动内存”设置为 2048，然后选择“下一步 >”    。
 1. 在“新建虚拟机”向导的“配置网络”页上的“连接”下拉列表中，选择 NestedSwitch，然后选择“下一步 >”    。
 1. 在“新建连接”向导的“虚拟硬盘”页上，选择“使用现有虚拟硬盘”选项，将位置设置为下载到“F:\VHD”文件夹的 VHD 文件，然后选择“下一步 >”     。
@@ -186,7 +186,7 @@ ms.locfileid: "144812999"
 
    | 设置 | 值 |
    | --- | --- |
-   | 子网名称 | **subnet0** |
+   | 子网名称 | subnet0 |
    | 子网地址范围 | **10.7.0.0/24** |
 
 1. 返回到“创建虚拟网络”页的“IP 地址”选项卡上，选择“查看 + 创建”  。
@@ -249,8 +249,8 @@ ms.locfileid: "144812999"
 
 1. 在与 az801l07a-hv-vm 的远程桌面会话中，切换到“Hyper-V 管理器”控制台，选择 AZ801L07A-VM1 节点，然后选择“导入虚拟机”   。 这将启动“导入虚拟机”向导。
 1. 在“导入虚拟机”向导的“准备工作”页面上，单击“下一步 >”  。
-1. 在“导入虚拟机”向导的“查找文件夹”页上，指定已提取的虚拟机文件夹的位置，然后选择“下一步 >”   ：
-1. 在“导入虚拟机”向导的“选择虚拟机”页面上，单击“下一步 >”  ：
+1. 在“导入虚拟机”向导的“查找文件夹”页上，指定提取的“虚拟机”文件夹的位置，然后选择“下一步 >”。   
+1. 在“导入虚拟机”向导的“选择虚拟机”页上，选择“下一步 >”。  
 1. 在“导入虚拟机”向导的“选择导入类型”页上，选择“就地注册虚拟机(使用现有的唯一 ID)”，然后选择“下一步 >”   。
 1. 在“导入虚拟机”向导的“配置处理器”页上，将“虚拟处理器数目”设置为4，然后选择“下一步 >”    。
 
@@ -262,7 +262,7 @@ ms.locfileid: "144812999"
    >**注意**：等待导入完成。
 
 1. 在“Hyper-V 管理器”控制台中，选择新导入的虚拟机，选择“重命名”，然后将其名称设置为 az801l07a-vma1  。
-1. 在 VM 的“设置”中，将虚拟机的内存大小减少到 4096 GB。
+1. 将虚拟机的内存大小增加到 4096 MB。
 1. 在“Hyper-V 管理器”控制台中，选择新导入的虚拟机，然后选择“启动” 。 
 1. 在“Hyper-V 管理器”控制台中，验证虚拟机是否正在运行，然后选择“连接” 。 
 1. 在虚拟设备的“虚拟机连接”窗口中，在“许可条款”页面上，选择“接受”  。 
@@ -288,14 +288,14 @@ ms.locfileid: "144812999"
 
    >**注意**：10.0.2.1 是附加到内部交换机的 Hyper-V 主机的网络接口的 IP 地址。
 
-1. 在“设备配置管理器”页上的“提供 Hyper-V 主机/群集详细信息”部分，选择“启动发现”  。 
+1. 在“设备配置管理器”页上的“提供 Hyper-V 主机/群集详细信息”部分中，启用“如果不想执行这些功能，请禁用滑块”切换按钮，然后选择“开始发现”。   
 
    >**注意**：每个主机可能需要大约 15 分钟才能发现服务器的元数据显示在 Azure 门户。
 
 #### <a name="task-2-configure-run-and-view-an-assessment"></a>任务 2：配置、运行和查看评估
 
 1. 从虚拟设备的“虚拟机连接”窗口，切换到与 az801l07a-hv-vm 的远程桌面会话 。 在显示 Azure 门户的浏览器窗口中，浏览 回“Azure Migrate | 服务器、数据库和 Web 应用”页，然后选择“刷新” 。 在“Azure Migrate: 发现和评估”部分，选择”评估”，然后在下拉菜单中选择 Azure VM  。
-1. 在“创建评估”页（“评估属性”标签旁边）的“基本信息”选项卡上，选择“编辑”   
+1. 在“创建评估”页的“基本信息”选项卡上，在“评估属性”标签旁边选择“编辑”   。   
 1. 在“评估属性”页上，指定以下设置（将其他设置保留为默认值），然后选择“保存” ：
 
    | 设置 | 值 | 
@@ -429,9 +429,9 @@ ms.locfileid: "144812999"
    Get-AzResourceGroup -Name 'AZ801-L070*'
    ```
 
-   > **注意**：验证输出中是否仅包含你在此实验室中创建的资源组。 此任务中将删除该组。
+   > 备注：验证输出是否仅包含你在此实验室中创建的资源组。 此任务中将删除该组。
 
-1. 在 Cloud Shell 窗格中，运行以下命令，删除你在此实验室中创建的所有资源组
+1. 在 Cloud Shell 窗格中，运行以下命令，删除你在此实验室中创建的所有资源组：
 
    ```powershell
    Get-AzResourceGroup -Name 'AZ801-L070*' | Remove-AzResourceGroup -Force -AsJob

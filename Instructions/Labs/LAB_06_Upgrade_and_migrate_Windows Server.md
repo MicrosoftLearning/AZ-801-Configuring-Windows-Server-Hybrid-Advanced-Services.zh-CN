@@ -2,16 +2,16 @@
 lab:
   title: 实验室：在 Windows Server 中升级和迁移
   module: 'Module 6: Upgrade and migrate in Windows Server'
-ms.openlocfilehash: 33f6ea57f4ffc31fb0f7279a9e0df9100039e29b
-ms.sourcegitcommit: fb0d39e25bc0fe182037587b772d217db126d3bb
+ms.openlocfilehash: 6cfa6d05941436b9a90c3196ff882839eb8ced9b
+ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2022
-ms.locfileid: "144812997"
+ms.lasthandoff: 07/10/2022
+ms.locfileid: "147046985"
 ---
 # <a name="lab-upgrade-and-migrate-in-windows-server"></a>实验室：在 Windows Server 中升级和迁移
 
-## <a name="lab-scenario"></a>实验室场景
+## <a name="lab-scenario"></a>实验室方案
 
 Contoso 正在探索适用于其基础结构服务的混合模型，该模型有助于将其本地 Windows 服务器迁移到 Azure 虚拟机 (VM)。 为协助完成此计划，你需要评估在 Azure VM 中部署 Active Directory 域服务 (AD DS) 域控制器的过程。 你的目的是确定当前用于本地部署的手动过程与 Azure 中所提供的部署方法之间的差异。 此外，你还需要测试并记录存储迁移服务功能，以验证其在本地文件服务器迁移中的使用情况。 
 
@@ -154,7 +154,7 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
    | 区域 | 选择之前在此练习中部署第一个虚拟机的同一 Azure 区域 |
    | 可用性选项 | **可用性集** |
    | 可用性集 | adAvailabilitySet |
-   | Image | Windows Server 2022 Datacenter - Gen2 |
+   | 映像 | Windows Server 2022 Datacenter：Azure Edition - Gen2 |
    | Azure Spot 实例 | **是** |
    | 大小 | Standard D2s v3 |
    | 用户名 | **学生** |
@@ -196,7 +196,7 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
 1. 若要安装 AD DS 和 DNS 服务器角色，请在 Windows PowerShell 提示符下运行以下命令：
     
    ```powershell
-   Install-WindowsFeature -Name AD-Domain-Services,DNS -IncludeManagementFeatures
+   Install-WindowsFeature -Name AD-Domain-Services,DNS -IncludeManagementTools
    ```
 
    > 注意：请等待安装完成。 这可能需要大约 3 分钟。
@@ -212,7 +212,7 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
 1. 在与 az801l06a-dc2 的远程桌面会话中，切换到“服务器管理器”窗口 。
 1. 在服务器管理器中，启动 Active Directory 域服务配置向导来执行域控制器提升 。
 1. 在 Active Directory 域服务配置向导中，选择“将域控制器添加到现有域”选项并指定“contoso.com”作为目标域  。
-1. 使用用户名 CONTOSO\\Student 和密码 Pa55w.rd1234 作为执行提升的凭据 。
+1. 使用用户名 Student@contoso.com 和密码 Pa55w.rd1234 作为执行提升的凭据 。
 1. 指定将新域控制器指定为可写的选项，并包含域名系统 (DNS) 服务器和全局编录 (GC) 组件 。
 1. 将目录服务还原模式 (DSRM) 的密码设置为 Pa55w.rd1234 。
 1. 将托管 AD DS 数据库、日志文件和 SYSVOL 的文件夹从驱动器 C 更改为驱动器 F 。

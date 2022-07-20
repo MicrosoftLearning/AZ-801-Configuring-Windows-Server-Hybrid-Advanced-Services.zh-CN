@@ -3,12 +3,12 @@ lab:
   title: 实验室：实现 Hyper-V 副本和 Windows Server 备份
   type: Answer Key
   module: 'Module 4: Disaster Recovery in Windows Server'
-ms.openlocfilehash: a28994561ec934a923cb016a8306b934583b39c2
-ms.sourcegitcommit: fb0d39e25bc0fe182037587b772d217db126d3bb
+ms.openlocfilehash: 1f990cf9fbe0bf61bb25088041b775a24d108a64
+ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2022
-ms.locfileid: "144813006"
+ms.lasthandoff: 07/10/2022
+ms.locfileid: "147046991"
 ---
 # <a name="lab-answer-key-implementing-hyper-v-replica-and-windows-server-backup"></a>实验室答案密钥：实现 Hyper-V 副本和 Windows Server 备份
 
@@ -34,7 +34,7 @@ ms.locfileid: "144813006"
 
    ```powershell
    New-Item -ItemType Directory -Path C:\ReplicaStorage -Force
-   Set-VMReplicationServer -ReplicationEnabled $true -AllowedAuthenticationType Kerberos -ReplicationAllowedFromAnyServer $true -DefaultStorageLocation C:\ReplicaStorage
+   Set-VMReplicationServer -ReplicationEnabled $true -AllowedAuthenticationType Kerberos -KerberosAuthenticationPort 8080 -ReplicationAllowedFromAnyServer $true -DefaultStorageLocation C:\ReplicaStorage
    ```
 
 1. 要验证 SEA-SVR2 是否配置为 Hyper-V 副本的副本服务器，请输入以下命令并按 Enter ：
@@ -47,7 +47,7 @@ ms.locfileid: "144813006"
 
    - **RepEnabled：True**
    - **AuthType：Kerb**
-   - **KerAuthPort：80**
+   - **KerAuthPort：8080**
    - **CertAuthPort：443**
    - AllowAnyServer：True
 

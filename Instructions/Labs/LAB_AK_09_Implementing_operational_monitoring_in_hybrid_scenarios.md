@@ -3,12 +3,12 @@ lab:
   title: 实验室：在混合场景中实现操作监视
   type: Answer Key
   module: Module 9 - Implementing operational monitoring in hybrid scenarios
-ms.openlocfilehash: b68d5e88d5a550967a2cba67b57465993299ee22
-ms.sourcegitcommit: fb0d39e25bc0fe182037587b772d217db126d3bb
+ms.openlocfilehash: b27abf5d550f581a170fe3e2e9df76daa9c6c1d6
+ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2022
-ms.locfileid: "144813009"
+ms.lasthandoff: 07/10/2022
+ms.locfileid: "147046973"
 ---
 # <a name="lab-answer-key-implementing-operational-monitoring-in-hybrid-scenarios"></a>实验室答案：在混合场景中实现操作监视
 
@@ -60,7 +60,7 @@ ms.locfileid: "144813009"
 
 #### <a name="task-3-create-and-configure-an-azure-log-analytics-workspace"></a>任务 3：创建并配置 Azure Log Analytics 工作区
 
-1. 在 SEA-SVR2 上，在 Azure 门户的工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择“Log Analytics 工作区”，然后从“Log Analytics 工作区”页中选择“+ 创建”    。
+1. 在 SEA-SVR2 上，在 Azure 门户的工具栏中的“搜索资源、服务和文档”文本框中，搜索并选择“Log Analytics 工作区”，然后从“Log Analytics 工作区”页中选择“+ 创建”    。
 1. 在“创建 Log Analytics 工作区”页的“基本信息”选项卡上，输入以下设置，选择“查看 + 创建”，然后选择“创建”   ：
 
    | 设置 | 值 |
@@ -74,68 +74,41 @@ ms.locfileid: "144813009"
 
    >注意：请等待部署完成。 部署大约需要 1 分钟的时间完成。
 
-## <a name="exercise-2-configuring-monitoring-of-on-premises-servers"></a>练习 2：配置本地服务器的监视
+1. 在 Azure 门户中，导航到新预配的工作区边栏选项卡。
+1. 在工作区边栏选项卡上，导航到“代理管理”边栏选项卡，并记录“工作区 ID”和“主密钥”的值。  在下一个练习中需要用到它们。
 
-#### <a name="task-1-register-windows-admin-center-with-azure"></a>任务 1：向 Azure 注册 Windows Admin Center
+#### <a name="task-4-install-service-map-solution"></a>任务 4：安装服务映射解决方案
 
-1. 在 SEA-SVR2 上，选择“开始”，然后选择“Windows PowerShell (管理员)”  。
-
-   >注意：如果尚未在 SEA-SVR2 上安装 Windows Admin Center，请执行后面两个步骤 。
-
-1. 在 Windows PowerShell 控制台中，输入以下命令，然后按 Enter 下载最新版本的 Windows Admin Center：
-    
-   ```powershell
-   Start-BitsTransfer -Source https://aka.ms/WACDownload -Destination "$env:USERPROFILE\Downloads\WindowsAdminCenter.msi"
-   ```
-1. 输入以下命令，然后按 Enter 安装 Windows Admin Center：
-    
-   ```powershell
-   Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
-   ```
-
-   > 注意：请等待安装完成。 这大约需要 2 分钟。
-
-   > **注意**：完成 Windows Admin Center 安装后，可能会收到错误 ERR_CONNECTION_REFUSED。 如果发生这种情况，请重启 SEA-SVR2，然后再继续。
-
-1. 在 SEA-SVR2 上，启动 Microsoft Edge，然后浏览至 https://SEA-SVR2.contoso.com 。 
-1. 如果出现提示，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
-
-   - 用户名：CONTOSO\\Administrator
-   - 密码：Pa55w.rd
-
-1. 在“所有连接”窗格中，选择页面右上角的“设置”（齿轮）图标 。
-1. 在 Windows Admin Center 中，在“设置”页上的“Azure 帐户”部分中，选择“注册 Azure”，然后选择“注册”   。
-1. 在“Windows Admin Center 中的 Azure 入门”窗格中，选择“复制”以复制注册过程步骤列表中显示的代码 。 
-1. 在注册过程的步骤列表中，选择“输入代码”链接。
-
-   >注意：这将在 Microsoft Edge 窗口中打开显示“输入代码”页的另一个选项卡 。
-
-1. 在“输入代码”文本框中，将复制的代码粘贴到剪贴板，然后选择“下一步” 。
-1. 在“登录”页上，提供在上一个练习中用于登录到 Azure 订阅的用户名，选择“下一步”，提供相应的密码，然后选择“登录”  。
-1. 出现提示“是否尝试登录到 Windows Admin Center?”时，选择“继续” 。
-1. 在 Windows Admin Center 中，验证登录是否成功，并关闭 Microsoft Edge 窗口中新打开的选项卡。
-1. 在“Windows Admin Center 中的 Azure 入门”窗格中，确保“Azure Active Directory 应用程序”设置为“新建”，然后选择“连接”   。
-1. 在注册过程的步骤列表中，选择“登录”。 这将打开一个标有“请求的权限”的弹出窗口。
-1. 在“请求的权限”弹出窗口中，选择“代表你的组织同意”，然后选择“接受”  。
-
-#### <a name="task-2-integrate-an-on-premises-windows-server-with-azure-monitor"></a>任务 2：将本地 Windows Server 与 Azure Monitor 集成
-
-1. 在 SEA-SVR2 上，在显示 Windows Admin Center 的 Microsoft Edge 窗口中，浏览到“所有连接”窗格 。
-1. 在“所有连接”窗格中，选择“sea-svr2.contoso.com”条目 。 
-1. 在 sea-svr2.contoso.com 页上的“工具”菜单中，选择“Azure Monitor”，然后选择“登录到 Azure 并设置”   。
-1. 在“设置 Azure Monitor”页上，指定以下设置，并选择“设置” 。
+1. 在 SEA-SVR2 上，在 Azure 门户的工具栏中的“搜索资源、服务和文档”文本框中，搜索“服务映射”，然后在结果列表中的“市场”部分，选择“服务映射”。    
+1. 在“创建服务映射解决方案”边栏选项卡上的“选择工作区”选项卡上，指定以下设置，选择“查看 + 创建”，然后选择“创建”：   
 
    | 设置 | 值 |
    | --- | --- |
    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
    | 资源组 | **AZ801-L0902-RG** |
-   | 资源组区域 | 在上一个练习中将虚拟机部署到的 Azure 区域的名称 |
-   | Log Analytics 工作区 | 在上一个练习中创建的工作区的名称 |
-   | 启用 Azure Arc | 已选定 |
+   | Log Analytics 工作区 | 在上一个任务中创建的 Log Analytics 工作区的名称 |
 
-   >注意：请不要等待安装完成，而是继续执行下一个练习。 安装过程大约需要 3 分钟。
+## <a name="exercise-2-configuring-monitoring-of-on-premises-servers"></a>练习 2：配置本地服务器的监视
 
-   >注意：此过程会自动安装 Log Analytics Agent 和 Dependency Agent。
+#### <a name="task-1-install-the-log-analytics-agent-and-the-dependency-agent"></a>任务 1：安装 Log Analytics 代理和 Dependency Agent
+
+1. 连接到 SEA-SVR2 上的控制台会话时，在显示 Azure 门户的浏览器窗口中的“代理管理”边栏选项卡上，选择“下载 Windows 代理(64 位)”链接以下载 64 位 Windows Log Analytics 代理。   
+1. 下载代理安装程序后，单击下载的文件以启动安装向导。 
+1. 在“欢迎”页上，选择“下一步”。
+1. 在“许可条款”页面上阅读许可协议，然后选择“我接受” 。
+1. 在“目标文件夹”页面上更改或保留默认安装文件夹，然后选择“下一步” 。
+1. 在“代理安装选项”页上，选中“将代理连接到 Azure Log Analytics”复选框，然后选择“下一步”  。
+1. 在“Azure Log Analytics”页上，输入在上一练习中记录的“工作区 ID”和“工作区密钥(主密钥)”。  
+1. 提供所需的配置设置后，选择“下一步”。
+1. 在“准备安装”页上检查所做的选择，并选择“安装” 。
+1. 在“配置已成功完成”页上，选择“完成”。
+1. 在 SEA-SVR2 上，以管理员身份启动 Windows PowerShell。
+1. 在“管理员:Windows PowerShell”控制台中，运行以下命令以安装 Dependency Agent：
+
+   ```powershell
+   Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
+   .\InstallDependencyAgent-Windows.exe /S
+   ```
 
 ## <a name="exercise-3-configuring-monitoring-of-azure-vms"></a>练习 3：配置 Azure VM 的监视
 
@@ -185,21 +158,24 @@ ms.locfileid: "144813009"
 
 1. 在“指标命名空间”下拉列表中，选择“启用新的来宾内存指标”条目 。
 1. 在“启用来宾指标(预览)”窗格中，查看提供的信息。
-1. 在“az801l09-vm0 \| 诊断设置”页上，选择“接收器”选项卡，在“Azure Monitor (预览)”部分中，选择“已启用”，然后选择“保存”    。
+1. 在“az801l09-vm0 \| 诊断设置”页上，选择“接收器”选项卡，在“Azure Monitor (预览)”部分中，选择“已启用”，然后选择“保存”    。 
+
+   >**注意**：选择“Azure Monitor (预览版)”部分下方的警告通知框以激活“已启用”按钮。
+
 1. 浏览回“az801l09-vm0 \| 指标”页的默认图表，请注意，此时除了“虚拟机主机”和“来宾(经典)”条目外，“指标命名空间”下拉列表还包括“虚拟机来宾”条目    。
 
    >注意：可能需要刷新页面才会显示“虚拟机来宾”条目 。
 
 1. 在“az801l09-vm0 \| 指标”页的左侧垂直菜单中，在”监视”部分选择“日志”  。
-1. 在“az801l09-vm0 \| 日志”页上，选择“启用” 。
+1. 如果需要，在“az801l09-vm0 \| 日志”页上，选择“启用” 。
 1. 在“选择 Log Analytics 工作区”下拉列表中，选择你之前在此实验室中创建的 Log Analytics 工作区，然后选择“启用” 。
 1. 在“az801l09-vm0 \| 日志”页的左侧垂直菜单中，在”监视”部分选择”见解”  。
 1. 根据需要，在“az801l09-vm0 \| 见解”页上，选择“启用” 。
 
    >注意：此设置提供 Azure VM 见解功能。 VM 见解是一种 Azure Monitor 解决方案，可帮助监视 Azure VM 和运行 Windows 或 Linux 的本地计算机的性能和运行状况。
 
-1. 在 SEA-SVR2 上，在 Azure 门户的工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择“监视”，然后在“监视 \| 概述”页的“见解”下，选择“VM 见解”     。
-1. 在“监视 \| 虚拟机”页上，选择“性能”选项卡，然后选择“立即试用”  。
+1. 在 SEA-SVR2 上，在 Azure 门户的工具栏中的“搜索资源、服务和文档”文本框中，搜索并选择“监视”，然后在“监视 \| 概述”页的“见解”下，选择“VM 见解”     。
+1. 在“监视 \| 虚拟机”页上，选择“性能”选项卡，然后根据需要选择“立即试用”  。
 1. 在“监视 \| 虚拟机”页上，选择“映射”选项卡，然后选择“立即试用”  。
 1. 在“管理覆盖范围”页上，选择“配置工作区” 。
 1. 在“Azure Monitor”页上，从“选择 Log Analytics 工作区”下拉菜单中选择之前在此实验室中创建的工作区，然后选择“配置”  。
@@ -241,7 +217,7 @@ ms.locfileid: "144813009"
    | --- | --- |
    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
    | 资源组 | **AZ801-L0902-RG** |
-   | 操作组名称 | **az801l09-ag1** |
+   | 操作组名称 | az801l09-ag1 |
    | 显示名称 | az801l09-ag1 |
 
 1. 在“创建操作组”页的“通知”选项卡上，在“通知类型”下拉列表中，选择“电子邮件/短信/推送/语音”   。 在“名称”文本框中，键入“管理员电子邮件”，然后选择“编辑详细信息”（铅笔）图标  。
@@ -303,7 +279,7 @@ ms.locfileid: "144813009"
 
    >注意：如果这是你第一次访问 Log Analytics，可能需要关闭“欢迎使用 Log Analytics”窗格 。
 
-1. 在“选择范围”页上，选择“最近”选项卡，选择“az801l09-vm0”，然后选择“应用”   。
+1. 在“选择范围”页上，选择“最近使用”选项卡，选择之前在此实验室中创建的唯一工作区，然后选择“应用”。  
 1. 在查询窗口中，粘贴以下查询，选择“运行”，然后查看生成的图表：
 
    ```kql
@@ -316,8 +292,8 @@ ms.locfileid: "144813009"
    | render timechart
    ```
 
-1. 在工具栏中选择“查询”，在“查询”窗格中，展开“可用性”节点，选择“跟踪 VM 可用性”磁贴，选择“运行”按钮，并查看结果    。
-1. 在“新建查询 1”选项卡上，选择“表”标头，并查看“虚拟机”部分中的表列表  。
+1. 在工具栏中选择“查询”，在“查询”窗格中，展开“虚拟机”节点，选择“跟踪 VM 可用性”磁贴，选择“运行”按钮，并查看结果    。
+1. 在“新查询 1”选项卡上，选择“表”标头，在“用于 VM 的 Azure Monitor”部分中查看表列表。  
 
    >注意：多个表的名称与之前在此实验室中安装的解决方案相对应。 具体而言，Azure VM 见解使用 InsightMetrics 存储性能指标。
 
@@ -327,7 +303,7 @@ ms.locfileid: "144813009"
 
    >注意：可能需要等待几分钟，更新数据才可用。
 
-1. 在 SEA-SVR2 上，在 Azure 门户的工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择“Log Analytics 工作区”，然后从“Log Analytics 工作区”页中选择表示你之前在此实验室中创建的工作区的条目   。
+1. 在 SEA-SVR2 上，在 Azure 门户的工具栏中的“搜索资源、服务和文档”文本框中，搜索并选择“Log Analytics 工作区”，然后从“Log Analytics 工作区”页中，选择表示你之前在此实验室中创建的工作区的条目   。
 1. 在工作区页的左侧垂直菜单的“常规”部分中，选择“解决方案” 。
 1. 在解决方案列表中，选择“ServiceMap”，然后在“摘要”页上选择“服务映射”磁贴  。
 1. 在“ServiceMap”页上的“计算机”选项卡上，选择“SEA-SVR2”以显示服务映射  。

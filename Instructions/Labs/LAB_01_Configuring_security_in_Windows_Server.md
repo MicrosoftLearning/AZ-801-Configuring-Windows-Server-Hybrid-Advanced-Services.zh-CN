@@ -2,12 +2,12 @@
 lab:
   title: 实验室：配置 Windows Server 中的安全性
   module: 'Module 1: Windows Server security'
-ms.openlocfilehash: ed3fd5da4164e3fd48c9af7b6b37074c582618e0
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: e3ff4a435b249f1688749a3992cb3375136f046c
+ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907071"
+ms.lasthandoff: 07/10/2022
+ms.locfileid: "147046997"
 ---
 # <a name="lab-configuring-security-in-windows-server"></a>实验室：配置 Windows Server 中的安全性
 
@@ -57,8 +57,8 @@ Contoso Pharmaceuticals 是一家在世界各地约有 5000 名员工的医疗�
 
 #### <a name="task-1-enable-windows-defender-credential-guard-using-group-policy"></a>任务 1：使用组策略启用 Windows Defender Credential Guard
 
-1. 在 SEA-SVR2* 上，打开组策略管理控制台。
-1. 在组策略管理控制台中，浏览林 Contoso.com 和域 Contoso.com，然后创建一个名为 CredentialGuard_GPO 链接到 IT 组织单元 (OU) 的组策略对象 (GPO)     。
+1. 在 SEA-SVR2 上，打开“组策略管理”控制台 。
+1. 在“组策略管理”控制台中，浏览“林: contoso.com”、“域”、“contoso.com”，然后创建一个名为 CredentialGuard_GPO 且链接到“IT”组织单位 (OU) 的组策略对象 (GPO)     。
 1. 在组策略管理编辑器中打开“CredentialGuard_GPO”，浏览到 Computer Configuration\\Policies\\Administrative Templates\\\\Device Guard 节点 。
 1. 启用“打开基于虚拟化的安全”选项并采用以下设置：
 
@@ -67,7 +67,7 @@ Contoso Pharmaceuticals 是一家在世界各地约有 5000 名员工的医疗�
    - 安全启动配置：已启用
 
 1. 关闭“组策略管理编辑器”窗口。
-1. 关闭“组策略管理控制台”窗口。
+1. 关闭“组策略管理”控制台窗口。
 
 #### <a name="task-2-enable-windows-defender-credential-guard-using-the-hvci-and-windows-defender-credential-guard-hardware-readiness-tool"></a>任务 2：使用 HVCI 和 Windows Defender Credential Guard 硬件准备工具启用 Windows Defender Credential Guard
 
@@ -188,8 +188,8 @@ Contoso Pharmaceuticals 是一家在世界各地约有 5000 名员工的医疗�
    Set-AdmPwdComputerSelfPermission -Identity "Seattle_Servers"
    ```
 
-1. 在 SEA-SVR2* 上，打开组策略管理控制台。
-1. 在组策略管理控制台中，浏览林 Contoso.com 和域 Contoso.com，然后创建一个名为 LAPS_GPO 链接到 Seattle_ServersOU 的组策略对象 (GPO)     。
+1. 在 SEA-SVR2* 上，打开“组策略管理”控制台。
+1. 在“组策略管理”控制台中，浏览“林: contoso.com”、“域”、“contoso.com”，然后创建一个名为 LAPS_GPO 且链接到 Seattle_Servers OU 的组策略对象 (GPO)     。
 1. 在组策略管理编辑器中打开 LAPS_GPO，并浏览到 Computer Configuration\\Policies\\Administrative Templates\\LAPS 节点 。
 1. 启用“启用本地管理员密码管理”选项。
 1. 使用以下设置配置“密码设置”选项：
@@ -204,7 +204,7 @@ Contoso Pharmaceuticals 是一家在世界各地约有 5000 名员工的医疗�
    - 密码期限（天）：30
 
 1. 关闭“组策略管理编辑器”。
-1. 关闭“组策略管理控制台”窗口。
+1. 关闭“组策略管理”控制台窗口。
 
 #### <a name="task-3-deploy-laps-client-side-extension"></a>任务 3：部署 LAPS 客户端扩展
 

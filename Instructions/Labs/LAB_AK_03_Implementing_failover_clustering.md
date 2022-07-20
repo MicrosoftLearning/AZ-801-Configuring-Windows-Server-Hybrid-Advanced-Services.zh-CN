@@ -3,12 +3,12 @@ lab:
   title: 实验室：实现故障转移群集
   type: Answer Key
   module: 'Module 3: High availability in Windows Server'
-ms.openlocfilehash: 9f61985bbfde16e2653daff8032ebfb785cac219
-ms.sourcegitcommit: fb0d39e25bc0fe182037587b772d217db126d3bb
+ms.openlocfilehash: e73075a9d078b109d5bdb4380aaced3ef38de2ee
+ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2022
-ms.locfileid: "144813003"
+ms.lasthandoff: 07/10/2022
+ms.locfileid: "147047015"
 ---
 # <a name="lab-answer-key-implementing-failover-clustering"></a>实验室解答：实现故障转移群集
 
@@ -227,7 +227,7 @@ ms.locfileid: "144813003"
 1. 切换到“故障转移群集管理器”控制台，然后右键单击或访问状态为“关闭”的节点的上下文菜单 。
 1. 在该上下文菜单中，选择“更多操作”，然后选择“启动群集服务” 。
 1. 在“故障转移群集管理器”控制台中，右键单击或访问 SEA-CL03.Contoso.com 群集的上下文菜单，选择“更多操作”，然后选择“配置群集仲裁设置”   。 随即将启动“配置群集仲裁向导”。
-1. 在“准备工作”页中，选择“下一步” 。
+1. 在“开始之前”页面上，选择“下一步”。
 1. 在“选择仲裁配置选项”页中，确保选中“使用默认仲裁配置”选项，然后选择“下一步”  。
 1. 在“确认”页中，注意默认情况下选择“群集磁盘 3”作为“磁盘见证”，然后选择“下一步”   。 
 1. 在“摘要”页中，选择“完成” 。
