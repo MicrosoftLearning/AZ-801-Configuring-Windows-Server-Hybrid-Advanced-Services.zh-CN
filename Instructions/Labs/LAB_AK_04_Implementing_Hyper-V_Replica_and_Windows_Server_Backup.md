@@ -3,12 +3,12 @@ lab:
   title: 实验室：实现 Hyper-V 副本和 Windows Server 备份
   type: Answer Key
   module: 'Module 4: Disaster Recovery in Windows Server'
-ms.openlocfilehash: 65c442ed6c2de7650e5ab4888fb080d38e8bc5d2
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: 1f990cf9fbe0bf61bb25088041b775a24d108a64
+ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907073"
+ms.lasthandoff: 07/10/2022
+ms.locfileid: "147046991"
 ---
 # <a name="lab-answer-key-implementing-hyper-v-replica-and-windows-server-backup"></a>实验室答案密钥：实现 Hyper-V 副本和 Windows Server 备份
 
@@ -34,7 +34,7 @@ ms.locfileid: "137907073"
 
    ```powershell
    New-Item -ItemType Directory -Path C:\ReplicaStorage -Force
-   Set-VMReplicationServer -ReplicationEnabled $true -AllowedAuthenticationType Kerberos -ReplicationAllowedFromAnyServer $true -DefaultStorageLocation C:\ReplicaStorage
+   Set-VMReplicationServer -ReplicationEnabled $true -AllowedAuthenticationType Kerberos -KerberosAuthenticationPort 8080 -ReplicationAllowedFromAnyServer $true -DefaultStorageLocation C:\ReplicaStorage
    ```
 
 1. 要验证 SEA-SVR2 是否配置为 Hyper-V 副本的副本服务器，请输入以下命令并按 Enter ：
@@ -45,10 +45,10 @@ ms.locfileid: "137907073"
   
    > 备注：请验证命令的输出是否包含以下设置：
 
-   - RepEnabled：True
-   - AuthType：Kerb
-   - KerAuthPort：80
-   - CertAuthPort：443
+   - **RepEnabled：True**
+   - **AuthType：Kerb**
+   - **KerAuthPort：8080**
+   - **CertAuthPort：443**
    - AllowAnyServer：True
 
 1. 要识别 SEA-SVR2 上存在的虚拟机，请输入以下命令并按 Enter：
@@ -93,7 +93,7 @@ ms.locfileid: "137907073"
 
    > 备注：请让第二个“Administrator: Windows PowerShell”窗口保持打开状态 。
 
-#### <a name="task-2-configure-hyper-v-replication"></a>任务 2：配置 Hyper-v 复制
+#### <a name="task-2-configure-hyper-v-replication"></a>任务 2：配置 Hyper-V 复制
 
 1. 在 SEA-SVR2 上，切换到显示本地 PowerShell 会话的“Administrator: Windows PowerShell”窗口 。
 1. 要将虚拟机 SEA-CORE1 从 SEA-SVR2 复制到 SEA-SVR1，请在 SEA-SVR2 上，在本地会话的 Windows PowerShell 提示符下，输入以下命令并按 Enter   ：
@@ -123,9 +123,9 @@ ms.locfileid: "137907073"
    Get-VM
    ```
 
-   > 备注：请确保命令的输出列出 SEA-CORE1 。
+   > **注意**：确保命令的输出中列出了 **SEA-CORE1** 和复制已完成。 复制时间可能需要 5-10 分钟。
 
-   > 备注：请让两个 Windows PowerShell 会话保持打开状态。
+   > 注意：请让两个 Windows PowerShell 会话保持打开状态。
 
 #### <a name="task-3-validate-a-failover"></a>任务 3：验证故障转移
 
@@ -183,7 +183,7 @@ ms.locfileid: "137907073"
 
 1. 让两个 Windows PowerShell 窗口保持打开状态。
 
-   > 备注：如果要使用图形工具验证本练习的结果，可以在 SEA-SVR2 上使用 Hyper-V 管理器，然后将 SEA-SVR1 和 SEA-SVR2 服务器添加到 Hyper-V 控制台    。 然后，你可以验证 SEA-CORE1 VM 是否存在于 SEA-SVR1 和 SEA-SVR2 上，并且正在运行从 SEA-SVR2 到 SEA-SVR1 的复制    。
+   > 注意：如果要使用图形工具验证本练习的结果，可以在 SEA-SVR2 上使用 Hyper-V 管理器，然后将 SEA-SVR1 和 SEA-SVR2 服务器添加到 Hyper-V 控制台    。 然后，你可以验证 SEA-CORE1 VM 是否存在于 SEA-SVR1 和 SEA-SVR2 上，并且正在运行从 SEA-SVR2 到 SEA-SVR1 的复制    。
 
 ## <a name="exercise-2-implementing-backup-and-restore-with-windows-server-backup"></a>练习 2：使用 Windows Server Backup 实现备份和还原
 

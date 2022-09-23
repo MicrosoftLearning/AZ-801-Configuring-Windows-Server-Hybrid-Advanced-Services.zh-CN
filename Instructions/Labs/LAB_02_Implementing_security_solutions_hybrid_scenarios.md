@@ -2,12 +2,12 @@
 lab:
   title: 实验室：在混合场景中实现安全解决方案
   module: 'Module 2: Implementing Security Solutions in Hybrid Scenarios'
-ms.openlocfilehash: 33338f32e18797a64f2b6b18dc6d84f559f62276
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: 475c539c6792c3a50a41c27ec5c293e895f0f07a
+ms.sourcegitcommit: fb0d39e25bc0fe182037587b772d217db126d3bb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907069"
+ms.lasthandoff: 05/07/2022
+ms.locfileid: "144812991"
 ---
 # <a name="lab-implementing-security-solutions-in-hybrid-scenarios"></a>实验室：在混合场景中实现安全解决方案
 
@@ -131,8 +131,7 @@ ms.locfileid: "137907069"
    - 利用在上一练习中创建的 Log Analytics 工作区启用“用于 Azure VM 的 Log Analytics 代理”。
    - 利用在上一练习中创建的 Log Analytics 工作区启用“用于 Azure Arc 计算机的 Log Analytics 代理(预览版)”。
    - 使用“Microsoft 威胁和漏洞管理”选项启用“计算机的漏洞评估” 。
-   - 启用“来宾配置代理(预览版)”。
-   - 启用“Microsoft Dependency Agent (预览版)”。
+
 
 1. 浏览到 Defender for Cloud 中的“云环境设置”页。
 1. 在“环境设置”页上，展开表示你的 Azure 订阅的条目，并查看表示你在上一练习中创建的 Log Analytics 工作区的条目。
@@ -182,7 +181,7 @@ ms.locfileid: "137907069"
    New-AzResourceGroupDeployment -Name az801l2002deployment -ResourceGroupName AZ801-L0202-RG -TemplateFile ./L02-rg_template.json -TemplateParameterFile ./L02-rg_template.parameters.json
    ```
 
-   >备注：请等待部署完成。 这大约需要 3 分钟的时间。
+   >备注：请等待部署完成。 这大约需要 3 分钟。
 
 1. 关闭 Cloud Shell。
 
@@ -219,7 +218,7 @@ ms.locfileid: "137907069"
 
 在此任务中，你将执行 Log Analytics 代理的无人参与安装。
 
-1. 在 SEA-ADM1 上，以管理员身份启动 Windows PowerShell 。
+1. 在 SEA-SVR2 上，以管理员身份启动 Windows PowerShell 。
 1. 若要提取 MMASetup-AMD64.exe 文件的内容，请在 Windows PowerShell 控制台中运行以下命令 ：
     
    ```powershell
@@ -248,7 +247,7 @@ ms.locfileid: "137907069"
 #### <a name="task-3-enable-azure-automation-solutions-for-azure-vms"></a>任务 3：为 Azure VM 启用 Azure 自动化解决方案
 
 1. 在 SEA-SVR2 上，切换到显示 Azure 门户的 Microsoft Edge 窗口，然后浏览到之前你在此实验室中预配的 Azure 自动化帐户页。 
-1. 在自动化帐户页面中，浏览到它的“清单”页。
+1. 在“自动化帐户”页面中，浏览到它的“清单”页。
 1. 在“清单”页上，使用工具栏中的“+ 添加 Azure VM”按钮为 az801l02-vm0 Azure VM 启用清单和更改跟踪  。 
 
    > 备注：VM 必须连接到与自动化帐户解决方案关联的 Log Analytics 工作区才能被列为“准备启用” 。

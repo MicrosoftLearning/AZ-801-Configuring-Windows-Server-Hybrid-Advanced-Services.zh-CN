@@ -3,12 +3,12 @@ lab:
   title: 实验室：监视 Windows Server 并对其进行故障排除
   type: Answer Key
   module: 'Module 8: Monitoring, performance, and troubleshooting'
-ms.openlocfilehash: 5067b69c33fa81f9ba2d7d4efb10b717fe11924f
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: 3973d8bde19992787719f8650fc1ea83593e4491
+ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907114"
+ms.lasthandoff: 07/10/2022
+ms.locfileid: "147047027"
 ---
 # <a name="lab-answer-key-monitoring-and-troubleshooting-windows-server"></a>实验室参考答案：监视 Windows Server 并对其进行故障排除
 
@@ -97,7 +97,7 @@ ms.locfileid: "137907114"
 
    > 注意：CPUSTRES64.EXE 是一个 SysInternals 实用工具，它通过在一个循环中最多运行 64 个线程来模拟 CPU 活动 。
 
-1. 在“CPUSTRESS 许可协议”对话框中，选择“同意” 。
+1. 在“CPUSTRES 许可协议”对话框中，选择“同意” 。
 1. 在“CPU 压力”对话框中，右键单击或访问正在运行的线程列表顶部突出显示的线程的上下文菜单，选择“活动级别”，然后选择“忙碌(75%)”  。
 
 #### <a name="task-2-capture-performance-data-by-using-a-data-collector-set"></a>任务 2：使用数据收集器集捕获性能数据

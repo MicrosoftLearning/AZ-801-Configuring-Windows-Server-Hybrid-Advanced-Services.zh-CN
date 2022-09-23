@@ -2,12 +2,12 @@
 lab:
   title: 实验室：在 Windows Server 中升级和迁移
   module: 'Module 6: Upgrade and migrate in Windows Server'
-ms.openlocfilehash: 1befc684028b4e361c2d67f5ea01fa59ac02940d
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: 6cfa6d05941436b9a90c3196ff882839eb8ced9b
+ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907077"
+ms.lasthandoff: 07/10/2022
+ms.locfileid: "147046985"
 ---
 # <a name="lab-upgrade-and-migrate-in-windows-server"></a>实验室：在 Windows Server 中升级和迁移
 
@@ -28,7 +28,7 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
   
 虚拟机：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 必须运行  。 其他 VM 可以运行，但本实验室不需要这些 VM。
 
-> 注意：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 虚拟机分别托管 SEA-DC1、SEA-SVR1 和 SEA-SVR2 的安装      。
+> 备注：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 虚拟机分别托管 SEA-DC1、SEA-SVR1 和 SEA-SVR2 的安装      。
 
 1. 选择 SEA-SVR2。
 1. 使用以下凭据登录：
@@ -95,7 +95,7 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
    | 管理员用户名 | **学生** |
    | 管理员密码 | **Pa55w.rd1234** |
    | 域名 | **contoso.com** |
-   | VM 大小 | Standard D2s v3 |
+   | VM 大小 | **Standard_DS2_v2** |
    | 虚拟机名称 | az801l06a-dc1 |
    | 虚拟网络名称 | az801l06a-vnet |
    | 虚拟网络地址范围 | 10.6.0.0/16 |
@@ -154,7 +154,7 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
    | 区域 | 选择之前在此练习中部署第一个虚拟机的同一 Azure 区域 |
    | 可用性选项 | **可用性集** |
    | 可用性集 | adAvailabilitySet |
-   | Image | Windows Server 2022 Datacenter - Gen2 |
+   | 映像 | Windows Server 2022 Datacenter：Azure Edition - Gen2 |
    | Azure Spot 实例 | **是** |
    | 大小 | Standard D2s v3 |
    | 用户名 | **学生** |
@@ -196,7 +196,7 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
 1. 若要安装 AD DS 和 DNS 服务器角色，请在 Windows PowerShell 提示符下运行以下命令：
     
    ```powershell
-   Install-WindowsFeature -Name AD-Domain-Services,DNS -IncludeManagementFeatures
+   Install-WindowsFeature -Name AD-Domain-Services,DNS -IncludeManagementTools
    ```
 
    > 注意：请等待安装完成。 这可能需要大约 3 分钟。
@@ -212,7 +212,7 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
 1. 在与 az801l06a-dc2 的远程桌面会话中，切换到“服务器管理器”窗口 。
 1. 在服务器管理器中，启动 Active Directory 域服务配置向导来执行域控制器提升 。
 1. 在 Active Directory 域服务配置向导中，选择“将域控制器添加到现有域”选项并指定“contoso.com”作为目标域  。
-1. 使用用户名 CONTOSO\\Student 和密码 Pa55w.rd1234 作为执行提升的凭据 。
+1. 使用用户名 Student@contoso.com 和密码 Pa55w.rd1234 作为执行提升的凭据 。
 1. 指定将新域控制器指定为可写的选项，并包含域名系统 (DNS) 服务器和全局编录 (GC) 组件 。
 1. 将目录服务还原模式 (DSRM) 的密码设置为 Pa55w.rd1234 。
 1. 将托管 AD DS 数据库、日志文件和 SYSVOL 的文件夹从驱动器 C 更改为驱动器 F 。

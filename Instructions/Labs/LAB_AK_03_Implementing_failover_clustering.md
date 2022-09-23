@@ -3,14 +3,14 @@ lab:
   title: 实验室：实现故障转移群集
   type: Answer Key
   module: 'Module 3: High availability in Windows Server'
-ms.openlocfilehash: 0aebdfd4b42079ec2266db4724a3087a3623723f
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: e473f48384085f9a861e1887f2f3635ea4e1ef1d
+ms.sourcegitcommit: ecac5958210e9837402ec015bbbac0ebeab48f47
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907060"
+ms.lasthandoff: 08/27/2022
+ms.locfileid: "147695191"
 ---
-# <a name="lab-answer-key-implementing-failover-clustering"></a>实验室参考答案：实现故障转移群集
+# <a name="lab-answer-key-implementing-failover-clustering"></a>实验室解答：实现故障转移群集
 
 ## <a name="exercise-1-configuring-iscsi-storage"></a>练习 1：配置 iSCSI 存储
 
@@ -81,7 +81,7 @@ ms.locfileid: "137907060"
 1. 若要在 SEA-DC1 上创建 Microsoft iSCSI 目标，请切换到托管与 SEA-DC1 的 PowerShell 远程会话的 Windows PowerShell 窗口，输入以下命令，然后按 Enter  ：
 
    ```powershell
-   New-IscsiServerTarget iSCSI-L03 –InitiatorIds “IQN:iqn.1991-05.com.microsoft:sea-svr1.contoso.com","IQN:iqn.1991-05.com.microsoft:sea-svr2.contoso.com"
+   New-IscsiServerTarget -TargetName “iSCSI-L03” –InitiatorIds “IQN:iqn.1991-05.com.microsoft:sea-svr1.contoso.com","IQN:iqn.1991-05.com.microsoft:sea-svr2.contoso.com"
    ```
 
 ## <a name="exercise-2-configuring-a-failover-cluster"></a>练习 2：配置故障转移群集
@@ -91,9 +91,9 @@ ms.locfileid: "137907060"
 1. 若要在 SEA-DC1 上挂载 iSCSI 磁盘，请通过 SEA-SVR2，在托管与 SEA-DC1 的 PowerShell 远程会话的 Windows PowerShell 窗口中，输入以下命令，并在输入每个命令后按 Enter   ：
 
    ```powershell
-   Add-IscsiVirtualDiskTargetMapping iSCSI-L03 C:\Storage\Disk1.VHDX
-   Add-IscsiVirtualDiskTargetMapping iSCSI-L03 C:\Storage\Disk2.VHDX
-   Add-IscsiVirtualDiskTargetMapping iSCSI-L03 C:\Storage\Disk3.VHDX
+   Add-IscsiVirtualDiskTargetMapping -TargetName “iSCSI-L03” -DevicePath “C:\Storage\Disk1.VHDX”
+   Add-IscsiVirtualDiskTargetMapping -TargetName “iSCSI-L03” -DevicePath “C:\Storage\Disk2.VHDX”
+   Add-IscsiVirtualDiskTargetMapping -TargetName “iSCSI-L03” -DevicePath “C:\Storage\Disk3.VHDX”
    ```
 
 1. 若要从 SEA-SVR2 连接到 SEA-DC1 上托管的 iSCSI 目标，请切换到提供本地会话访问权限的 Windows PowerShell 提示符下，输入以下命令，并在输入每个命令后按 Enter  ：
@@ -130,15 +130,15 @@ ms.locfileid: "137907060"
 
    ```powershell
    Get-Disk | Where OperationalStatus -eq 'Offline' | Initialize-Disk -PartitionStyle MBR
-   New-Partition -DiskNumber 1 -Size 5gb -AssignDriveLetter
    New-Partition -DiskNumber 2 -Size 5gb -AssignDriveLetter
    New-Partition -DiskNumber 3 -Size 5gb -AssignDriveLetter
+   New-Partition -DiskNumber 4 -Size 5gb -AssignDriveLetter
    Format-Volume -DriveLetter E -FileSystem NTFS
    Format-Volume -DriveLetter F -FileSystem NTFS
    Format-Volume -DriveLetter G -FileSystem NTFS
    ```
 
-   > 注意：验证每个命令是否成功完成。
+   > **注意：** 在运行命令之前，验证磁盘编号是否与上一个命令的输出内容匹配。 验证每个命令是否成功完成。
 
 #### <a name="task-3-create-a-failover-cluster"></a>任务 3：创建故障转移群集
 
@@ -215,7 +215,7 @@ ms.locfileid: "137907060"
 1. 在 SEA-SVR2 上，打开“文件资源管理器”并浏览到 \\\\FSCluster\\Docs 文件夹 。
 1. 在“Docs”文件夹中，右键单击或访问该文件夹空白区域中的上下文菜单，选择“新建”，然后选择“文本文档”  。
 1. 若要接受将 New Text Document.txt 用作文档的默认名称，请按 Enter。
-1. 在 SEA-SVR2 上，切换到“故障转移群集管理器”控制台，右键单击或访问“FSCluster”的上下文菜单，依次选择“移动”、“选择节点”、“确定”     。
+1. 在 SEA-SVR2 上，切换到“故障转移群集管理器”控制台，右键单击或访问“FSCluster”的上下文菜单，依次选择“移动”、“选择节点”、“SEA-SVR1”和“确定”      。
 1. 在 SEA-SVR2 上，切换回“文件资源管理器”并验证是否仍可访问 \\\\FSCluster\\Docs 文件夹的内容 。
 
 #### <a name="task-2-validate-the-failover-and-quorum-configuration-for-the-file-server-role"></a>任务 2：验证文件服务器角色的故障转移和仲裁配置
@@ -227,7 +227,7 @@ ms.locfileid: "137907060"
 1. 切换到“故障转移群集管理器”控制台，然后右键单击或访问状态为“关闭”的节点的上下文菜单 。
 1. 在该上下文菜单中，选择“更多操作”，然后选择“启动群集服务” 。
 1. 在“故障转移群集管理器”控制台中，右键单击或访问 SEA-CL03.Contoso.com 群集的上下文菜单，选择“更多操作”，然后选择“配置群集仲裁设置”   。 随即将启动“配置群集仲裁向导”。
-1. 在“准备工作”页中，选择“下一步” 。
+1. 在“开始之前”页面上，选择“下一步”。
 1. 在“选择仲裁配置选项”页中，确保选中“使用默认仲裁配置”选项，然后选择“下一步”  。
 1. 在“确认”页中，注意默认情况下选择“群集磁盘 3”作为“磁盘见证”，然后选择“下一步”   。 
 1. 在“摘要”页中，选择“完成” 。

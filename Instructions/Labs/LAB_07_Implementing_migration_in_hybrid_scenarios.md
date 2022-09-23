@@ -2,12 +2,12 @@
 lab:
   title: 实验室：使用 Azure Migrate 将 Hyper-V VM 迁移到 Azure
   module: 'Module 7: Design for Migration'
-ms.openlocfilehash: 9931ebc69ae739cf4996a7fb9ec233d49def3800
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: e97b3ecfbeac22c3eafe8caccd3cac3ed0081ffc
+ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907066"
+ms.lasthandoff: 07/10/2022
+ms.locfileid: "147046975"
 ---
 # <a name="lab-migrating-hyper-v-vms-to-azure-by-using-azure-migrate"></a>实验室：使用 Azure Migrate 将 Hyper-V VM 迁移到 Azure
 
@@ -129,7 +129,7 @@ Azure Migrate 提供以下功能：
 
 1. 在与 az801l07a-hv-vm 的远程桌面会话中，在“服务器管理器”窗口中，禁用“IE 增强的安全配置”。  
 1. 使用文件资源管理器创建两个文件夹：F:\\VHDs 和 F:\\VMs。 
-1. 使用 Microsoft Edge 从[Windows Server 评估](https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2022)中下载 Windows Server 2022 VHD 文件，并将其复制到 F:\VHDs 文件夹。  
+1. 使用 Microsoft Edge 从[Windows Server 评估](https://techcommunity.microsoft.com/t5/windows-11/accessing-trials-and-kits-for-windows-eval-center-workaround/m-p/3361125)中下载 Windows Server 2022 VHD 文件，并将其复制到 F:\VHDs 文件夹。  
 1. 使用 Hyper-V 管理器新建一个具有以下设置的虚拟机：
 
    | 设置 | 值 | 
@@ -224,7 +224,7 @@ Azure Migrate 提供以下功能：
    | 区域 | 在本实验室前面将虚拟机部署到的 Azure 区域的名称 |
    | 设置 | 值 |
    | --- | --- |
-   | 子网名称 | **subnet0** |
+   | 子网名称 | subnet0 |
    | 子网地址范围 | **10.7.0.0/24** |
 
 1. 在 Azure 门户中，使用以下设置创建一个存储帐户（其他设置保留默认值）：
@@ -260,7 +260,10 @@ Azure Migrate 提供以下功能：
 
    >**注意**：等待下载完成。 这可能需要大约 5 分钟。
 
-1. 下载完成后，将下载的 .ZIP 内容提取到 F:\VMs 文件夹中。 
+1. 下载完成后，将下载的 .ZIP 内容提取到 F:\VM 文件夹中。
+
+   >**注意**：由于 Microsoft Edge 默认不提示，你可能需要手动将 .VHD 文件复制到 F:\VMs 文件夹。
+
 1. 在与 az801l07a-hv-vm 的远程桌面会话中，使用 Hyper-V 管理器控制台将复制其 VM 文件的虚拟机导入 F:\VMs 文件夹。   使用“就地注册虚拟机(使用现有的唯一 ID)”选项，将“虚拟处理器数”设置为 4，然后将它连接到 NestedSwitch。   
 
    >**注意**：在实验室环境中，可忽略任何引用虚拟处理器数量更改的错误消息。 在生产场景中，应确保虚拟设备分配了足够数量的计算资源。
@@ -288,7 +291,7 @@ Azure Migrate 提供以下功能：
 
    >**注意**：10.0.2.1 是附加到内部交换机的 Hyper-V 主机的网络接口的 IP 地址。
 
-1. 在“设备配置管理器”页上的“提供 Hyper-V 主机/群集详细信息”部分，启动发现功能。  
+1. 在“设备配置管理器”页上的“提供 Hyper-V 主机/群集详细信息”部分中，启用“如果不想执行这些功能，请禁用滑块”切换按钮，然后选择“开始发现”。    
 
    >**注意**：每个主机可能需要大约 15 分钟才能发现服务器的元数据显示在 Azure 门户。
 

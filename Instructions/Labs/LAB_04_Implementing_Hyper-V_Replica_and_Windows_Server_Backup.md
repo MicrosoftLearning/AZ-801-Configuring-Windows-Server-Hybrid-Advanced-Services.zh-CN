@@ -2,12 +2,12 @@
 lab:
   title: 实验室：实现 Hyper-V 副本和 Windows Server 备份
   module: 'Module 4: Disaster Recovery in Windows Server'
-ms.openlocfilehash: cf313f1971f038711a4164a65d10b8eacc074b55
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: 9f668ce6b8f9f2c6802de4a03ee0038b3066f34e
+ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907059"
+ms.lasthandoff: 07/10/2022
+ms.locfileid: "147046982"
 ---
 # <a name="lab-implementing-hyper-v-replica-and-windows-server-backup"></a>实验室：实现 Hyper-V 副本和 Windows Server 备份
 
@@ -28,9 +28,9 @@ ms.locfileid: "137907059"
 
 虚拟机：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 必须运行  。 其他 VM 可以运行，但本实验室不需要这些 VM。
 
-> 注意：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 虚拟机托管 SEA-DC1、SEA-SVR1 和 SEA-SVR2 的安装      
+> 备注：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 虚拟机托管 SEA-DC1、SEA-SVR1 和 SEA-SVR2 的安装      
 
-1. 选择“SEA-SVR2”。
+1. 选择 SEA-SVR2。
 1. 使用以下凭据登录：
 
    - 用户名：Administrator
@@ -70,7 +70,7 @@ ms.locfileid: "137907059"
 
    ```powershell
    New-Item -ItemType Directory -Path C:\ReplicaStorage -Force
-   Set-VMReplicationServer -ReplicationEnabled $true -AllowedAuthenticationType Kerberos -ReplicationAllowedFromAnyServer $true -DefaultStorageLocation C:\ReplicaStorage
+   Set-VMReplicationServer -ReplicationEnabled $true -AllowedAuthenticationType Kerberos -KerberosAuthenticationPort 8080 -ReplicationAllowedFromAnyServer $true -DefaultStorageLocation C:\ReplicaStorage
    ```
 
 1. 要验证 SEA-SVR2 是否配置为 Hyper-V 副本的副本服务器，请运行以下命令 ：
@@ -83,7 +83,7 @@ ms.locfileid: "137907059"
 
    - **RepEnabled：True**
    - **AuthType：Kerb**
-   - **KerAuthPort：80**
+   - **KerAuthPort：8080**
    - **CertAuthPort：443**
    - **AllowAnyServer：True**
 

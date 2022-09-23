@@ -3,12 +3,12 @@ lab:
   title: 实验室：在 Windows Server 中升级和迁移
   type: Answer Key
   module: Module 6 - Upgrade and migrate in Windows Server
-ms.openlocfilehash: b1415ed88b8b97eabfd7849ebabbe291ed383805
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: 586aafbecd3f9d7d767cf1374e95f919adf2810a
+ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907078"
+ms.lasthandoff: 07/10/2022
+ms.locfileid: "147047018"
 ---
 # <a name="lab-answer-key-upgrade-and-migrate-in-windows-server"></a>实验室答案：在 Windows Server 中升级和迁移
 
@@ -60,7 +60,7 @@ ms.locfileid: "137907078"
    | 管理员用户名 | **学生** |
    | 管理员密码 | **Pa55w.rd1234** |
    | 域名 | **contoso.com** |
-   | VM 大小 | Standard D2s v3 |
+   | VM 大小 | **Standard_DS2_v2** |
    | 虚拟机名称 | az801l06a-dc1 |
    | 虚拟网络名称 | az801l06a-vnet |
    | 虚拟网络地址范围 | 10.6.0.0/16 |
@@ -131,7 +131,7 @@ ms.locfileid: "137907078"
    | 区域 | 选择之前在此练习中部署第一个虚拟机的同一 Azure 区域 |
    | 可用性选项 | **可用性集** |
    | 可用性集 | adAvailabilitySet |
-   | Image | Windows Server 2022 Datacenter - Gen2 |
+   | 映像 | Windows Server 2022 Datacenter：Azure Edition - Gen2 |
    | Azure Spot 实例 | **是** |
    | 大小 | Standard D2s v3 |
    | 用户名 | **学生** |
@@ -179,7 +179,7 @@ ms.locfileid: "137907078"
 
 #### <a name="task-4-manually-promote-a-domain-controller-in-an-azure-vm"></a>任务 4：在 Azure VM 中手动升级域控制器
 
-1. 在“SEA-SVR2”上，在显示 Azure 门户的 Microsoft Edge 窗口中，在部署页面上选择“转到资源” 。 '
+1. 在“SEA-SVR2”上，在显示 Azure 门户的 Microsoft Edge 窗口中，在部署页面上选择“转到资源” 。
 1. 在“az801l06a-dc2”页左侧垂直菜单的“设置”部分中，选择“网络”  。
 1. 在“az801l06a-dc2”\|“网络”页上，选择“az801l06a-dc2”虚拟机的网络接口的链接 。
 1. 在网络接口页左侧垂直菜单的“设置”部分中，选择“IP 配置” 。
@@ -204,7 +204,7 @@ ms.locfileid: "137907078"
 1. 若要安装 AD DS 和 DNS 服务器角色，请在 Windows PowerShell 命令提示符处输入以下命令，然后按 Enter：
     
    ```powershell
-   Install-WindowsFeature -Name AD-Domain-Services,DNS -IncludeManagementFeatures
+   Install-WindowsFeature -Name AD-Domain-Services,DNS -IncludeManagementTools
    ```
 
    > 注意：请等待安装完成。 这可能需要大约 3 分钟。
@@ -222,7 +222,7 @@ ms.locfileid: "137907078"
 1. 在“Active Directory 域服务配置向导”的“部署配置”页上，在“选择部署操作”下，确认已选中“向现有域添加域控制器”   。
 1. 在“域”文本框中，输入“contoso.com”域 。
 1. 在“提供执行此操作的凭据”部分中，选择“更改” 。
-1. 在“部署操作的凭据”对话框的“用户名”框中，输入“CONTOSO\\Student”，在“密码”框中，输入“Pa55w.rd1234”，然后选择“确定”     。 
+1. 在“部署操作的凭据”对话框的“用户名”框中，输入“Student@contoso.com”，在“密码”框中，输入“Pa55w.rd1234”，然后选择“确定”     。 
 1. 回到“Active Directory 域服务配置向导”的“部署配置”页，选择“下一步”  。
 1. 在“域控制器选项”页上，确保已选中“域名系统(DNS)服务器”和“全局编录(GC)”复选框  。 确保清除“只读域控制器(RODC)”复选框。
 1. 在“键入目录服务还原模式(DSRM)密码”部分中，输入并确认密码“Pa55w.rd1234”，然后选择“下一步”  。
@@ -282,7 +282,7 @@ ms.locfileid: "137907078"
    Start-Process msiexec.exe -Wait -ArgumentList "/i $env:USERPROFILE\Downloads\WindowsAdminCenter.msi /qn /L*v log.txt REGISTRY_REDIRECT_PORT_80=1 SME_PORT=443 SSL_CERTIFICATE_OPTION=generate"
    ```
 
-   > 注意：请等待安装完成。 这大约需要 2 分钟。
+   > 备注：请等待安装完成。 这大约需要 2 分钟。
 
 #### <a name="task-2-set-up-file-services"></a>任务 2：设置文件服务
 
@@ -348,7 +348,7 @@ ms.locfileid: "137907078"
 
    >注意：请等待扫描成功完成。 这大约需要 1 分钟。
 
-   >注意：在混合场景中，你也可以选择自动创建充当迁移作业目标的 Azure VM。
+   >注意：在混合方案中，还可以选择自动创建充当迁移作业目标的 Azure VM。
 
 1. 扫描完成后，在“指定此项的目标: sea-svr1.contoso.com”窗格中，查看“将每个源卷映射到目标卷”部分，并确保“S:”源卷映射到“S:”目标卷   。
 1. 在“指定此项的目标: sea-svr1.contoso.com”窗格中，查看“选择要传输的共享”部分，确保传输中包含 Data 源共享，然后选择“下一步”   。
@@ -359,7 +359,7 @@ ms.locfileid: "137907078"
    | 备份将被覆盖的文件夹（不备份启用了 Azure 文件同步的共享） | enabled |
    | 验证方法 | CRC 64 |
    | 最长持续时间（分钟） | **60** |
-   | 迁移用户和组 | 重复使用同名帐户 |
+   | 迁移用户和组 | “重复使用同名帐户” |
    | 最多重试次数 | **3** |
    | 重试之间的延迟（秒） | **60** |
 
@@ -381,7 +381,7 @@ ms.locfileid: "137907078"
    | 子网 | **255.255.0.0** |
    | 网关 | 172.16.10.1 |
 
-1. 在“切换到新服务器”选项卡上，在“配置从 sea-svr1.contoso.com 到 sea-svr2.contoso.com 的切换”窗格的“目标网络适配器”下拉列表中，选择“西雅图”   。
+1. 在“切换到新服务器”选项卡上，在“配置从 sea-svr1.contoso.com 到 sea-svr2.contoso.com 的切换”窗格的“目标网络适配器”下拉列表中，选择“以太网”   。
 1. 在“切换到新服务器”选项卡上，在“配置从 sea-svr1.contoso.com 到 sea-svr2.contoso.com 的切换”窗格的“切换后重命名源设备”部分中，选择“选择新名称”选项，在“新的源计算机名称”中    ，<!--text box?-->输入“SEA-SVR1-OLD”，然后选择“下一步” 。
 1. 在“切换到新服务器”选项卡上，在“调整切换设置”窗格的“切换超时(分钟)”文本框中，输入“30”，在“输入 AD 凭据”部分，将“存储凭据”选项保留为启用，然后选择“下一步”      。
 1. 在“切换到新服务器”选项卡上的“验证源和目标设备”窗格中，选择“验证”，验证成功完成后，选择“下一步”   。

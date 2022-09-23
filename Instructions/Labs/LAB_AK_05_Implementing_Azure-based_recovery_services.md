@@ -3,14 +3,14 @@ lab:
   title: 实验室：实现基于 Azure 的恢复服务
   type: Answer Key
   module: 'Module 5: Planning and implementing migration and recovery services in hybrid scenarios'
-ms.openlocfilehash: 57aeb2d0bbcc6a67e44e5f22a874959c6ae9e1e0
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: 07b2291c1d4122dd53e891b392168a1ff8fb7bf4
+ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907080"
+ms.lasthandoff: 07/10/2022
+ms.locfileid: "147047024"
 ---
-# <a name="lab-answer-key-implementing-azure-based-recovery-services"></a>实验室答案：实现基于 Azure 的恢复服务
+# <a name="lab-answer-key-implementing-azure-based-recovery-services"></a>实验室解答：实现基于 Azure 的恢复服务
 
 ## <a name="exercise-1-creating-and-configuring-an-azure-site-recovery-vault"></a>练习 1：创建和配置 Azure Site Recovery 保管库
 
@@ -40,7 +40,7 @@ ms.locfileid: "137907080"
 
    > 注意：这将自动显示“az801l05a-rsvault”页 。
 
-1. 在“az801l05a`-rsvault”页左侧垂直菜单的“设置”部分中，选择“属性”  。 
+1. 在“az801l05a-rsvault”页左侧垂直菜单的“设置”部分中，选择“属性”  。 
 1. 在“az801l05a-rsvault | 属性”页上，选择“备份配置”标签下的“更新”链接  。
 1. 在“备份配置”页上，将“存储复制类型”设置为“本地冗余”，选择“保存”并关闭“备份配置”页    。
 
@@ -68,7 +68,7 @@ ms.locfileid: "137907080"
 
    |设置|值|
    |---|---|
-   |子网名称|subnet0|
+   |子网名称|**subnet0**|
    |子网地址范围|**10.5.0.0/24**|
 
 1. 回到“创建虚拟网络”页面的“IP 地址”选项卡上，选择“查看 + 创建”  。
@@ -91,7 +91,7 @@ ms.locfileid: "137907080"
 
    |设置|值|
    |---|---|
-   |子网名称|subnet0|
+   |子网名称|**subnet0**|
    |子网地址范围|**10.5.0.0/24**|
 
 1. 回到“创建虚拟网络”页面的“IP 地址”选项卡上，选择“查看 + 创建”  。
@@ -104,7 +104,7 @@ ms.locfileid: "137907080"
    |订阅|你在此实验室中使用的 Azure 订阅的名称|
    |资源组|AZ801-L0502-RG|
    |存储帐户名称|长度在 3 到 24 之间的任何全局唯一名称，由字母和数字组成，以字母开头|
-   |区域|你在本实验室前面部署了恢复服务保管库的 Azure 区域的名称|
+   |区域|你在此实验室前面部署了恢复服务保管库的 Azure 区域的名称|
    |性能|标准|
    |冗余|本地冗余存储 (LRS)|
 
@@ -118,12 +118,12 @@ ms.locfileid: "137907080"
 #### <a name="task-2-prepare-protection-of-a-hyper-v-virtual-machine"></a>任务 2：准备 Hyper-V 虚拟机的保护
 
 1. 在 SEA-SVR2 上，在显示 Azure 门户的 Microsoft Edge 窗口中，使用工具栏中的“搜索资源、服务和文档”文本框搜索并选择“恢复服务保管库”，然后在“恢复服务保管库”页上，选择“az801l05a-rsvault”条目    。
-1. 在“az801l05a-rsvault”页左侧垂直菜单的“入门”部分中，选择“Site Recovery”  
+1. 在“az801l05a-rsvault”页左侧垂直菜单的“开始”部分中，选择“Site Recovery”  。
 1. 在“az801l05a-rsvault \| Site Recovery”页的“Hyper-V 计算机到 Azure”部分中，选择“1. 准备基础结构”  。 
 1. 在“准备基础结构”页的“部署规划”选项卡的“部署规划已完成?”下拉列表中，选择“是，我已完成”并选择“下一步”    。
 1. 在“准备基础结构”页的“源设置”选项卡上，在“是否使用 System Center VMM 来管理 Hyper-V 主机”标签旁边，选择“否”选项   。
 1. 在“准备基础结构”页的“源设置”选项卡上，选择“添加 Hyper-V 站点”链接  。 
-1. 在“创建 Hyper-V 站点”页的“名称”文本框中，输入“az801l05-site”并选择“确定”   ：
+1. 在“创建 Hyper-V 站点”页的“名称”文本框中，输入“az801l05-site”并选择“确定”   。
 1. 在“准备基础结构”页的“源设置”选项卡上，选择“添加 Hyper-V 服务器”链接  。 
 1. 在“添加服务器”页上，选择添加本地 Hyper-V 主机过程步骤 3 中的下载链接，以下载 Microsoft Azure Site Recovery 提供程序的安装程序 。
 
@@ -190,7 +190,7 @@ ms.locfileid: "137907080"
 1. 在“az801l05a-rsvault \| 已复制的项”页上，选择“SEA-CORE1”条目 。
 1. 在 SEA-CORE1 已复制项页上，查看“运行状况和状态”、“故障转移准备情况”、“最新恢复点”和“基础结构视图”部分    。 注意“计划内故障转移”、“故障转移”和“测试故障转移”工具栏图标  。
 
-   > 注意：等待状态更改为“受保护” 。 执行此操作所需的时间取决于实验室环境与托管恢复服务保管库的 Azure 区域之间的连接的可用带宽。 你需要刷新浏览器页面才能更新状态。 
+   > 备注：等待状态更改为“受保护” 。 执行此操作所需的时间取决于实验室环境与托管恢复服务保管库的 Azure 区域之间的连接的可用带宽。 你需要刷新浏览器页面才能更新状态。 
 
 1. 在 SEA-CORE1 已复制项页上，选择最新恢复点，并查看“最新崩溃一致”恢复点和“最新应用一致”恢复点   。 
 
@@ -206,7 +206,7 @@ ms.locfileid: "137907080"
 
 1. 在 Azure 门户中，浏览回“az801l05a-rsvault”页面，然后在左侧垂直菜单的“监视”部分中选择“站点恢复作业”  。 等到“测试故障转移”作业的状态列为“成功” 。
 
-   > 注意：完成测试故障转移所需的时间取决于实验室环境与托管恢复服务保管库的 Azure 区域之间的连接的可用带宽。 你需要刷新浏览器页面才能更新状态。 
+   > 备注：完成测试故障转移所需的时间取决于实验室环境与托管恢复服务保管库的 Azure 区域之间的连接的可用带宽。 你需要刷新浏览器页面才能更新状态。 
 
    > 注意：在等待测试故障转移完成时，继续练习 3，完成后，逐步完成此练习的剩余部分。
 
@@ -230,13 +230,13 @@ ms.locfileid: "137907080"
 
 #### <a name="task-1-set-up-the-azure-recovery-services-agent"></a>任务 1：设置 Azure 恢复服务代理
 
-> 注意：通常，可使用同一个保管库实现 Azure Site Recovery 和 Azure 备份功能。 在选择 Azure 区域来托管用于灾难恢复和备份的保管库时，应考虑恢复目标，包括区域灾难的影响范围以及网络延迟注意事项。 在此实验室中，你将使用同一个保管库进行站点恢复和备份，以尽量减少重复步骤的数量。 
+> 备注：通常，可使用同一个保管库实现 Azure Site Recovery 和 Azure 备份功能。 在选择 Azure 区域来托管用于灾难恢复和备份的保管库时，应考虑恢复目标，包括区域灾难的影响范围以及网络延迟注意事项。 在此实验室中，你将使用同一个保管库进行站点恢复和备份，以尽量减少重复步骤的数量。 
 
-> 注意：要实现 Azure 备份，你将在 Sea-SVR2 上安装 Azure 恢复服务代理，该代理已作为 Microsoft Azure Site Recovery 提供程序  。 为了消除依赖问题，首先要卸载 Azure 恢复服务代理的现有安装。
+> 备注：要实现 Azure 备份，你将在 Sea-SVR2 上安装 Azure 恢复服务代理，该代理已作为 Microsoft Azure Site Recovery 提供程序  。 为了消除依赖问题，首先要卸载 Azure 恢复服务代理的现有安装。
 
 1. 在 SEA-SVR2 上选择“开始”，然后在“开始”菜单上选择“设置”应用   。
 1. 在“设置”应用中，选择“应用” 。
-1. 在“应用和功能”窗格中，选择“Microsoft Azure 恢复服务代理”，选择“卸载”，然后按照提示将其卸载 。
+1. 在“应用和功能”窗格中，选择“Microsoft Azure 恢复服务代理”，选择“卸载”，然后按照提示将其卸载  。
    > 注意：如果收到提示安装失败的错误消息，请重启 VM 并重试。 
 1. 在 SEA-SVR2 上，在显示 Azure 门户的 Microsoft Edge 窗口中，在 az801l05a-rsvault 恢复服务保管库页的左侧垂直菜单中，在“开始”部分，选择“备份”   。
 1. 在“az801l05a-rsvault \| 备份”页上，指定以下设置：
@@ -275,7 +275,7 @@ ms.locfileid: "137907080"
 1. 在 SEA-SVR2 上，在 Microsoft Azure 备份控制台的“操作”窗格中，选择“计划备份”  。
 1. 在计划备份向导的“开始”页上，选择“下一步”  。
 1. 在“选择要备份的项”页上，选择“添加项” 。
-1. 在“选择项目”对话框中，浏览到“C:\\Windows\\System32\\drivers\\etc\\”文件夹，选择“hosts”，然后选择“确定”   ：
+1. 在“选择项”对话框中，浏览到“C:\\Windows\\System32\\drivers\\etc\\”文件夹，选择“hosts”，然后选择“确定”   。
 1. 在“选择要备份的项”页上，选择“下一步” 。
 1. 在“指定备份计划”页上，确保“在以下时间(最多允许一天三次)”框下方的第一个下拉列表框中选择了“天”选项，选择“凌晨 4:30”，然后选择“下一步”    。
 1. 在“选择保留策略”页上，接受默认设置，然后选择“下一步” 。

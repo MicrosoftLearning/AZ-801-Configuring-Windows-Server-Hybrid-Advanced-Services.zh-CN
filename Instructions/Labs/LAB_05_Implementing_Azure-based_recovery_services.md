@@ -2,12 +2,12 @@
 lab:
   title: 实验室：实现基于 Azure 的恢复服务
   module: 'Module 5: Planning and implementing migration and recovery services in hybrid scenarios'
-ms.openlocfilehash: 5d2a3e40b82d90b132e588fede27229275862047
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
+ms.openlocfilehash: 0eee675e858aa8a36a0a437965431253d7fa120b
+ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907068"
+ms.lasthandoff: 07/10/2022
+ms.locfileid: "147046988"
 ---
 # <a name="lab-implementing-azure-based-recovery-services"></a>实验室：实现基于 Azure 的恢复服务
 
@@ -26,7 +26,7 @@ ms.locfileid: "137907068"
 
 ## <a name="lab-setup"></a>实验室设置
 
-虚拟机：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 必须运行  。 其他 VM 可以运行，但此实验室不需要这些 VM。
+虚拟机：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 必须运行  。 其他 VM 可以运行，但本实验室不需要这些 VM。
 
 > 备注：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 虚拟机托管 SEA-DC1、SEA-SVR1 和 SEA-SVR2 的安装      
 
@@ -37,7 +37,7 @@ ms.locfileid: "137907068"
    - 密码：Pa55w.rd
    - 域名：CONTOSO
 
-对于此实验室，你将使用可用的 VM 环境和 Azure 订阅。 在开始实验室之前，请确保拥有 Azure 订阅以及具有该订阅中“所有者”或“参与者”角色的用户帐户。
+对于本实验室，你将使用可用的 VM 环境和 Azure 订阅。 在开始实验室之前，请确保拥有 Azure 订阅以及具有该订阅中“所有者”或“参与者”角色的用户帐户。
 
 ## <a name="exercise-1-creating-and-configuring-an-azure-site-recovery-vault"></a>练习 1：创建并配置 Azure Site Recovery 保管库
 
@@ -95,7 +95,7 @@ ms.locfileid: "137907068"
 
    |设置|值|
    |---|---|
-   |订阅|将在此实验室中使用的 Azure 订阅的名称|
+   |订阅|你在此实验室中使用的 Azure 订阅的名称|
    |资源组|新资源组 AZ801-L0502-RG 的名称|
    |名称|az801l05-dr-vnet|
    |区域|你在此实验室前面部署了恢复服务保管库的 Azure 区域的名称|
@@ -111,7 +111,7 @@ ms.locfileid: "137907068"
 
    |设置|值|
    |---|---|
-   |订阅|将在此实验室中使用的 Azure 订阅的名称|
+   |订阅|你在此实验室中使用的 Azure 订阅的名称|
    |资源组|AZ801-L0502-RG|
    |名称|az801l05-test-vnet|
    |区域|你在此实验室前面部署了恢复服务保管库的 Azure 区域的名称|
@@ -129,7 +129,7 @@ ms.locfileid: "137907068"
 
    |设置|值|
    |---|---|
-   |订阅|将在此实验室中使用的 Azure 订阅的名称|
+   |订阅|你在此实验室中使用的 Azure 订阅的名称|
    |资源组|AZ801-L0502-RG|
    |存储帐户名称|长度在 3 到 24 之间的任何全局唯一名称，由字母和数字组成，以字母开头|
    |区域|你在此实验室前面部署了恢复服务保管库的 Azure 区域的名称|
@@ -143,7 +143,7 @@ ms.locfileid: "137907068"
 #### <a name="task-2-prepare-protection-of-a-hyper-v-virtual-machine"></a>任务 2：准备 Hyper-V 虚拟机的保护
 
 1. 在 SEA-SVR2 上，在 Azure 门户中，浏览到 az801l05a-rsvault 恢复服务保管库边栏选项卡 。 
-1. 在 az801l05a-rsvault 边栏选项卡上的垂直菜单上，开始配置 Site Recovery 
+1. 在 az801l05a-rsvault 边栏选项卡上的垂直菜单上，开始配置 Site Recovery 。
 1. 在 az801l05a-rsvault \| Site Recovery 边栏选项卡上，在“Hyper-V 计算机到 Azure”部分中，选择“1. 准备基础结构”并指定以下设置  ：
 
    |设置|值|
@@ -179,7 +179,7 @@ ms.locfileid: "137907068"
 
    |设置|值|
    |---|---|
-   |订阅|将在此实验室中使用的 Azure 订阅的名称|
+   |订阅|你在此实验室中使用的 Azure 订阅的名称|
    |故障转移后资源组|AZ801-L0502-RG|
    |故障转移后部署模型|**资源管理器**|
    |存储帐户|在此练习的第一个任务中创建的存储帐户的名称|
