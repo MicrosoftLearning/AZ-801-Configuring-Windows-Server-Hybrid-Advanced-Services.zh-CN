@@ -2,13 +2,8 @@
 lab:
   title: 实验室：使用 Azure Migrate 将 Hyper-V VM 迁移到 Azure
   module: 'Module 7: Design for Migration'
-ms.openlocfilehash: e97b3ecfbeac22c3eafe8caccd3cac3ed0081ffc
-ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2022
-ms.locfileid: "147046975"
 ---
+
 # <a name="lab-migrating-hyper-v-vms-to-azure-by-using-azure-migrate"></a>实验室：使用 Azure Migrate 将 Hyper-V VM 迁移到 Azure
 
 ## <a name="lab-scenario"></a>实验室方案

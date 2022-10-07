@@ -2,13 +2,8 @@
 lab:
   title: 实验室：在混合场景中实现操作监视
   module: 'Module 9: Implementing operational monitoring in hybrid scenarios'
-ms.openlocfilehash: ae66f59ae40083cffd609443a019554f78bfe73e
-ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2022
-ms.locfileid: "147046994"
 ---
+
 # <a name="lab-implementing-operational-monitoring-in-hybrid-scenarios"></a>实验室：在混合场景中实现操作监视
 
 ## <a name="lab-scenario"></a>实验室方案

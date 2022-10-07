@@ -2,13 +2,8 @@
 lab:
   title: 实验室：实现 Hyper-V 副本和 Windows Server 备份
   module: 'Module 4: Disaster Recovery in Windows Server'
-ms.openlocfilehash: 9f668ce6b8f9f2c6802de4a03ee0038b3066f34e
-ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2022
-ms.locfileid: "147046982"
 ---
+
 # <a name="lab-implementing-hyper-v-replica-and-windows-server-backup"></a>实验室：实现 Hyper-V 副本和 Windows Server 备份
 
 ## <a name="scenario"></a>场景

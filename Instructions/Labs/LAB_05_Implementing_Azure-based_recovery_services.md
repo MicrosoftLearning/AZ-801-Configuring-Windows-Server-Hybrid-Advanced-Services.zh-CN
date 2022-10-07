@@ -2,13 +2,8 @@
 lab:
   title: 实验室：实现基于 Azure 的恢复服务
   module: 'Module 5: Planning and implementing migration and recovery services in hybrid scenarios'
-ms.openlocfilehash: 0eee675e858aa8a36a0a437965431253d7fa120b
-ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2022
-ms.locfileid: "147046988"
 ---
+
 # <a name="lab-implementing-azure-based-recovery-services"></a>实验室：实现基于 Azure 的恢复服务
 
 ## <a name="scenario"></a>场景 

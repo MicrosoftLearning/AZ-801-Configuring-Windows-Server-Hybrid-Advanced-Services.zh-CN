@@ -2,13 +2,8 @@
 lab:
   title: 实验室：监视 Windows Server 并对其进行故障排除
   module: 'Module 8: Monitoring, performance, and troubleshooting'
-ms.openlocfilehash: be85a4a949d34c194ba76cd56cbb81f350707685
-ms.sourcegitcommit: 9a51ea796ef3806ab9e7ec1ff75034b2f929ed2a
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2022
-ms.locfileid: "137907065"
 ---
+
 # <a name="lab-monitoring-and-troubleshooting-windows-server"></a>实验室：监视 Windows Server 并对其进行故障排除
 
 ## <a name="scenario"></a>场景
@@ -31,7 +26,7 @@ Contoso, Ltd. 是一家全球工程和制造公司，其总部位于美国华盛
 
 虚拟机：AZ-801T00A-SEA-DC1 和 AZ-801T00A-SEA-SVR2 必须正在运行 。 其他 VM 可以运行，但本实验室不需要这些 VM。
 
-> **注意**：AZ-801T00A-SEA-DC1 和 AZ-801T00A-SEA-SVR2 虚拟机托管 SEA-DC1 和 SEA-SVR2 的安装   。
+> 注意： AZ-801T00A-SEA-DC1 和 AZ-801T00A-SEA-SVR2 虚拟机托管 SEA-DC1 和 SEA-SVR2 的安装    。
 
 1. 选择“SEA-SVR2”。
 1. 使用以下凭据登录：

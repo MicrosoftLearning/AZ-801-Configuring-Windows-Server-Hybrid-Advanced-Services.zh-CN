@@ -2,13 +2,8 @@
 lab:
   title: 实验室：在混合场景中实现安全解决方案
   module: 'Module 2: Implementing Security Solutions in Hybrid Scenarios'
-ms.openlocfilehash: 475c539c6792c3a50a41c27ec5c293e895f0f07a
-ms.sourcegitcommit: fb0d39e25bc0fe182037587b772d217db126d3bb
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2022
-ms.locfileid: "144812991"
 ---
+
 # <a name="lab-implementing-security-solutions-in-hybrid-scenarios"></a>实验室：在混合场景中实现安全解决方案
 
 ## <a name="scenario"></a>场景
@@ -86,7 +81,7 @@ ms.locfileid: "144812991"
 1. 在“自动化帐户”页面中，浏览到它的“清单”页 。
 1. 在“清单”页中，通过将它与你之前在此任务中创建的 Log Analytics 工作区相关联来启用解决方案。
 
-   >备注：请等待相应 Log Analytics 解决方案的安装完成。 这可能需要大约 3 分钟的时间。 
+   >备注：请等待相应 Log Analytics 解决方案的安装完成。 这可能需要大约 3 分钟。 
 
    >备注：这还会自动安装“更改跟踪”解决方案 。
 

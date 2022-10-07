@@ -3,13 +3,8 @@ lab:
   title: 实验室：在 Windows Server 中升级和迁移
   type: Answer Key
   module: Module 6 - Upgrade and migrate in Windows Server
-ms.openlocfilehash: 586aafbecd3f9d7d767cf1374e95f919adf2810a
-ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2022
-ms.locfileid: "147047018"
 ---
+
 # <a name="lab-answer-key-upgrade-and-migrate-in-windows-server"></a>实验室答案：在 Windows Server 中升级和迁移
 
 ## <a name="exercise-1-deploying-ad-ds-domain-controllers-in-azure"></a>练习 1：在 Azure 中部署 AD DS 域控制器
@@ -308,7 +303,7 @@ ms.locfileid: "147047018"
 
 1. 查看“此版本中的新增功能”弹出窗口，然后在其右上角选择“关闭” 。
 1. 在 Windows Admin Center 的“所有连接”窗格的右上角，选择“设置”图标（齿轮） 。
-1. 在左窗格中，选择“扩展”。 查看可用的扩展。
+1. 在左窗格中，选择“扩展”****。 查看可用的扩展。
 1. 在“详细信息”窗格中，选择“已安装扩展”并确认列表包含“存储迁移服务”扩展 。
 
    >注意：如果有可用的更新，请选择“存储迁移服务”扩展条目，然后选择“更新”  。

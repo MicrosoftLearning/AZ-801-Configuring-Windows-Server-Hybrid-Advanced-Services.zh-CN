@@ -3,13 +3,8 @@ lab:
   title: 实验室：配置 Windows Server 中的安全性
   type: Answer Key
   module: 'Module 1: Windows Server security'
-ms.openlocfilehash: 42202d9eb5bf7c9a371c3215120ec8b7f6da0d46
-ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2022
-ms.locfileid: "147046974"
 ---
+
 # <a name="lab-answer-key-configuring-security-in-windows-server"></a>实验室解答：配置 Windows Server 中的安全性
 
 ## <a name="exercise-1-configuring-windows-defender-credential-guard"></a>练习 1：配置 Windows Defender Credential Guard
