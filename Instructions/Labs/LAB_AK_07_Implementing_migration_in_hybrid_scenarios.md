@@ -3,13 +3,8 @@ lab:
   title: 实验室：使用 Azure Migrate 将 Hyper-V VM 迁移到 Azure
   type: Answer Key
   module: 'Module 7: Design for Migration'
-ms.openlocfilehash: f8130a11f54f6cc30a6db793dd6b9b35aa9629fd
-ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2022
-ms.locfileid: "147047019"
 ---
+
 # <a name="lab-answer-key-migrating-hyper-v-vms-to-azure-by-using-azure-migrate"></a>实验室答案：使用 Azure Migrate 将 Hyper-V VM 迁移到 Azure
 
 ## <a name="exercise-1-prepare-the-lab-environment"></a>练习 1 - 准备实验室环境
@@ -186,7 +181,7 @@ ms.locfileid: "147047019"
 
    | 设置 | 值 |
    | --- | --- |
-   | 子网名称 | subnet0 |
+   | 子网名称 | **subnet0** |
    | 子网地址范围 | **10.7.0.0/24** |
 
 1. 返回到“创建虚拟网络”页的“IP 地址”选项卡上，选择“查看 + 创建”  。

@@ -3,13 +3,8 @@ lab:
   title: 实验室：在混合场景中实现安全解决方案
   type: Answer Key
   module: 'Module 2: Implementing Security Solutions in Hybrid Scenarios'
-ms.openlocfilehash: 02fcfe79dff809e8ec90690e4a3893be14c02fe4
-ms.sourcegitcommit: dad7571f21a69a2fd2213d91ef7e1d01639df716
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 04/27/2022
-ms.locfileid: "144334636"
 ---
+
 # <a name="lab-answer-key-implementing-security-solutions-in-hybrid-scenarios"></a>实验室解答：在混合场景中实现安全解决方案
 
 ## <a name="exercise-1-creating-an-azure-log-analytics-workspace-and-an-azure-automation-account"></a>练习 1：创建 Azure Log Analytics 工作区和 Azure 自动化帐户
@@ -50,7 +45,7 @@ ms.locfileid: "144334636"
 1. 在“自动化帐户”页的“配置管理”部分，选择“清单”  。
 1. 在“清单”页的“Log Analytics 工作区”下拉列表中，选择你之前在此任务中创建的 Log Analytics 工作区，然后选择“启用”  。
 
-   >备注：请等待相应 Log Analytics 解决方案的安装完成。 这可能需要大约 3 分钟的时间。 
+   >备注：请等待相应 Log Analytics 解决方案的安装完成。 这可能需要大约 3 分钟。 
 
    >备注：这还会自动安装“更改跟踪”解决方案 。
 
@@ -282,7 +277,7 @@ ms.locfileid: "144334636"
 
 ## <a name="exercise-6-deprovisioning-the-azure-environment"></a>练习 6：取消预配 Azure 环境
 
-#### <a name="task-1-start-a-powershell-session-in-cloud-shell"></a>任务 1：在 Cloud Shell 中启动一个 PowerShell 会话
+#### <a name="task-1-start-a-powershell-session-in-cloud-shell"></a>任务 1：在 Cloud Shell 中启动 PowerShell 会话
 
 1. 在 SEA-SVR2 上，在显示 Azure 门户的 Microsoft Edge 窗口中，通过选择 Cloud Shell 图标打开 Cloud Shell 窗格。
 
@@ -294,7 +289,7 @@ ms.locfileid: "144334636"
    Get-AzResourceGroup -Name 'AZ801-L02*'
    ```
 
-   > 备注：验证输出是否仅包含你在此实验室中创建的资源组。 此任务中将删除该组。
+   > 注意：验证输出中是否仅包含你在此实验室中创建的资源组。 此任务中将删除该组。
 
 1. 运行以下命令，删除在此实验室中创建的所有资源组：
 

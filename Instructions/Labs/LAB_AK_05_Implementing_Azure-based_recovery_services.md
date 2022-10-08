@@ -3,13 +3,8 @@ lab:
   title: 实验室：实现基于 Azure 的恢复服务
   type: Answer Key
   module: 'Module 5: Planning and implementing migration and recovery services in hybrid scenarios'
-ms.openlocfilehash: 07b2291c1d4122dd53e891b392168a1ff8fb7bf4
-ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2022
-ms.locfileid: "147047024"
 ---
+
 # <a name="lab-answer-key-implementing-azure-based-recovery-services"></a>实验室解答：实现基于 Azure 的恢复服务
 
 ## <a name="exercise-1-creating-and-configuring-an-azure-site-recovery-vault"></a>练习 1：创建和配置 Azure Site Recovery 保管库
@@ -68,7 +63,7 @@ ms.locfileid: "147047024"
 
    |设置|值|
    |---|---|
-   |子网名称|**subnet0**|
+   |子网名称|subnet0|
    |子网地址范围|**10.5.0.0/24**|
 
 1. 回到“创建虚拟网络”页面的“IP 地址”选项卡上，选择“查看 + 创建”  。
@@ -91,7 +86,7 @@ ms.locfileid: "147047024"
 
    |设置|值|
    |---|---|
-   |子网名称|**subnet0**|
+   |子网名称|subnet0|
    |子网地址范围|**10.5.0.0/24**|
 
 1. 回到“创建虚拟网络”页面的“IP 地址”选项卡上，选择“查看 + 创建”  。

@@ -3,13 +3,8 @@ lab:
   title: 实验室：在混合场景中实现操作监视
   type: Answer Key
   module: Module 9 - Implementing operational monitoring in hybrid scenarios
-ms.openlocfilehash: b27abf5d550f581a170fe3e2e9df76daa9c6c1d6
-ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2022
-ms.locfileid: "147046973"
 ---
+
 # <a name="lab-answer-key-implementing-operational-monitoring-in-hybrid-scenarios"></a>实验室答案：在混合场景中实现操作监视
 
 ## <a name="exercise-1-preparing-a-monitoring-environment"></a>练习 1：准备监视环境
@@ -324,7 +319,7 @@ ms.locfileid: "147046973"
    Get-AzResourceGroup -Name 'AZ801-L09*'
    ```
 
-   > 备注：验证输出是否仅包含你在此实验室中创建的资源组。 此任务中将删除该组。
+   > 注意：验证输出中是否仅包含你在此实验室中创建的资源组。 此任务中将删除该组。
 
 1. 运行以下命令，删除在此实验室中创建的所有资源组：
 

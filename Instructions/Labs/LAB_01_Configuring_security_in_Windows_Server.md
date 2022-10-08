@@ -2,13 +2,8 @@
 lab:
   title: 实验室：配置 Windows Server 中的安全性
   module: 'Module 1: Windows Server security'
-ms.openlocfilehash: e3ff4a435b249f1688749a3992cb3375136f046c
-ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2022
-ms.locfileid: "147046997"
 ---
+
 # <a name="lab-configuring-security-in-windows-server"></a>实验室：配置 Windows Server 中的安全性
 
 ## <a name="scenario"></a>场景

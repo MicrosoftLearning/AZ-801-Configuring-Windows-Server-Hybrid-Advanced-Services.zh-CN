@@ -3,13 +3,8 @@ lab:
   title: 实验室：监视 Windows Server 并对其进行故障排除
   type: Answer Key
   module: 'Module 8: Monitoring, performance, and troubleshooting'
-ms.openlocfilehash: 3973d8bde19992787719f8650fc1ea83593e4491
-ms.sourcegitcommit: d2e9d886e710729f554d2ba62d1abe3c3f65fcb6
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2022
-ms.locfileid: "147047027"
 ---
+
 # <a name="lab-answer-key-monitoring-and-troubleshooting-windows-server"></a>实验室参考答案：监视 Windows Server 并对其进行故障排除
 
 ### <a name="exercise-1-establishing-a-performance-baseline"></a>练习 1：建立性能基线
