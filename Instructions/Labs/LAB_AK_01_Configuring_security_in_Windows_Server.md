@@ -7,6 +7,8 @@ lab:
 
 # <a name="lab-answer-key-configuring-security-in-windows-server"></a>实验室解答：配置 Windows Server 中的安全性
 
+                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Configuring%20security%20in%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+
 ## <a name="exercise-1-configuring-windows-defender-credential-guard"></a>练习 1：配置 Windows Defender Credential Guard
 
 > 备注：在实验室环境中，Credential Guard 在 VM 上不可用，因为它们不符合先决条件。 但这并不妨碍你使用组策略逐步执行实现过程，并使用相应的工具评估其准备情况。

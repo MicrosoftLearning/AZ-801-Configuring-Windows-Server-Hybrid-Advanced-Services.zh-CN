@@ -10,6 +10,8 @@ lab:
 
 Contoso Pharmaceuticals 是一家在世界各地约有 5000 名员工的医疗研究公司。 它们具有确保医疗记录和数据保密的特定需求。 公司有一个总部和多个全球分部。 Contoso 最近部署了一个 Windows Server 和 Windows 客户端基础结构。 你的任务是在服务器安全配置中实现改进。
 
+                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Configuring%20security%20in%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+
 ## <a name="objectives"></a>目标
 
 完成本实验室后，你将能够：

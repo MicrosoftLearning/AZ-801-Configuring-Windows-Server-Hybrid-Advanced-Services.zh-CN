@@ -7,6 +7,8 @@ lab:
 
 # <a name="lab-answer-key-migrating-hyper-v-vms-to-azure-by-using-azure-migrate"></a>实验室答案：使用 Azure Migrate 将 Hyper-V VM 迁移到 Azure
 
+                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Migrating%20Hyper-V%20VMs%20to%20Azure%20by%20using%20Azure%20Migrate)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+
 ## <a name="exercise-1-prepare-the-lab-environment"></a>练习 1 - 准备实验室环境
 
 #### <a name="task-1-deploy-an-azure-vm-by-using-an-azure-resource-manager-quickstart-template"></a>任务 1：使用 Azure 资源管理器快速入门模板部署 Azure VM
@@ -57,7 +59,7 @@ lab:
 1. 在 Azure 门户工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择 Bastions，然后在 Bastions 页面上，选择“+ 创建”   。
 1. 在“创建 Bastion”页面的基本标签上，指定以下设置并选择“查看 + 创建”  ：
 
-   | 设置 | 值 | 
+   | 设置 | Value | 
    | --- | --- |
    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
    | 资源组 | **AZ801-L0701-RG** |
@@ -169,7 +171,7 @@ lab:
 1. 在与 az801l07a-hv-vm 的远程桌面会话中，在 Azure 门户工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择“虚拟网络”  。 在“虚拟网络”页上 ，选择命令栏上的“+ 创建” 。 
 1. 在“创建虚拟网络”页的“基本信息”选项卡上，指定以下设置（将其他设置保留为默认值）并选择“下一步: IP 地址”  ：
 
-   | 设置 | 值 |
+   | 设置 | Value |
    | --- | --- |
    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
    | 资源组 | 新资源组 AZ801-L0703-RG 的名称 |
@@ -201,7 +203,7 @@ lab:
 
    | 设置 | 值 |
    | --- | --- |
-   | 子网名称 | **subnet0** |
+   | 子网名称 | subnet0 |
    | 子网地址范围 | **10.7.0.0/24** |
 
 1. 返回到“创建虚拟网络”页的“IP 地址”选项卡上，选择“查看 + 创建”  。
@@ -371,7 +373,7 @@ lab:
 
 1. 在“复制”页的“目标设置”选项卡上，指定以下设置（将其他设置保留为默认值），然后选择“下一步”  ：
 
-   | 设置 | 值 | 
+   | 设置 | Value | 
    | --- | --- |
    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
    | 资源组 | **AZ801-L0703-RG** |

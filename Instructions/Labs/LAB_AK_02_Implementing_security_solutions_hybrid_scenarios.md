@@ -7,6 +7,8 @@ lab:
 
 # <a name="lab-answer-key-implementing-security-solutions-in-hybrid-scenarios"></a>实验室解答：在混合场景中实现安全解决方案
 
+                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20security%20solutions%20in%20hybrid%20scenarios)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+
 ## <a name="exercise-1-creating-an-azure-log-analytics-workspace-and-an-azure-automation-account"></a>练习 1：创建 Azure Log Analytics 工作区和 Azure 自动化帐户
 
 #### <a name="task-1-create-an-azure-log-analytics-workspace"></a>任务 1：创建 Azure Log Analytics 工作区 
@@ -289,7 +291,7 @@ lab:
    Get-AzResourceGroup -Name 'AZ801-L02*'
    ```
 
-   > 注意：验证输出中是否仅包含你在此实验室中创建的资源组。 此任务中将删除该组。
+   > 备注：验证输出是否仅包含你在此实验室中创建的资源组。 此任务中将删除该组。
 
 1. 运行以下命令，删除在此实验室中创建的所有资源组：
 

@@ -7,6 +7,8 @@ lab:
 
 # <a name="lab-answer-key-implementing-operational-monitoring-in-hybrid-scenarios"></a>实验室答案：在混合场景中实现操作监视
 
+                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20operational%20monitoring%20in%20hybrid%20scenarios)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+
 ## <a name="exercise-1-preparing-a-monitoring-environment"></a>练习 1：准备监视环境
 
 #### <a name="task-1-deploy-an-azure-virtual-machine"></a>任务 1：部署 Azure 虚拟机
@@ -58,7 +60,7 @@ lab:
 1. 在 SEA-SVR2 上，在 Azure 门户的工具栏中的“搜索资源、服务和文档”文本框中，搜索并选择“Log Analytics 工作区”，然后从“Log Analytics 工作区”页中选择“+ 创建”    。
 1. 在“创建 Log Analytics 工作区”页的“基本信息”选项卡上，输入以下设置，选择“查看 + 创建”，然后选择“创建”   ：
 
-   | 设置 | 值 |
+   | 设置 | Value |
    | --- | --- |
    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
    | 资源组 | 新资源组 AZ801-L0902-RG 的名称 |
@@ -212,7 +214,7 @@ lab:
    | --- | --- |
    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
    | 资源组 | **AZ801-L0902-RG** |
-   | 操作组名称 | az801l09-ag1 |
+   | 操作组名称 | **az801l09-ag1** |
    | 显示名称 | az801l09-ag1 |
 
 1. 在“创建操作组”页的“通知”选项卡上，在“通知类型”下拉列表中，选择“电子邮件/短信/推送/语音”   。 在“名称”文本框中，键入“管理员电子邮件”，然后选择“编辑详细信息”（铅笔）图标  。
@@ -319,7 +321,7 @@ lab:
    Get-AzResourceGroup -Name 'AZ801-L09*'
    ```
 
-   > 注意：验证输出中是否仅包含你在此实验室中创建的资源组。 此任务中将删除该组。
+   > 备注：验证输出是否仅包含你在此实验室中创建的资源组。 此任务中将删除该组。
 
 1. 运行以下命令，删除在此实验室中创建的所有资源组：
 
