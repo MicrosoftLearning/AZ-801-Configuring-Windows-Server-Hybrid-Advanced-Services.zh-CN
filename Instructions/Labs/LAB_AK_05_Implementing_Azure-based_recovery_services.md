@@ -7,6 +7,8 @@ lab:
 
 # <a name="lab-answer-key-implementing-azure-based-recovery-services"></a>实验室解答：实现基于 Azure 的恢复服务
 
+                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20Azure-based%20recovery%20services)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+
 ## <a name="exercise-1-creating-and-configuring-an-azure-site-recovery-vault"></a>练习 1：创建和配置 Azure Site Recovery 保管库
 
 #### <a name="task-1-create-an-azure-site-recovery-vault"></a>任务 1：创建 Azure Site Recovery 保管库
@@ -86,7 +88,7 @@ lab:
 
    |设置|值|
    |---|---|
-   |子网名称|subnet0|
+   |子网名称|**subnet0**|
    |子网地址范围|**10.5.0.0/24**|
 
 1. 回到“创建虚拟网络”页面的“IP 地址”选项卡上，选择“查看 + 创建”  。
@@ -94,7 +96,7 @@ lab:
 1. 在 SEA-SVR2 上，在 Azure 门户中使用工具栏中的“搜索资源、服务和文档”文本框搜索并选择“存储帐户”，然后在“存储帐户”页上，选择“+ 创建”    。
 1. 在“创建存储帐户”页的“基本信息”选项卡上，指定以下设置（将其他设置保留为默认值） ：
 
-   |设置|值|
+   |设置|Value|
    |---|---|
    |订阅|你在此实验室中使用的 Azure 订阅的名称|
    |资源组|AZ801-L0502-RG|
@@ -160,7 +162,7 @@ lab:
 1. 在“启用复制”页的“源环境”选项卡上，在“源位置”下拉列表中，选择“az801l05-site”并选择“下一步”    。
 1. 在“启用复制”页的“目标环境”选项卡上，指定以下设置（其他设置保留默认值）并选择“下一步”  ：
 
-   |设置|值|
+   |设置|Value|
    |---|---|
    |订阅|你在此实验室中使用的 Azure 订阅的名称|
    |故障转移后资源组|AZ801-L0502-RG|

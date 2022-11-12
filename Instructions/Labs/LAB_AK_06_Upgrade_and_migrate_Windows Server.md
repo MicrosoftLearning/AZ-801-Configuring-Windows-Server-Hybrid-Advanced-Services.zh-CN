@@ -7,6 +7,8 @@ lab:
 
 # <a name="lab-answer-key-upgrade-and-migrate-in-windows-server"></a>实验室答案：在 Windows Server 中升级和迁移
 
+                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Upgrading%20and%20migrating%20in%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+
 ## <a name="exercise-1-deploying-ad-ds-domain-controllers-in-azure"></a>练习 1：在 Azure 中部署 AD DS 域控制器
 
 #### <a name="task-1-deploy-a-domain-controller-by-using-an-azure-resource-manager-arm-template"></a>任务 1：使用 Azure 资源管理器 (ARM) 模板部署域控制器
@@ -94,7 +96,7 @@ lab:
 1. 在 Azure 门户工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择 Bastions，然后在 Bastions 页面上，选择“+ 创建”   。
 1. 在“创建 Bastion”页的“基本”标签上，指定以下设置，然后选择“查看 + 创建”  ：
 
-   | 设置 | 值 | 
+   | 设置 | Value | 
    | --- | --- |
    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
    | 资源组 | 新资源组 AZ801-L0602-RG 的名称 |

@@ -12,6 +12,8 @@ lab:
 
 作为 Contoso 的高级网络管理员之一，你负责在运行 Windows Server 的服务器上实现故障转移群集，为网络服务和应用程序提供高可用性。 你还负责规划故障转移群集配置，以及部署故障转移群集上的应用程序和服务。
 
+                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20Failover%20Clustering)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+
 ## <a name="objectives"></a>目标
 
 完成本实验室后，你将能够：
@@ -24,7 +26,7 @@ lab:
 
 ## <a name="lab-setup"></a>实验室设置
 
-虚拟机：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 必须运行  。 其他 VM 可以运行，但本实验室不需要这些 VM。
+虚拟机：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 必须运行  。 其他 VM 可以运行，但此实验室不需要这些 VM。
 
 > 备注：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 虚拟机托管 SEA-DC1、SEA-SVR1 和 SEA-SVR2 的安装      
 

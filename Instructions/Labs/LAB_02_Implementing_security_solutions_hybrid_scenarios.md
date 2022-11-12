@@ -10,6 +10,8 @@ lab:
 
 为了确定 Microsoft Azure 安全性相关的集成功能，以便进一步增强你的本地和云安全环境，你已决定将你概念证明环境中的 Windows 服务器载入 Microsoft Defender for Cloud。 还需要将运行 Windows Server 的本地服务器和 Azure VM 与基于 Azure 自动化的解决方案相集成，包括清单、更改跟踪以及更新管理。
 
+                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20security%20solutions%20in%20hybrid%20scenarios)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+
 ## <a name="objectives"></a>目标
 
 完成本实验室后，你将能够：
@@ -53,7 +55,7 @@ lab:
 1. 在 SEA-SVR2 上，启动 Microsoft Edge，转到 [Azure 门户](https://portal.azure.com)，然后使用具有要在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录 。
 1. 在 Azure 门户中，使用以下设置创建 Log Analytics 工作区：
 
-   | 设置 | 值 |
+   | 设置 | Value |
    | --- | --- |
    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
    | 资源组 | 新资源组 AZ801-L0201-RG 的名称 |
