@@ -29,7 +29,7 @@
 
 - 你可以提交 bug、更改、改进和想法。  先于我们找到了新的 Azure 功能？  提交新演示！
 
-## <a name="notes"></a>说明
+## <a name="notes"></a>注释
 
 ### <a name="classroom-materials"></a>课堂材料
 
