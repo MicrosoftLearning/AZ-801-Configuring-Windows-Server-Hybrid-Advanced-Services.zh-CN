@@ -72,14 +72,15 @@ lab:
 
    > 备注：注意，可以选择性地禁用同一页面上列出的单个 Microsoft Defender 计划。
 
-1. 将所有计划（第一个计划除外，它代表 Microsoft Defender for Servers）设置为“关闭”，然后选择“保存”  。
-1. 在“设置 \| Defender 计划”页左侧垂直菜单的“设置”部分，选择“自动预配”  。
-1. 在“设置 \| 自动预配”页的扩展列表中，在“Azure VM 的 Log Analytics 代理”条目右侧，选择“编辑配置”链接  。
-1. 在“扩展部署配置”页的“工作区配置”部分，选择“将 Azure VM 连接到其他工作区”选项  。 在下拉菜单中，选择代表在上一个练习中创建的工作区的条目，然后选择“应用”。
-1. 返回“设置 \| 自动预配”页，将“Azure Arc Machine 的 Log Analytics 代理(预览版)”设置为“开”  。 这将自动显示“扩展部署配置”页。 
-1. 在“扩展部署配置”页的“选择 Log Analytics 工作区”下拉列表中，选择代表你在上一个练习中创建的工作区的条目，然后选择“应用”  。
-1. 返回“设置 \| 自动预配”页面，将“计算机的漏洞评估”设置为“开”  。 在“扩展部署配置”页中，确保选中“Microsoft 威胁和漏洞管理”选项，然后选择“应用”  。
-1. 在页面顶部选择“保存”。
+1. 将“服务器”外的所有其他计划设置为“关闭”，然后选择“保存”。  
+1. 在“设置 \| Defender 计划”页上方，选择“设置和监视” 。
+1. 在“设置和监视”页的扩展列表中，在“Log Analytics 代理/Azure Monitor 代理”条目右侧，选择“编辑配置”链接  。
+1. 在“自动预配配置”的“工作区选择”部分，选择“自定义工作区”选项，在下拉菜单中，选择表示在上一练习中创建的工作区的条目，然后选择“应用”。   
+1. 在“设置和监视”页的扩展列表中，将“来宾配置代理(预览)”设置为“打开”。  
+1. 在“设置和监视”页的扩展列表中，将“计算机的漏洞评估”设置为“打开”。   在右侧，选择“编辑配置”链接。
+1. 在“扩展部署配置”页上，确保选中“Microsoft 威胁和漏洞管理”选项，然后选择“应用”  。
+1. 在“设置和监视”页上，选择“继续” 。   
+1. 在“Defender 计划”页上，选择“保存”，然后关闭页面。 
 1. 浏览回“Microsoft Defender for Cloud | 概览”页，然后在左侧垂直菜单的“管理”部分，选择“环境设置”  。
 1. 在“环境设置”页上，展开代表你的 Azure 订阅的条目，并选择代表你在上一个练习中创建的 Log Analytics 工作区的条目。
 1. 在“设置 \| Defender 计划”页上，选择磁贴“启用所有 Microsoft Defender for Cloud 计划”，然后选择“保存”  。
@@ -279,7 +280,7 @@ lab:
 
 ## <a name="exercise-6-deprovisioning-the-azure-environment"></a>练习 6：取消预配 Azure 环境
 
-#### <a name="task-1-start-a-powershell-session-in-cloud-shell"></a>任务 1：在 Cloud Shell 中启动 PowerShell 会话
+#### <a name="task-1-start-a-powershell-session-in-cloud-shell"></a>任务 1：在 Cloud Shell 中启动一个 PowerShell 会话
 
 1. 在 SEA-SVR2 上，在显示 Azure 门户的 Microsoft Edge 窗口中，通过选择 Cloud Shell 图标打开 Cloud Shell 窗格。
 
