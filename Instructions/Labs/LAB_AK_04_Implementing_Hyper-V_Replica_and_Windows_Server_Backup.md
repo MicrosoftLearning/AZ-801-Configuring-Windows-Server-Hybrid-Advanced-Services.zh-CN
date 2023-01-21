@@ -184,7 +184,7 @@ lab:
 
 ## <a name="exercise-2-implementing-backup-and-restore-with-windows-server-backup"></a>练习 2：使用 Windows Server Backup 实现备份和还原
 
-### <a name="task1-configure-windows-server-backup-settings"></a>任务 1：配置 Windows Server 备份设置
+#### <a name="task1-configure-windows-server-backup-settings"></a>任务 1：配置 Windows Server 备份设置
 
 1. 在 SEA-SVR2 上，选择任务栏上的文件资源管理器图标，打开文件资源管理器 。
 1. 在文件资源管理器中，在导航窗格中选择“本地磁盘(C:)” 。
