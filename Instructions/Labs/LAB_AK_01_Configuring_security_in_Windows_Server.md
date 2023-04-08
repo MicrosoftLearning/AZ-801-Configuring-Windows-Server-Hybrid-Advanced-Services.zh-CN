@@ -5,15 +5,15 @@ lab:
   module: 'Module 1: Windows Server security'
 ---
 
-# <a name="lab-answer-key-configuring-security-in-windows-server"></a>实验室解答：配置 Windows Server 中的安全性
+# 实验室解答：配置 Windows Server 中的安全性
 
-                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Configuring%20security%20in%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Configuring%20security%20in%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
-## <a name="exercise-1-configuring-windows-defender-credential-guard"></a>练习 1：配置 Windows Defender Credential Guard
+## 练习 1：配置 Windows Defender Credential Guard
 
 > 备注：在实验室环境中，Credential Guard 在 VM 上不可用，因为它们不符合先决条件。 但这并不妨碍你使用组策略逐步执行实现过程，并使用相应的工具评估其准备情况。
 
-#### <a name="task-1-enable-windows-defender-credential-guard-using-group-policy"></a>任务 1：使用组策略启用 Windows Defender Credential Guard
+#### 任务 1：使用组策略启用 Windows Defender Credential Guard
 
 1. 连接到 SEA-SVR2，并根据需要，以 CONTOSO\\Administrator 的身份使用密码 Pa55w.rd 登录  。
 1. 在“启动”按钮旁的“在此键入进行搜索”文本框中，输入“组策略管理”  。
@@ -30,7 +30,7 @@ lab:
 1. 关闭“组策略管理编辑器”窗口。
 1. 关闭“组策略管理”控制台窗口。
 
-#### <a name="task-2-enable-windows-defender-credential-guard-using-the-hypervisor-protected-code-integrity-hvci-and-windows-defender-credential-guard-hardware-readiness-tool"></a>任务 2：使用虚拟机监控程序保护的代码完整性 (HVCI) 和 Windows Defender Credential Guard 硬件准备工具启用 Windows Defender Credential Guard
+#### 任务 2：使用虚拟机监控程序保护的代码完整性 (HVCI) 和 Windows Defender Credential Guard 硬件准备工具启用 Windows Defender Credential Guard
 
 1. 在 SEA-SVR2 上，选择“开始”，右键单击或访问“Windows PowerShell”的“上下文”菜单，然后选择“以管理员身份运行”    。
 1. 若要运行 HVCI 和 Windows Defender Credential Guard 硬件准备工具，请在 Windows PowerShell 命令提示符处输入以下命令，在第一个提示符处选择“[R] 运行一次”，然后按 Enter 以获取其余提示：
@@ -46,9 +46,9 @@ lab:
 
 1. 重启完成后，使用密码 Pa55w.rd 以 CONTOSO\\Administrator 的身份重新登录 SEA-SVR2  。
 
-## <a name="exercise-2-locating-problematic-accounts"></a>练习 2：查找有问题的帐户
+## 练习 2：查找有问题的帐户
 
-#### <a name="task-1-locate-and-reconfigure-domain-accounts-with-non-expiring-passwords"></a>任务 1：查找并重新配置具有不过期密码的域帐户
+#### 任务 1：查找并重新配置具有不过期密码的域帐户
 
 1. 在 SEA-SVR2 上，选择“开始”，右键单击或访问“Windows PowerShell”的“上下文”菜单，然后选择“以管理员身份运行”    。
 1. 若要列出 Active Directory 启用的具有不过期密码的用户帐户，请在 Windows PowerShell 命令提示符处输入以下命令并按 Enter 键：
@@ -66,7 +66,7 @@ lab:
 
 1. 若要验证结果，请重新运行步骤 2 中的命令，注意未返回任何结果。
 
-#### <a name="task-2-locate-and-disable-domain-accounts-that-have-not-been-used-to-sign-in-for-at-least-90-days"></a>任务 2：找到并禁用在至少 90 天内未用于登录的域帐户
+#### 任务 2：找到并禁用在至少 90 天内未用于登录的域帐户
 
 1. 若要识别在至少 90 天内未用于登录的 Active Directory 用户帐户，请在 Windows PowerShell 命令提示符处输入以下命令并按 Enter 键：
 
@@ -85,9 +85,9 @@ lab:
 
    > 备注：在实验室环境中，不会返回任何结果。
 
-## <a name="exercise-3-implementing-laps"></a>练习 3：实现 LAPS
+## 练习 3：实现 LAPS
 
-#### <a name="task-1-prepare-computer-accounts-for-implementing-laps-local-administrator-password-solution"></a>任务 1：准备计算机帐户来实现 LAPS（本地管理员密码解决方案）
+#### 任务 1：准备计算机帐户来实现 LAPS（本地管理员密码解决方案）
 
 1. 若要创建指定的 OU 并将 SEA-SVR1 计算机帐户移到其上，请在 SEA-SVR2 上的 Windows PowerShell 命令提示符处输入以下命令并按 Enter 键 ： 
 
@@ -117,7 +117,7 @@ lab:
 
    > 注意：本实验室稍后需要从 SEA-SVR1 连接到 SEA-SVR2  。
 
-#### <a name="task-2-prepare-ad-ds-for-laps"></a>任务 2：为 LAPS 准备 AD DS
+#### 任务 2：为 LAPS 准备 AD DS
 
 1. 若要为 LAPS 准备域，请在 SEA-SVR2 上的 Windows PowerShell 命令提示符处输入以下命令，并在输入每条命令后按 Enter 键：
 
@@ -140,7 +140,7 @@ lab:
 1. 验证“密码期限(天)”已配置为“30”，然后选择“确定”  。
 1. 关闭“组策略管理编辑器”。
 
-#### <a name="task-3-deploy-laps-client-side-extension"></a>任务 3：部署 LAPS 客户端扩展
+#### 任务 3：部署 LAPS 客户端扩展
 
 1. 将控制台会话切换到 SEA-SVR1，然后根据需要使用密码 Pa55w.rd 以 CONTOSO\\Administrator 的身份登录  。
 
@@ -162,7 +162,7 @@ lab:
    gpupdate /force
    ```
 
-#### <a name="task-4-verify-laps"></a>任务 4：验证 LAPS
+#### 任务 4：验证 LAPS
 
 1. 将控制台会话切换到 SEA-SVR2。
 1. 选择“开始”。 在“开始”菜单中，选择“LAPS”，然后选择“LAPS UI”  。
