@@ -5,15 +5,15 @@ lab:
   module: 'Module 8: Monitoring, performance, and troubleshooting'
 ---
 
-# <a name="lab-answer-key-monitoring-and-troubleshooting-windows-server"></a>实验室参考答案：监视 Windows Server 并对其进行故障排除
+# 实验室参考答案：监视 Windows Server 并对其进行故障排除
 
-                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Monitoring%20and%20troubleshooting%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Monitoring%20and%20troubleshooting%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
-### <a name="exercise-1-establishing-a-performance-baseline"></a>练习 1：建立性能基线
+### 练习 1：建立性能基线
 
 > 注意：启动数据收集器集后，结果可能会延迟 10 分钟显示。
 
-#### <a name="task-1-create-and-start-a-data-collector-set"></a>任务 1：创建和启动数据收集器集
+#### 任务 1：创建和启动数据收集器集
 
 1. 连接到 SEA-SVR2，然后根据需要，以 CONTOSO\\Administrator 的身份，使用密码 Pa55w.rd 登录  。
 1. 在 SEA-SVR2 上，在“开始”按钮旁边的“在此键入搜索内容”文本框中，输入 Perf，然后在“最佳匹配”列表中选择“性能监视器”     。
@@ -34,7 +34,7 @@ lab:
 1. 在“创建数据收集器集?”页中，确保选中“保存并关闭”选项，然后选择“完成”  。
 1. 在性能监视器的结果窗格中，右键单击或访问“SEA-SVR2 性能”的上下文菜单，然后选择“开始” 。
 
-#### <a name="task-2-create-a-typical-workload-on-the-server"></a>任务 2：在服务器上创建典型工作负载
+#### 任务 2：在服务器上创建典型工作负载
 
 1. 在 SEA-SVR2 上，选择“开始”，右键单击或访问“Windows PowerShell”的上下文菜单，然后选择“以管理员身份运行”  。
 1. 若要创建特定大小的文件，请在 Windows PowerShell 命令提示符下，输入以下命令并按 Enter：
@@ -69,7 +69,7 @@ lab:
 
 1. 让 Windows PowerShell 窗口保持打开状态。
 
-#### <a name="task-3-analyze-the-collected-data"></a>任务 3：分析收集的数据
+#### 任务 3：分析收集的数据
 
 1. 在 SEA-SVR2 上，切换到性能监视器。
 1. 在导航窗格中，右键单击或访问“SEA-SVR2 性能”的上下文菜单，然后选择“停止” 。
@@ -84,9 +84,9 @@ lab:
    - Processor\\% Processor Time
    - System\\Processor Queue Length
 
-### <a name="exercise-2-identifying-the-source-of-a-performance-problem"></a>练习 2：确定性能问题的根源
+### 练习 2：确定性能问题的根源
 
-#### <a name="task-1-create-additional-workload-on-the-server"></a>任务 1：在服务器上创建其他工作负载
+#### 任务 1：在服务器上创建其他工作负载
 
 1. 在 SEA-SVR2 上，打开“文件资源管理器”。
 1. 在文件资源管理器中，浏览到 C:\Labfiles\Lab08。
@@ -97,7 +97,7 @@ lab:
 1. 在“CPUSTRES 许可协议”对话框中，选择“同意” 。
 1. 在“CPU 压力”对话框中，右键单击或访问正在运行的线程列表顶部突出显示的线程的上下文菜单，选择“活动级别”，然后选择“忙碌(75%)”  。
 
-#### <a name="task-2-capture-performance-data-by-using-a-data-collector-set"></a>任务 2：使用数据收集器集捕获性能数据
+#### 任务 2：使用数据收集器集捕获性能数据
 
 1. 在 SEA-SVR2 上，切换到性能监视器。
 1. 在性能监视器中，展开“数据收集器集”，然后选择“用户定义” 。
@@ -105,7 +105,7 @@ lab:
 
    > 注意：等待 1 分钟，以便进行数据捕获。
 
-#### <a name="task-3-remove-the-workload-and-review-the-performance-data"></a>任务 3：删除工作负载并查看性能数据
+#### 任务 3：删除工作负载并查看性能数据
 
 1. 在 SEA-SVR2 上，切换到“CPU 压力”对话框并关闭它 。 
 1. 切换到性能监视器。
@@ -121,9 +121,9 @@ lab:
    - Processor\\% Processor Time
    - System\\Processor Queue Length
 
-### <a name="exercise-3-viewing-and-configuring-centralized-event-logs"></a>练习 3：查看和配置集中式事件日志
+### 练习 3：查看和配置集中式事件日志
 
-#### <a name="task-1-configure-subscription-prerequisites"></a>任务 1：配置订阅先决条件
+#### 任务 1：配置订阅先决条件
 
 1. 在 SEA-SVR2 上，切换到 Windows PowerShell。
 1. 若要创建和管理转发到 SEA-SVR2 的事件订阅，请输入以下命令并按 Enter：
@@ -176,7 +176,7 @@ lab:
 1. 在“选择用户、计算机、服务帐户或组”对话框中，在“输入要选择的对象名称”框中输入 SEA-SVR2，然后选择“确定”   。
 1. 在“事件日志读取者属性”对话框中，选择“确定” 。
 
-#### <a name="task-2-create-a-subscription-and-verify-the-results"></a>任务 2：创建订阅并验证结果
+#### 任务 2：创建订阅并验证结果
 
 1. 在 SEA-SVR2 上，在“开始”按钮旁边的“在此键入搜索内容”文本框中，输入“事件”，然后在“最佳匹配”列表中选择“事件查看器”     。
 1. 在“事件查看器”中，选择导航窗格中的“订阅” 。
