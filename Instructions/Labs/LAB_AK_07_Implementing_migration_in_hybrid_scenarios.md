@@ -5,13 +5,13 @@ lab:
   module: 'Module 7: Design for Migration'
 ---
 
-# <a name="lab-answer-key-migrating-hyper-v-vms-to-azure-by-using-azure-migrate"></a>实验室答案：使用 Azure Migrate 将 Hyper-V VM 迁移到 Azure
+# 实验室答案：使用 Azure Migrate 将 Hyper-V VM 迁移到 Azure
 
-                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Migrating%20Hyper-V%20VMs%20to%20Azure%20by%20using%20Azure%20Migrate)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Migrating%20Hyper-V%20VMs%20to%20Azure%20by%20using%20Azure%20Migrate)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
-## <a name="exercise-1-prepare-the-lab-environment"></a>练习 1 - 准备实验室环境
+## 练习 1 - 准备实验室环境
 
-#### <a name="task-1-deploy-an-azure-vm-by-using-an-azure-resource-manager-quickstart-template"></a>任务 1：使用 Azure 资源管理器快速入门模板部署 Azure VM
+#### 任务 1：使用 Azure 资源管理器快速入门模板部署 Azure VM
 
 1. 连接到 SEA-SVR2，然后根据需要，以 CONTOSO\\Administrator 的身份，使用密码 Pa55w.rd 登录  。
 1. 在 SEA-SVR2 上，启动 Microsoft Edge，转至 [301-nested-vms-in-virtual-network Azure 快速启动模板](https://github.com/az140mp/azure-quickstart-templates/tree/master/demos/nested-vms-in-virtual-network)，然后选择“部署到 Azure”  。 （你会在模板创建的资源列表之后的 `README.md` 文件中找到“部署到 Azure”按钮。）这会自动将浏览器重定向到 Azure 门户中的“具有嵌套 VM 的 Hyper-V 主机虚拟机”页面 。
@@ -34,7 +34,7 @@ lab:
 
    > **注意**：等待部署完成。 部署可能需要大约 10 分钟时间。
 
-#### <a name="task-2-deploy-azure-bastion"></a>任务 2：部署 Azure Bastion 
+#### 任务 2：部署 Azure Bastion 
 
 > **注意**：Azure Bastion 允许在没有公共终结点（你在本练习的上一个任务中部署的终结点）的情况下连接到 Azure VM，同时提供针对暴力攻击（利用操作系统级别凭据）的保护。
 
@@ -59,7 +59,7 @@ lab:
 1. 在 Azure 门户工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择 Bastions，然后在 Bastions 页面上，选择“+ 创建”   。
 1. 在“创建 Bastion”页面的基本标签上，指定以下设置并选择“查看 + 创建”  ：
 
-   | 设置 | 值 | 
+   | 设置 | Value | 
    | --- | --- |
    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
    | 资源组 | **AZ801-L0701-RG** |
@@ -77,7 +77,7 @@ lab:
 
    > **注意**：在继续下一个任务之前，请等待部署完成。 部署可能需要大约 5 分钟时间。
 
-#### <a name="task-3-deploy-a-nested-vm-in-the-azure-vm"></a>任务 3：在 Azure VM 中部署嵌套 VM
+#### 任务 3：在 Azure VM 中部署嵌套 VM
 
 1. 在 Azure 门户工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择“虚拟机”，然后在“虚拟机”页面上，选择 az801l07a-hv-vm   。
 1. 在 az801l07a-hv-vm 页面上，选择“连接”，然后在下拉菜单中选择“Bastion”  。 在“az801l07a-hv-vm \| 连接”页面的的“Bastion”选项卡上，选择“使用 Bastion”  。
@@ -120,9 +120,9 @@ lab:
    Rename-Computer -NewName 'az801l07a-vm1' -Restart
    ```
 
-## <a name="exercise-2-prepare-for-assessment-and-migration-by-using-azure-migrate"></a>练习 2：使用 Azure Migrate 为评估和迁移做好准备
+## 练习 2：使用 Azure Migrate 为评估和迁移做好准备
   
-#### <a name="task-1-configure-hyper-v-environment"></a>任务 1：配置 Hyper-V 环境
+#### 任务 1：配置 Hyper-V 环境
 
 1. 在与 az801l07a-hv-vm 的远程桌面会话中，在浏览器窗口中，转到 [https://aka.ms/migrate/script/hyperv](https://aka.ms/migrate/script/hyperv)，下载 Azure Migrate 配置 PowerShell 脚本。
 
@@ -152,7 +152,7 @@ lab:
    - 是否使用 SMB 共享来存储 VHD？
    - 是否要为 Azure Migrate 和 Hyper-V 主机通信创建非管理员本地用户？ 
 
-#### <a name="task-2-create-an-azure-migrate-project"></a>任务 2：创建 Azure Migrate 项目
+#### 任务 2：创建 Azure Migrate 项目
 
 1. 在与 az801l07a-hv-vm 的远程桌面会话中，在浏览器窗口，转到 [Azure 门户](https://portal.azure.com)，然后使用你在此实验室中使用的订阅中具有所有者角色的用户帐户的凭据登录。
 1. 在 Azure 门户工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择 Azure Migrate，然后在“Azure Migrate \| 入门”页上的“服务器、数据库和 Web 应用”部分，选择“发现、评估和迁移”    。
@@ -166,40 +166,30 @@ lab:
    | 迁移项目 | **az801l07a-migrate-project** |
    | 地理位置 | 你所在国家或地区的名称 |
 
-#### <a name="task-3-implement-the-target-azure-environment"></a>任务 3：实现目标 Azure 环境
+#### 任务 3：实现目标 Azure 环境
 
 1. 在与 az801l07a-hv-vm 的远程桌面会话中，在 Azure 门户工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择“虚拟网络”  。 在“虚拟网络”页上 ，选择命令栏上的“+ 创建” 。 
-1. 在“创建虚拟网络”页的“基本信息”选项卡上，指定以下设置（将其他设置保留为默认值）并选择“IP 地址”  ：
+1. 在“创建虚拟网络”页的“基本信息”选项卡上，指定以下设置（将其他设置保留为默认值）并选择“下一步: IP 地址”  ：
 
-   | 设置 | 值 |
+   | 设置 | Value |
    | --- | --- |
    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
    | 资源组 | 新资源组 AZ801-L0703-RG 的名称 |
    | 名称 | **az801l07a-migration-vnet** |
    | 区域 | 在本实验室前面将虚拟机部署到的 Azure 区域的名称 |
 
-1. 在“创建虚拟网络”页的“IP 地址”选项卡上，选择“+ 添加子网”按钮旁边的省略号 (...)，从下拉列表中选择“删除地址空间”，然后选择“添加 IP 地址空间”。     
-
-1. 在“添加 IP 地址空间”页上，指定以下设置（将其他设置保留为默认值），然后选择“添加” ：
-
-   |设置|值|
-   |---|---|
-   |开始地址|10.7.0.0|
-   |地址空间大小|/16（65536 个地址）|
-
-1. 回到“创建虚拟网络”页面的“IP 地址”选项卡上，选择“+ 添加子网”  。
+1. 在“创建虚拟网络”页的“IP 地址”选项卡上，选择“回收站”图标  。 在“IPv4 地址空间”文本框中，键入 10.7.0.0/16 并选择“+ 添加子网”  。
 1. 在“添加子网”页上，指定以下设置（将其他设置保留为默认值），然后选择“添加” ：
 
-   |设置|值|
-   |---|---|
-   |名称|subnet0|
-   |开始地址|10.7.0.0|
-   |子网大小|/24（256 个地址）|
+   | 设置 | 值 |
+   | --- | --- |
+   | 子网名称 | **subnet0** |
+   | 子网地址范围 | **10.7.0.0/24** |
 
-1. 回到“创建虚拟网络”页面的“IP 地址”选项卡上，选择“查看 + 创建”  。
+1. 返回到“创建虚拟网络”页的“IP 地址”选项卡上，选择“查看 + 创建”  。
 1. 在“创建虚拟网络”页的“查看 + 创建”选项卡上，选择“创建”  。
 1. 在 Azure 门户中，浏览回“虚拟网络”页并选择工具栏上的“+ 创建” 。
-1. 在“创建虚拟网络”页的“基本信息”选项卡上，指定以下设置（将其他设置保留为默认值）并选择“IP 地址”  ：
+1. 在“创建虚拟网络”页的“基本信息”选项卡上，指定以下设置（将其他设置保留为默认值）并选择“下一步: IP 地址”  ：
 
    | 设置 | 值 |
    | --- | --- |
@@ -208,28 +198,18 @@ lab:
    | 名称 | **az801l07a-test-vnet** |
    | 区域 | 在本实验室前面将虚拟机部署到的 Azure 区域的名称 |
 
-1. 在“创建虚拟网络”页的“IP 地址”选项卡上，选择“+ 添加子网”按钮旁边的省略号 (...)，从下拉列表中选择“删除地址空间”，然后选择“添加 IP 地址空间”。     
-
-1. 在“添加 IP 地址空间”页上，指定以下设置（将其他设置保留为默认值），然后选择“添加” ：
-
-   |设置|值|
-   |---|---|
-   |开始地址|10.7.0.0|
-   |地址空间大小|/16（65536 个地址）|
-
-1. 回到“创建虚拟网络”页面的“IP 地址”选项卡上，选择“+ 添加子网”  。
+1. 在“创建虚拟网络”页的“IP 地址”选项卡上，选择“回收站”图标  。 在“IPv4 地址空间”文本框中，键入 10.7.0.0/16 并选择“+ 添加子网”  。
 1. 在“添加子网”页上，指定以下设置（将其他设置保留为默认值），然后选择“添加” ：
 
-   |设置|值|
-   |---|---|
-   |名称|subnet0|
-   |开始地址|10.7.0.0|
-   |子网大小|/24（256 个地址）|
+   | 设置 | 值 |
+   | --- | --- |
+   | 子网名称 | subnet0 |
+   | 子网地址范围 | **10.7.0.0/24** |
 
-1. 回到“创建虚拟网络”页面的“IP 地址”选项卡上，选择“查看 + 创建”  。
+1. 返回到“创建虚拟网络”页的“IP 地址”选项卡上，选择“查看 + 创建”  。
 1. 在“创建虚拟网络”页的“查看 + 创建”选项卡上，选择“创建”  。
-1.  在 Azure 门户中，搜索并选择“存储帐户”。 然后，在“存储帐户”页上，选择命令栏上的“+ 创建” 。
-1.  在“创建存储帐户”页的“基本信息”选项卡上，指定以下设置（将其他设置保留为默认值） ：
+1. 在 Azure 门户中，搜索并选择“存储帐户”。 然后，在“存储帐户”页上，选择命令栏上的“+ 创建” 。
+1. 在“创建存储帐户”页的“基本信息”选项卡上，指定以下设置（将其他设置保留为默认值） ：
 
    | 设置 | 值 | 
    | --- | --- |
@@ -240,13 +220,13 @@ lab:
    | 性能 | **标准** |
    | 冗余 | **本地冗余存储 (LRS)** |
 
-1.  在“创建存储帐户”页的“基本信息”选项卡上，选择“数据保护”选项卡  。
-1.  在“创建存储帐户”页的“数据保护”选项卡上，清除“为 Blob 启用软删除”和“为容器启用软删除”复选框，然后选择“查看”    。
-1.  在“查看”选项卡中，选择“创建”。
+1. 在“创建存储帐户”页的“基本信息”选项卡上，选择“数据保护”选项卡  。
+1. 在“创建存储帐户”页的“数据保护”选项卡上，清除“为 Blob 启用软删除”和“为容器启用软删除”复选框，然后选择“查看 + 创建”    。
+1. 在“查看 + 创建”选项卡上，选择“创建”。 
 
-## <a name="exercise-3-assess-hyper-v-for-migration-by-using-azure-migrate"></a>练习 3：使用 Azure Migrate 评估 Hyper-V 的迁移
+## 练习 3：使用 Azure Migrate 评估 Hyper-V 的迁移
   
-#### <a name="task-1-deploy-and-configure-the-azure-migrate-appliance"></a>任务 1：部署和配置 Azure Migrate 设备
+#### 任务 1：部署和配置 Azure Migrate 设备
 
 1. 在与 az801l07a-hv-vm 的远程桌面会话中，在 Azure 门户的浏览器窗口，搜索并选择 Azure Migrate 。
 1. 在“Azure Migrate | 入门”页上的“服务器、数据库和 Web 应用”部分，选择“发现、评估和迁移”  。
@@ -309,7 +289,7 @@ lab:
 
    >**注意**：每个主机可能需要大约 15 分钟才能发现服务器的元数据显示在 Azure 门户。
 
-#### <a name="task-2-configure-run-and-view-an-assessment"></a>任务 2：配置、运行和查看评估
+#### 任务 2：配置、运行和查看评估
 
 1. 从虚拟设备的“虚拟机连接”窗口，切换到与 az801l07a-hv-vm 的远程桌面会话 。 在显示 Azure 门户的浏览器窗口中，浏览 回“Azure Migrate | 服务器、数据库和 Web 应用”页，然后选择“刷新” 。 在“Azure Migrate: 发现和评估”部分，选择”评估”，然后在下拉菜单中选择 Azure VM  。
 1. 在“创建评估”页的“基本信息”选项卡上，在“评估属性”标签旁边选择“编辑”   。   
@@ -340,9 +320,9 @@ lab:
 
    >**注意**：在真实场景中，应考虑安装 Dependency Agent，以在评估阶段提供对服务器依赖项的更多见解。
 
-## <a name="exercise-4-migrate-hyper-v-vms-by-using-azure-migrate"></a>练习 4：使用 Azure Migrate 迁移 Hyper-V VM
+## 练习 4：使用 Azure Migrate 迁移 Hyper-V VM
 
-#### <a name="task-1-prepare-for-migration-of-hyper-v-vms"></a>任务 1：为迁移 Hyper-V VM 做好准备
+#### 任务 1：为迁移 Hyper-V VM 做好准备
 
 1. 在与 az801l07a-hv-vm 的远程桌面会话中，在显示 Azure 门户的浏览器窗口中，浏览回“Azure Migrate | 服务器、数据库和 Web 应用”页面 。 
 1. 在“Azure Migrate 服务器、数据库和 Web 应用”页的“Azure Migrate: 服务器迁移”部分，选择“发现”链接  。 
@@ -375,7 +355,7 @@ lab:
 
    >**注意**：完成虚拟机的发现最长可能需要 15 分钟。
 
-#### <a name="task-2-configure-replication-of-hyper-v-vms"></a>任务 2：配置 Hyper-V VM 的复制
+#### 任务 2：配置 Hyper-V VM 的复制
 
 1. 收到注册已完成的确认后，请浏览回“Azure Migrate | 服务器、数据库和 Web 应用”页，然后在“Azure Migrate: 服务器迁移”部分，选择“复制 ”链接  。 
 
@@ -393,7 +373,7 @@ lab:
 
 1. 在“复制”页的“目标设置”选项卡上，指定以下设置（将其他设置保留为默认值），然后选择“下一步”  ：
 
-   | 设置 | 值 | 
+   | 设置 | Value | 
    | --- | --- |
    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
    | 资源组 | **AZ801-L0703-RG** |
@@ -410,7 +390,7 @@ lab:
 
    >**注意**：需要刷新“Azure Migrate: 服务器迁移 | 复制计算机”才能更新状态信息 。
 
-#### <a name="task-3-perform-migration-of-hyper-v-vms"></a>任务 3：执行 Hyper-V VM 迁移
+#### 任务 3：执行 Hyper-V VM 迁移
 
 1. 在 Azure 门户中，在“Azure Migrate: 服务器迁移 | 复制计算机”页面，选择表示 az801l07a-vm1 虚拟机的条目 。
 1. 在 az801l07a-vm1 页上，选择“测试迁移” 。
@@ -433,7 +413,7 @@ lab:
 
    >**注意**：迁移应是不可逆的操作。 如果需要查看已完成的信息，请浏览回“Azure Migrate | 服务器、数据库和 Web 应用”页面，刷新该页面，然后验证“Azure Migrate: 服务器迁移”部分的“已迁移的服务器数”条目的值是否为 1   。
 
-#### <a name="task-4-remove-azure-resources-deployed-in-the-lab"></a>任务 4：删除实验室中部署的 Azure 资源
+#### 任务 4：删除实验室中部署的 Azure 资源
 
 1. 在 SEA-SVR2 上，在显示 Azure 门户的浏览器窗口中，通过选择 Azure 门户中的 Cloud Shell 按钮打开“Azure Cloud Shell”窗格  。
 1. 如果系统提示选择“Bash”或“PowerShell”，请选择“PowerShell”  。 

@@ -5,13 +5,13 @@ lab:
   module: 'Module 2: Implementing Security Solutions in Hybrid Scenarios'
 ---
 
-# <a name="lab-answer-key-implementing-security-solutions-in-hybrid-scenarios"></a>实验室解答：在混合场景中实现安全解决方案
+# 实验室解答：在混合场景中实现安全解决方案
 
-                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20security%20solutions%20in%20hybrid%20scenarios)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20security%20solutions%20in%20hybrid%20scenarios)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
-## <a name="exercise-1-creating-an-azure-log-analytics-workspace-and-an-azure-automation-account"></a>练习 1：创建 Azure Log Analytics 工作区和 Azure 自动化帐户
+## 练习 1：创建 Azure Log Analytics 工作区和 Azure 自动化帐户
 
-#### <a name="task-1-create-an-azure-log-analytics-workspace"></a>任务 1：创建 Azure Log Analytics 工作区 
+#### 任务 1：创建 Azure Log Analytics 工作区 
 
 1. 连接到 SEA-SVR2，然后根据需要，以 CONTOSO\\Administrator 的身份，使用密码 Pa55w.rd 登录  。
 1. 在 SEA-SVR2 上，启动 Microsoft Edge，转到 [Azure 门户](https://portal.azure.com)，然后使用具有要在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录 。
@@ -27,7 +27,7 @@ lab:
 
    >备注：请等待部署完成。 部署大约需要 1 分钟的时间完成。
 
-#### <a name="task-2-create-and-configure-an-azure-automation-account"></a>任务 2：创建并配置 Azure 自动化帐户
+#### 任务 2：创建并配置 Azure 自动化帐户
 
 1. 在 SEA-SVR2 上，在 Azure 门户的工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择“自动化帐户”，然后从“自动化帐户”页中选择“+ 创建”    。
 1. 在“创建自动化帐户”页上，指定以下设置，然后选择“查看 + 创建” 。 验证后，选择“创建”：
@@ -55,16 +55,16 @@ lab:
 
    >备注：请等待安装完成。 这可能需要大约 5 分钟。
 
-## <a name="exercise-2-configuring-microsoft-defender-for-cloud"></a>练习 2：配置 Microsoft Defender for Cloud
+## 练习 2：配置 Microsoft Defender for Cloud
 
-#### <a name="task-1-enable-defender-for-cloud-and-automatic-agent-installation"></a>任务 1：启用 Defender for Cloud 和自动代理安装
+#### 任务 1：启用 Defender for Cloud 和自动代理安装
 
 1. 在 SEA-SVR2 上，在 Azure 门户的“搜索资源、服务和文档”文本框中的工具栏上，搜索并选择 Microsoft Defender for Cloud  。
 1. 在“Microsoft Defender for Cloud \| 开始”页上，选择“升级”，然后选择“安装代理”  。
 
    > 备注：你的订阅可能已经启用 Defender for Cloud 的增强安全性，在这种情况下，请继续执行下一个任务。
 
-#### <a name="task-2-enable-enhanced-security-of-defender-for-cloud"></a>任务 2：启用 Defender for Cloud 的增强安全性
+#### 任务 2：启用 Defender for Cloud 的增强安全性
 
 1. 在 SEA-SVR2 上，在显示 Azure 门户的 Microsoft Edge 窗口中，在“Microsoft Defender for Cloud | 概览”页左侧垂直菜单的“管理”部分，选择“环境设置”   。
 1. 在“环境设置”页上，选择代表你的 Azure 订阅的条目。
@@ -72,15 +72,14 @@ lab:
 
    > 备注：注意，可以选择性地禁用同一页面上列出的单个 Microsoft Defender 计划。
 
-1. 将“服务器”外的所有其他计划设置为“关闭”，然后选择“保存”。  
-1. 在“设置 \| Defender 计划”页上方，选择“设置和监视” 。
-1. 在“设置和监视”页的扩展列表中，在“Log Analytics 代理/Azure Monitor 代理”条目右侧，选择“编辑配置”链接  。
-1. 在“自动预配配置”的“工作区选择”部分，选择“自定义工作区”选项，在下拉菜单中，选择表示在上一练习中创建的工作区的条目，然后选择“应用”。   
-1. 在“设置和监视”页的扩展列表中，将“来宾配置代理(预览)”设置为“打开”。  
-1. 在“设置和监视”页的扩展列表中，将“计算机的漏洞评估”设置为“打开”。   在右侧，选择“编辑配置”链接。
-1. 在“扩展部署配置”页上，确保选中“Microsoft 威胁和漏洞管理”选项，然后选择“应用”  。
-1. 在“设置和监视”页上，选择“继续” 。   
-1. 在“Defender 计划”页上，选择“保存”，然后关闭页面。 
+1. 将所有计划（第一个计划除外，它代表 Microsoft Defender for Servers）设置为“关闭”，然后选择“保存”  。
+1. 在“设置 \| Defender 计划”页左侧垂直菜单的“设置”部分，选择“自动预配”  。
+1. 在“设置 \| 自动预配”页的扩展列表中，在“Azure VM 的 Log Analytics 代理”条目右侧，选择“编辑配置”链接  。
+1. 在“扩展部署配置”页的“工作区配置”部分，选择“将 Azure VM 连接到其他工作区”选项  。 在下拉菜单中，选择代表在上一个练习中创建的工作区的条目，然后选择“应用”。
+1. 返回“设置 \| 自动预配”页，将“Azure Arc Machine 的 Log Analytics 代理(预览版)”设置为“开”  。 这将自动显示“扩展部署配置”页。 
+1. 在“扩展部署配置”页的“选择 Log Analytics 工作区”下拉列表中，选择代表你在上一个练习中创建的工作区的条目，然后选择“应用”  。
+1. 返回“设置 \| 自动预配”页面，将“计算机的漏洞评估”设置为“开”  。 在“扩展部署配置”页中，确保选中“Microsoft 威胁和漏洞管理”选项，然后选择“应用”  。
+1. 在页面顶部选择“保存”。
 1. 浏览回“Microsoft Defender for Cloud | 概览”页，然后在左侧垂直菜单的“管理”部分，选择“环境设置”  。
 1. 在“环境设置”页上，展开代表你的 Azure 订阅的条目，并选择代表你在上一个练习中创建的 Log Analytics 工作区的条目。
 1. 在“设置 \| Defender 计划”页上，选择磁贴“启用所有 Microsoft Defender for Cloud 计划”，然后选择“保存”  。
@@ -92,16 +91,16 @@ lab:
 
    > 备注：在 Defender for Cloud 中选择数据收集层只会影响 Log Analytics 工作区中安全事件的存储。 无论你选择在工作区中存储哪一级别的安全事件，Log Analytics 代理仍将收集和分析 Defender for Cloud 的威胁防护所需的安全事件。 选择存储安全事件可以在工作区中调查、搜索和审核这些事件。
 
-## <a name="exercise-3-provisioning-azure-vms-running-windows-server"></a>练习 3：预配运行 Windows Server 的 Azure VM
+## 练习 3：预配运行 Windows Server 的 Azure VM
 
-#### <a name="task-1-start-azure-cloud-shell"></a>任务 1：启动 Azure Cloud Shell
+#### 任务 1：启动 Azure Cloud Shell
 
 1. 在 SEA-SVR2 上，在 Azure 门户中，通过选择搜索文本框旁边的工具栏图标打开“Cloud Shell”窗格。
 1. 如果系统提示选择 Bash 或 PowerShell，请选择 PowerShell  。
 
    >备注：如果这是你第一次启动 Cloud Shell 且向你显示了“未装载任何存储”消息，请选择要在此实验室中使用的订阅，然后选择“创建存储”  。
 
-#### <a name="task-2-deploy-an-azure-vm-by-using-an-azure-resource-manager-template"></a>任务 2：使用 Azure 资源管理器模板部署 Azure VM
+#### 任务 2：使用 Azure 资源管理器模板部署 Azure VM
 
 1. 在 Cloud Shell 窗格的工具栏中，选择“上传/下载文件”图标，在下拉菜单中选择“上传”，并将文件 C:\\Labfiles\\Lab02\\L02-sub_template.json 上传到 Cloud Shell 主目录中  。
 1. 重复上一步两次，将 C:\\Labfiles\\Lab02\\L02-rg_template.json 和 C:\\Labfiles\\Lab02\\L02-rg_template.parameters.json 文件上传到 Cloud Shell 主目录中 。
@@ -124,9 +123,9 @@ lab:
 
 1. 关闭 Cloud Shell。
 
-## <a name="exercise-4-onboarding-on-premises-windows-server-into-microsoft-defender-for-cloud-and-azure-automation"></a>练习 4：将本地 Windows Server 载入 Microsoft Defender for Cloud 和 Azure 自动化
+## 练习 4：将本地 Windows Server 载入 Microsoft Defender for Cloud 和 Azure 自动化
 
-#### <a name="task-1-perform-manual-installation-of-the-log-analytics-agent"></a>任务 1：执行 Log Analytics 代理的手动安装
+#### 任务 1：执行 Log Analytics 代理的手动安装
 
 1. 在 SEA-SVR2 上，在显示 Azure 门户的 Microsoft Edge 窗口中，在“Microsoft Defender for Cloud \| 概览”页左侧垂直菜单的“常规”部分，选择“清单”   。
 1. 在“Microsoft Defender for Cloud \| 清单”页上，选择“+ 添加非 Azure 服务器” 。
@@ -147,7 +146,7 @@ lab:
 1. 在“Microsoft Monitoring Agent 安装”向导的“准备安装”页上，选择“下一步”  。
 1. 安装完成后，在“Microsoft Monitoring Agent 配置成功完成”页上，选择“完成” 。
 
-#### <a name="task-2-perform-unattended-installation-of-the-log-analytics-agent"></a>任务 2：执行 Log Analytics 代理的无人参与安装
+#### 任务 2：执行 Log Analytics 代理的无人参与安装
 
 1. 在 SEA-SVR2 上，选择“开始”，然后选择 Windows PowerShell (Admin)  。
 1. 要提取 MMASetup-AMD64.exe 文件的内容，请在 Windows PowerShell 控制台中输入以下命令，并在输入每个命令后按 Enter ：
@@ -175,7 +174,7 @@ lab:
 
    > 备注：请等待安装完成。 这大约需要 1 分钟。
 
-#### <a name="task-3-enable-azure-automation-solutions-for-azure-vms"></a>任务 3：为 Azure VM 启用 Azure 自动化解决方案
+#### 任务 3：为 Azure VM 启用 Azure 自动化解决方案
 
 1. 在 SEA-SVR2 上，切换到显示 Azure 门户的 Microsoft Edge 窗口，然后浏览到你在此实验室前面预配的 Azure 自动化帐户页。 
 1. 在“自动化帐户”页的“配置管理”部分，选择“清单”  。
@@ -190,7 +189,7 @@ lab:
 
    > 备注：与清单和更改跟踪解决方案一样，VM 必须连接到与自动化帐户解决方案关联的 Log Analytics 工作区，才能列为“准备启用” 。
 
-#### <a name="task-4-enable-azure-automation-solutions-for-on-premises-servers"></a>任务 4：为本地服务器启用 Azure 自动化解决方案
+#### 任务 4：为本地服务器启用 Azure 自动化解决方案
 
 1. 在 SEA-SVR2 上，在显示 Azure 门户的 Microsoft Edge 窗口中，浏览回“自动化帐户”页，然后在“配置管理”部分，选择“库存”   。
 1. 在“清单”页面上，选择“单击以管理计算机”链接 。
@@ -204,9 +203,9 @@ lab:
 
    > 备注：与清单和更改跟踪解决方案一样，此选项适用于已安装 Log Analytics 代理并在 Azure Log Analytics 工作区注册的本地服务器，该工作区与托管清单、更改跟踪和更新管理解决方案的 Azure 自动化帐户关联。
 
-## <a name="exercise-5-verifying-the-hybrid-capabilities-of-microsoft-defender-for-cloud-and-azure-automation-solutions"></a>练习 5：验证 Microsoft Defender for Cloud 和 Azure 自动化解决方案的混合功能
+## 练习 5：验证 Microsoft Defender for Cloud 和 Azure 自动化解决方案的混合功能
 
-#### <a name="task-1-validate-threat-detection-capabilities-for-azure-vms"></a>任务 1：验证 Azure VM 的威胁检测功能
+#### 任务 1：验证 Azure VM 的威胁检测功能
 
 1. 在 SEA-SVR2 上，切换到显示 Azure 门户的 Microsoft Edge。 
 1. 在 Azure 门户的工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择“虚拟机” 。
@@ -226,7 +225,7 @@ lab:
 
    > 备注：为了最大限度地减少未来攻击的可能性，应该考虑实施安全建议。
 
-#### <a name="task-2-validate-the-threat-detection-capabilities-for-on-premises-servers"></a>任务 2：验证本地服务器的威胁检测功能
+#### 任务 2：验证本地服务器的威胁检测功能
 
 1. 在 SEA-SVR2 上，切换到 Windows PowerShell 控制台 。
 1. 若要触发威胁检测警报，请在 Windows PowerShell 控制台中输入以下命令，然后在输入每个命令后按 Enter：
@@ -242,7 +241,7 @@ lab:
 
    > 备注：为了最大限度地减少未来攻击的可能性，应该考虑实施安全建议。
 
-#### <a name="task-3-review-the-features-and-capabilities-that-apply-to-hybrid-scenarios"></a>任务 3：查看适用于混合场景的特性和功能
+#### 任务 3：查看适用于混合场景的特性和功能
 
 1. 在 SEA-SVR2 上，在显示 Azure 门户的 Microsoft Edge 窗口中，在“Microsoft Defender for Cloud \| 概览”页左侧垂直菜单的“常规”部分，选择“清单”   。
 1. 在“清单”页的资源列表中，标识代表 az801l02-vm0 Azure VM 以及 SEA-SVR1.contoso.com 和 SEA-SVR2.contoso.com 本地服务器的条目   。
@@ -254,7 +253,7 @@ lab:
 1. 在“清单”页上，选择 az801l02-vm0 链接，然后在“资源运行状况(预览版)”页上查看建议   。
 1. 浏览回“清单”页，选择代表 SEA-SVR2 的链接，然后在“资源运行状况(预览版)”页上查看建议   。
 
-#### <a name="task-4-validate-azure-automation-solutions"></a>任务 4：验证 Azure 自动化解决方案
+#### 任务 4：验证 Azure 自动化解决方案
 
 1. 在 SEA-SVR2 上，在显示 Azure 门户的 Microsoft Edge 窗口中，浏览回你在此实验室中前面预配的 Azure 自动化帐户的页面，然后在“配置管理”部分，选择“清单”  。
 1. 在“清单”页面上，查看“计算机”选项卡并验证它是否包括 Azure VM 和你在此实验室前面向 Log Analytics 工作区注册的本地服务器 。
@@ -278,13 +277,13 @@ lab:
 
    >备注：可以选择为本地服务器和 Azure VM 安排缺少的更新的自动部署。
 
-## <a name="exercise-6-deprovisioning-the-azure-environment"></a>练习 6：取消预配 Azure 环境
+## 练习 6：取消预配 Azure 环境
 
-#### <a name="task-1-start-a-powershell-session-in-cloud-shell"></a>任务 1：在 Cloud Shell 中启动一个 PowerShell 会话
+#### 任务 1：在 Cloud Shell 中启动 PowerShell 会话
 
 1. 在 SEA-SVR2 上，在显示 Azure 门户的 Microsoft Edge 窗口中，通过选择 Cloud Shell 图标打开 Cloud Shell 窗格。
 
-#### <a name="task-2-identify-all-azure-resources-provisioned-in-the-lab"></a>任务 2：标识实验室中预配的所有 Azure 资源
+#### 任务 2：标识实验室中预配的所有 Azure 资源
 
 1. 在 Cloud Shell 窗格中，运行以下命令，列出你在此实验室中创建的所有资源组：
 

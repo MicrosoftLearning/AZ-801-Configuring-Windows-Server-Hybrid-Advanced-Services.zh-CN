@@ -5,13 +5,13 @@ lab:
   module: 'Module 5: Planning and implementing migration and recovery services in hybrid scenarios'
 ---
 
-# <a name="lab-answer-key-implementing-azure-based-recovery-services"></a>实验室解答：实现基于 Azure 的恢复服务
+# 实验室解答：实现基于 Azure 的恢复服务
 
-                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20Azure-based%20recovery%20services)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20Azure-based%20recovery%20services)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
-## <a name="exercise-1-creating-and-configuring-an-azure-site-recovery-vault"></a>练习 1：创建和配置 Azure Site Recovery 保管库
+## 练习 1：创建和配置 Azure Site Recovery 保管库
 
-#### <a name="task-1-create-an-azure-site-recovery-vault"></a>任务 1：创建 Azure Site Recovery 保管库
+#### 任务 1：创建 Azure Site Recovery 保管库
 
 1. 连接到 SEA-SVR2，并根据需要，以 CONTOSO\\Administrator 的身份，使用密码 Pa55w.rd 登录  。
 1. 在 SEA-SVR2 上，启动 Microsoft Edge，转到 [Azure 门户](https://portal.azure.com)，然后使用具有所有者角色的用户帐户的凭据登录要在此实验室中使用的订阅 。
@@ -31,7 +31,7 @@ lab:
 
    > 注意：默认情况下，保管库的存储复制类型设置为异地冗余 (GRS)，并且启用了软删除和安全功能。 你将在实验室中更改这些设置以简化取消预配，但应确保在生产环境中启用它们。
 
-#### <a name="task-2-configure-the-azure-site-recovery-vault"></a>任务 2：配置 Azure Site Recovery 保管库
+#### 任务 2：配置 Azure Site Recovery 保管库
 
 1. 在“SEA-SVR2”上，在显示 Azure 门户的 Microsoft Edge 窗口中，在部署页面上选择“转到资源” 。 
 
@@ -44,78 +44,59 @@ lab:
    > 注意：实现保护后无法更改存储复制类型。
 
 1. 在“az801l05a-rsvault | 属性”页上，选择“安全设置”标签下的“更新”链接  。
-1. 在“安全和软删除设置”页上，禁用“为云工作负载启用软删除”，禁用“为混合工作负载启用软删除和安全设置”，选择“更新”，然后关闭“安全和软删除设置”页。    
+1. 在“安全设置”页上，将“软删除”设置为“禁用”，将“安全功能”设置为“禁用”，选择“保存”，然后关闭“安全设置”页      。
 
-## <a name="exercise-2-implementing-hyper-v-vm-protection-by-using-azure-site-recovery-vault"></a>练习 2：使用 Azure Site Recovery 保管库实现 Hyper-V VM 保护
+## 练习 2：使用 Azure Site Recovery 保管库实现 Hyper-V VM 保护
 
-#### <a name="task-1-implement-an-azure-recovery-site"></a>任务 1：实现 Azure 恢复站点
+#### 任务 1：实现 Azure 恢复站点
 
 1. 在 SEA-SVR2 上，在显示 Azure 门户的 Microsoft Edge 窗口中，使用工具栏中的“搜索资源、服务和文档”文本框搜索并选择“虚拟网络”，在“虚拟网络”页上选择“+ 创建”    。
-1. 在“创建虚拟网络”页的“基本信息”选项卡上，指定以下设置（将其他设置保留为默认值）并选择“IP 地址”  ：
+1. 在“创建虚拟网络”页的“基本信息”选项卡上，指定以下设置（将其他设置保留为默认值）并选择“下一步: IP 地址”  ：
 
    |设置|值|
    |---|---|
    |订阅|你在此实验室中使用的 Azure 订阅的名称|
    |资源组|新资源组 AZ801-L0502-RG 的名称|
    |名称|az801l05-dr-vnet|
-   |区域|你在此实验室前面部署了恢复服务保管库的 Azure 区域的名称|
+   |区域|你在本实验室前面部署了恢复服务保管库的 Azure 区域的名称|
 
-1. 在“创建虚拟网络”页的“IP 地址”选项卡上，选择“+ 添加子网”按钮旁边的省略号 (...)，从下拉列表中选择“删除地址空间”，然后选择“添加 IP 地址空间”。     
-
-1. 在“添加 IP 地址空间”页上，指定以下设置（将其他设置保留为默认值），然后选择“添加” ：
-
-   |设置|值|
-   |---|---|
-   |开始地址|10.5.0.0|
-   |地址空间大小|/22（1024 个地址）|
-
-1. 回到“创建虚拟网络”页面的“IP 地址”选项卡上，选择“+ 添加子网”  。
+1. 在“创建虚拟网络”页的“IP 地址”选项卡上，选择回收站图标，在“IPv4 地址空间”文本框中输入“10.5.0.0/22”并选择“+ 添加子网”    。
 1. 在“添加子网”页上，指定以下设置（将其他设置保留为默认值），然后选择“添加” ：
 
    |设置|值|
    |---|---|
-   |名称|subnet0|
-   |开始地址|10.5.0.0|
-   |子网大小|/24（256 个地址）|
+   |子网名称|subnet0|
+   |子网地址范围|**10.5.0.0/24**|
 
 1. 回到“创建虚拟网络”页面的“IP 地址”选项卡上，选择“查看 + 创建”  。
 1. 在“创建虚拟网络”页的“查看 + 创建”选项卡上，选择“创建”  。
 1. 在 Azure 门户中的“SEA-SVR2”上，浏览回“虚拟网络”页并选择“+ 创建”  。
-1. 在“创建虚拟网络”页的“基本信息”选项卡上，指定以下设置（将其他设置保留为默认值）并选择“IP 地址”  ：
+1. 在“创建虚拟网络”页的“基本信息”选项卡上，指定以下设置（将其他设置保留为默认值）并选择“下一步: IP 地址”  ：
 
    |设置|值|
    |---|---|
    |订阅|你在此实验室中使用的 Azure 订阅的名称|
    |资源组|AZ801-L0502-RG|
    |名称|az801l05-test-vnet|
-   |区域|你在此实验室前面部署了恢复服务保管库的 Azure 区域的名称|
+   |区域|你在本实验室前面部署了恢复服务保管库的 Azure 区域的名称|
 
-1. 在“创建虚拟网络”页的“IP 地址”选项卡上，选择“+ 添加子网”按钮旁边的省略号 (...)，从下拉列表中选择“删除地址空间”，然后选择“添加 IP 地址空间”。     
+1. 在“创建虚拟网络”页的“IP 地址”选项卡上，选择回收站图标，在“IPv4 地址空间”文本框中输入“10.5.0.0/22”并选择“+ 添加子网”    。
 
-1. 在“添加 IP 地址空间”页上，指定以下设置（将其他设置保留为默认值），然后选择“添加” ：
+   > 注意：忽略有关 IP 地址空间重叠的警告。 这是有意为之，是为了确保测试环境的 IP 地址空间与灾难恢复环境的 IP 地址空间相匹配。
 
-   |设置|值|
-   |---|---|
-   |开始地址|10.5.0.0|
-   |地址空间大小|/22（1024 个地址）|
-
-   > 备注：忽略有关 IP 地址空间重叠的警告。 这是有意为之，是为了确保测试环境的 IP 地址空间与灾难恢复环境的 IP 地址空间相匹配。
-
-1. 回到“创建虚拟网络”页面的“IP 地址”选项卡上，选择“+ 添加子网”  。
 1. 在“添加子网”页上，指定以下设置（将其他设置保留为默认值），然后选择“添加” ：
 
    |设置|值|
    |---|---|
-   |名称|subnet0|
-   |开始地址|10.5.0.0|
-   |子网大小|/24（256 个地址）|
+   |子网名称|**subnet0**|
+   |子网地址范围|**10.5.0.0/24**|
 
 1. 回到“创建虚拟网络”页面的“IP 地址”选项卡上，选择“查看 + 创建”  。
 1. 在“创建虚拟网络”页的“查看 + 创建”选项卡上，选择“创建”  。
 1. 在 SEA-SVR2 上，在 Azure 门户中使用工具栏中的“搜索资源、服务和文档”文本框搜索并选择“存储帐户”，然后在“存储帐户”页上，选择“+ 创建”    。
 1. 在“创建存储帐户”页的“基本信息”选项卡上，指定以下设置（将其他设置保留为默认值） ：
 
-   |设置|值|
+   |设置|Value|
    |---|---|
    |订阅|你在此实验室中使用的 Azure 订阅的名称|
    |资源组|AZ801-L0502-RG|
@@ -125,13 +106,13 @@ lab:
    |冗余|本地冗余存储 (LRS)|
 
 1. 在“创建存储帐户”页的“基本信息”选项卡上，选择“数据保护”选项卡  。
-1. 在“创建存储帐户”页的“数据保护”选项卡上，清除“为 Blob 启用软删除”和“为容器启用软删除”复选框，然后选择“查看”    。
+1. 在“创建存储帐户”页的“数据保护”选项卡上，清除“为 Blob 启用软删除”和“为容器启用软删除”复选框，然后选择“查看 + 创建”    。
 
    > 注意：在使用 Azure Site Recovery 的存储帐户时必须禁用这些设置。
 
-1. 在“创建存储帐户”页的“查看”选项卡上，选择“创建”  。
+1. 在“创建存储帐户”页的“查看 + 创建”选项卡上，选择“创建”  。
 
-#### <a name="task-2-prepare-protection-of-a-hyper-v-virtual-machine"></a>任务 2：准备 Hyper-V 虚拟机的保护
+#### 任务 2：准备 Hyper-V 虚拟机的保护
 
 1. 在 SEA-SVR2 上，在显示 Azure 门户的 Microsoft Edge 窗口中，使用工具栏中的“搜索资源、服务和文档”文本框搜索并选择“恢复服务保管库”，然后在“恢复服务保管库”页上，选择“az801l05a-rsvault”条目    。
 1. 在“az801l05a-rsvault”页左侧垂直菜单的“开始”部分中，选择“Site Recovery”  。
@@ -140,13 +121,8 @@ lab:
 1. 在“准备基础结构”页的“源设置”选项卡上，在“是否使用 System Center VMM 来管理 Hyper-V 主机”标签旁边，选择“否”选项   。
 1. 在“准备基础结构”页的“源设置”选项卡上，选择“添加 Hyper-V 站点”链接  。 
 1. 在“创建 Hyper-V 站点”页的“名称”文本框中，输入“az801l05-site”并选择“确定”   。
-1. 若要下载并安装 MARS 代理，请选择[“下载 MARS 代理安装程序”](https://download.microsoft.com/download/0/6/7/067d515b-2c89-40fb-8dfc-4a94e9cfcbd9/MARSAgentInstaller.exe)链接。  
-1. 在下载通知中，选择“打开文件”。 这会启动“Azure Site Recovery 服务代理安装”向导。
-1. 在“安装设置”页上，选择“下一步” 。
-1. 在“代理配置”页上，选择“下一步” 。
-1. 在“安装”页上，选择“安装”，然后选择“关闭”。  
-1. 切换回显示 Azure 门户的 Microsoft Edge 窗口，在“准备基础结构”页的“源设置”选项卡上，选择“添加 Hyper-V 服务器”链接。   
-1. 在“添加服务器”页上，选择添加本地 Hyper-V 主机过程步骤 3 中的“下载”链接，以下载 Microsoft Azure Site Recovery 提供程序的安装程序 。
+1. 在“准备基础结构”页的“源设置”选项卡上，选择“添加 Hyper-V 服务器”链接  。 
+1. 在“添加服务器”页上，选择添加本地 Hyper-V 主机过程步骤 3 中的下载链接，以下载 Microsoft Azure Site Recovery 提供程序的安装程序 。
 
    > 注意：如果你收到有关 AzureSiteRecoveryProvider.exe 无法安全下载的 Microsoft Edge 通知，请将光标移到消息右侧以显示省略号 (…)，将其选中，在下拉菜单中选择“复制下载链接”，在同一 Microsoft Edge 窗口中打开另一个选项卡，粘贴你复制的链接，然后按 Enter   。
 
@@ -180,13 +156,13 @@ lab:
 1. 返回到“准备基础结构”页的“复制策略”选项卡上，等待网站与策略进行关联，然后选择“下一步”  。
 1. 在“准备基础结构”页的“查看”选项卡上，选择“准备”  。
 
-#### <a name="task-3-enable-replication-of-a-hyper-v-virtual-machine"></a>任务 3：启用 Hyper-V 虚拟机的复制
+#### 任务 3：启用 Hyper-V 虚拟机的复制
 
 1. 在 SEA-SVR2 上，在显示 Azure 门户的 Microsoft Edge 窗口中，在“az801l05a-rsvault \| Site Recovery”页上，在“Hyper-V 计算机到 Azure”部分中，选择“2. 启用复制”   。 
 1. 在“启用复制”页的“源环境”选项卡上，在“源位置”下拉列表中，选择“az801l05-site”并选择“下一步”    。
 1. 在“启用复制”页的“目标环境”选项卡上，指定以下设置（其他设置保留默认值）并选择“下一步”  ：
 
-   |设置|值|
+   |设置|Value|
    |---|---|
    |订阅|你在此实验室中使用的 Azure 订阅的名称|
    |故障转移后资源组|AZ801-L0502-RG|
@@ -201,7 +177,7 @@ lab:
 1. 在“启用复制”页的“复制策略”选项卡上，接受默认设置，然后选择“下一步”  。
 1. 在“启用复制”页的“查看”选项卡上，选择“启用复制”  。
 
-#### <a name="task-4-review-azure-vm-replication-settings"></a>任务 4：查看 Azure VM 复制设置
+#### 任务 4：查看 Azure VM 复制设置
 
 1. 在 SEA-SVR2 上，在显示 Azure 门户的 Microsoft Edge 窗口中，回到“az801l05a-rsvault \| Site Recovery”页，在左侧的垂直菜单中，选择“复制项目”  。 
 1. 在“az801l05a-rsvault \| 已复制项”页上，确保有一个表示 SEA-CORE1 虚拟机的条目，并验证其“复制运行状况”是否列为“正常”，其“状态”是否列为“启用保护”或显示同步进度的当前百分比     。
@@ -215,7 +191,7 @@ lab:
 
 1. 在 SEA-CORE1 已复制项页上，选择最新恢复点，并查看“最新崩溃一致”恢复点和“最新应用一致”恢复点   。 
 
-#### <a name="task-5-perform-a-failover-of-the-hyper-v-virtual-machine"></a>任务 5：执行 Hyper-V 虚拟机的故障转移
+#### 任务 5：执行 Hyper-V 虚拟机的故障转移
 
 1. 在 SEA-SVR2 上，在显示 Azure 门户的 Microsoft Edge 窗口中，返回到“SEA-CORE1 | 已复制项”页，然后选择“测试故障转移”  。 
 1. 在“测试故障转移”页上，指定以下设置（将其他设置保留为默认值），然后选择“确定” ：
@@ -247,9 +223,9 @@ lab:
 1. 在“故障转移”页上，注意可以选择恢复点。 
 1. 关闭“故障转移”页，而不启动故障转移。
 
-## <a name="exercise-3-implementing-azure-backup"></a>练习 3：实现 Azure 备份
+## 练习 3：实现 Azure 备份
 
-#### <a name="task-1-set-up-the-azure-recovery-services-agent"></a>任务 1：设置 Azure 恢复服务代理
+#### 任务 1：设置 Azure 恢复服务代理
 
 > 备注：通常，可使用同一个保管库实现 Azure Site Recovery 和 Azure 备份功能。 在选择 Azure 区域来托管用于灾难恢复和备份的保管库时，应考虑恢复目标，包括区域灾难的影响范围以及网络延迟注意事项。 在此实验室中，你将使用同一个保管库进行站点恢复和备份，以尽量减少重复步骤的数量。 
 
@@ -274,7 +250,8 @@ lab:
    > 注意：这将启动 Microsoft Azure 恢复服务代理安装向导，这种情况下将自动启动注册服务器向导  。
 
 1. 在 Microsoft Azure 恢复服务代理安装向导的“安装设置”页上，接受默认设置并选择“下一步”  。
-1. 在 Microsoft Azure 恢复服务代理安装向导的“代理配置”页上，接受默认设置，然后选择“下一步”  。    
+1. 在 Microsoft Azure 恢复服务代理安装向导的“代理配置”页上，接受默认设置，然后选择“下一步”  。
+1. 在 Microsoft Azure 恢复服务代理安装向导的“Microsoft 更新选择加入”页上，选择“我不想使用 Windows 更新”，然后选择“下一步”   。
 1. 在 Microsoft Azure 恢复服务代理安装向导的“安装”页上，选择“安装”  。
 1. 安装完成后，在 Microsoft Azure 恢复服务代理安装向导的“安装”页上，选择“继续注册”  。 这将启动注册服务器向导。
 1. 切换到显示 Azure 门户的 Microsoft Edge 窗口，在“准备基础结构”页上，选中“已下载或正在使用最新的恢复服务器代理”复选框，然后选择“下载”  。
@@ -290,7 +267,7 @@ lab:
 
 1. 在注册服务器向导的“服务器注册”页上，查看有关密码文件位置的警告，确保已选中“启动 Microsoft Azure 恢复服务代理”复选框，然后选择“关闭”   。 这将自动打开 Microsoft Azure 备份控制台。
 
-#### <a name="task-2-schedule-azure-backup"></a>任务 2：计划 Azure 备份
+#### 任务 2：计划 Azure 备份
 
 1. 在 SEA-SVR2 上，在 Microsoft Azure 备份控制台的“操作”窗格中，选择“计划备份”  。
 1. 在计划备份向导的“开始”页上，选择“下一步”  。
@@ -302,7 +279,7 @@ lab:
 1. 在“选择初始备份类型”页上，接受默认值，然后选择“下一步” 。
 1. 在“确认”页上，选择“完成” 。 创建备份计划后，选择“关闭”。
 
-#### <a name="task-3-perform-an-on-demand-backup"></a>任务 3：执行按需备份
+#### 任务 3：执行按需备份
 
 > 注意：创建计划备份后，按需运行备份的选项变为可用。
 
@@ -315,7 +292,7 @@ lab:
 1. 在“az801l05a-rsvault \| 备份项”页上，选择“Azure 备份代理”条目 。
 1. 在“备份项目(Azure 备份代理)”页上，验证是否存在引用 sea-svr2.contoso.com 的驱动器 C 的条目  。
 
-#### <a name="task-4-perform-file-recovery-by-using-azure-recovery-services-agent"></a>任务 4：使用 Azure 恢复服务代理执行文件恢复
+#### 任务 4：使用 Azure 恢复服务代理执行文件恢复
 
 1. 在 SEA-SVR2 上，打开文件资源管理器，浏览到 **C:\\Windows\\System32\\drivers\\etc\\** 文件夹，并删除 hosts 文件 。
 1. 切换到“Microsoft Azure 备份”窗口并选择“恢复数据”。 这将启动恢复数据向导。
@@ -341,9 +318,9 @@ lab:
 
 1. 切换回恢复数据向导，在“浏览和恢复文件”页上，选择“卸载”，并在提示确认时选择“是”   。 
 
-## <a name="exercise-4-deprovisioning-the-azure-lab-environment"></a>练习 4：取消预配 Azure 实验室环境
+## 练习 4：取消预配 Azure 实验室环境
 
-#### <a name="task-1-remove-the-protected-items"></a>任务 1：删除受保护的项
+#### 任务 1：删除受保护的项
 
 1. 在 SEA-SVR2 上，切换到显示 Azure 门户的“备份项(Azure 备份代理)”页的 Microsoft Edge 窗口，然后选择引用 sea-svr2.contoso.com 的 C 盘的条目   。
 1. 在 sea-svr2.contoso.com 上的 C:\\ 页面上，选择 sea-svr2.contoso.com 链接 。
@@ -360,7 +337,7 @@ lab:
 1. 在 SEA-CORE1 已复制项页上，选择工具栏中的省略号，然后从下拉菜单中选择“禁用复制” 。 
 1. 在“禁用复制”页上，确保“禁用复制并删除(推荐)”条目出现在“删除复制项”下拉列表中，选择“我不想提供反馈”复选框，然后选择“确定”    。
 
-#### <a name="task-2-delete-the-lab-resource-groups"></a>任务 2：删除实验室资源组
+#### 任务 2：删除实验室资源组
 
 1. 在 SEA-SVR2 上，在显示 Azure 门户的 Microsoft Edge 窗口中，通过选择 Azure 门户中的 Cloud Shell 按钮打开“Azure Cloud Shell”窗格。
 1. 如果系统提示选择“Bash”或“PowerShell”，请选择“PowerShell”  。
