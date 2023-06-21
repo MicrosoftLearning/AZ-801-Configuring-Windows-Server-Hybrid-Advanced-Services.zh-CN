@@ -4,15 +4,15 @@ lab:
   module: 'Module 9: Implementing operational monitoring in hybrid scenarios'
 ---
 
-# <a name="lab-implementing-operational-monitoring-in-hybrid-scenarios"></a>实验室：在混合场景中实现操作监视
+# 实验室：在混合场景中实现操作监视
 
-## <a name="lab-scenario"></a>实验室方案
+## 实验室方案
 
 你需要评估 Microsoft Azure 功能，以便深入了解 Azure 资源的性能和配置，特别是 Azure 虚拟机 (VM)。 若要实现此目的，你打算检查 Azure Monitor 的功能，包括 Log Analytics。
 
                 **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20operational%20monitoring%20in%20hybrid%20scenarios)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
-## <a name="objectives"></a>目标
+## 目标
 
 完成本实验室后，你将能够：
 
@@ -21,9 +21,9 @@ lab:
 - 配置对 Azure VM 的监视。
 - 评估监视服务。
 
-## <a name="estimated-time-60-minutes"></a>估计时间：60 分钟
+## 估计时间：60 分钟
 
-## <a name="lab-environment"></a>实验室环境
+## 实验室环境
   
 虚拟机：AZ-801T00A-SEA-DC1 和 AZ-801T00A-SEA-SVR2 必须正在运行 。 其他 VM 可以运行，但本实验室不需要这些 VM。
 
@@ -38,7 +38,7 @@ lab:
 
 对于本实验室，你将使用可用的 VM 环境和 Azure 订阅。 在开始实验室之前，请确保拥有 Azure 订阅以及具有该订阅中“所有者”角色的用户帐户。
 
-## <a name="exercise-1-preparing-a-monitoring-environment"></a>练习 1：准备监视环境
+## 练习 1：准备监视环境
 
 本练习的主要任务是：
 
@@ -46,11 +46,11 @@ lab:
 1. 注册 Microsoft.Insights 和 Microsoft.AlertsManagement 资源提供程序。
 1. 创建并配置 Azure Log Analytics 工作区。
 
-#### <a name="task-1-deploy-an-azure-virtual-machine"></a>任务 1：部署 Azure 虚拟机
+#### 任务 1：部署 Azure 虚拟机
 
 在此任务中，你将部署用于测试监视方案的虚拟机。
 
-1. 在 SEA-SVR2 上，启动 Microsoft Edge，转到 [Azure 门户](https://portal.azure.com)，然后使用具有要在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录 。
+1. 在 SEA-SVR2 上，启动 Microsoft Edge，转到 Azure 门户 (`https://portal.azure.com/`)，然后使用具有要在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录。
 1. 在 SEA-SVR2 上，在显示 Azure 门户的 Microsoft Edge 窗口中，在 Azure Cloud Shell 中打开一个 PowerShell 会话。
 1. 在 Cloud Shell 窗格中，将 C:\\Labfiles\\Lab02\\L02-sub_template.json、C:\\Labfiles\\Lab09\\L09-rg_template.json 和 C:\\Labfiles\\Lab09\\L09-rg_template.parameters.json 文件上传到 Cloud Shell 主目录  。
 1. 若要创建将托管实验室环境的资源组，在 Cloud Shell 窗格中的 PowerShell 会话中，运行以下命令（将 `<Azure_region>` 占位符替换为在此实验室中要向其中部署资源的 Azure 区域的名称）：
@@ -71,7 +71,7 @@ lab:
 
    >注意：请不要等待部署完成，而是继续执行下一个任务。 部署大约需要 3 分钟的时间完成。
 
-#### <a name="task-2-register-the-microsoftinsights-and-microsoftalertsmanagement-resource-providers"></a>任务 2：注册 Microsoft.Insights 和 Microsoft.AlertsManagement 资源提供程序
+#### 任务 2：注册 Microsoft.Insights 和 Microsoft.AlertsManagement 资源提供程序
 
 1. 若要注册 Microsoft.Insights 和 Microsoft.AlertsManagement 资源提供程序，在 SEA-SVR2 上的 Cloud Shell 窗格中运行以下命令：
 
@@ -86,7 +86,7 @@ lab:
 
 1. 关闭 Cloud Shell。
 
-#### <a name="task-3-create-and-configure-an-azure-log-analytics-workspace"></a>任务 3：创建并配置 Azure Log Analytics 工作区
+#### 任务 3：创建并配置 Azure Log Analytics 工作区
 
 在此任务中，你将创建并配置 Azure Log Analytics 工作区和基于 Azure 自动化的解决方案。
 
@@ -106,7 +106,7 @@ lab:
 1. 在 Azure 门户中，导航到新预配的工作区边栏选项卡。
 1. 在工作区边栏选项卡上，导航到“代理管理”边栏选项卡，并记录“工作区 ID”和“主密钥”的值。  在下一个练习中需要用到它们。
 
-#### <a name="task-4-install-service-map-solution"></a>任务 4：安装服务映射解决方案
+#### 任务 4：安装服务映射解决方案
 
 1. 在 SEA-SVR2 上，在 Azure 门户中，搜索“服务映射”市场项并导航到相应的边栏选项卡。 
 1. 在“创建服务映射解决方案”边栏选项卡中，使用以下设置创建“服务映射”解决方案： 
@@ -117,13 +117,13 @@ lab:
    | 资源组 | **AZ801-L0902-RG** |
    | Log Analytics 工作区 | 在上一个任务中创建的 Log Analytics 工作区的名称 |
 
-## <a name="exercise-2-configuring-monitoring-of-on-premises-servers"></a>练习 2：配置本地服务器的监视
+## 练习 2：配置本地服务器的监视
 
 此练习的主要任务是：
 
 1. 安装 Log Analytics 代理和 Dependency Agent
 
-#### <a name="task-1-install-the-log-analytics-agent-and-the-dependency-agent"></a>任务 1：安装 Log Analytics 代理和 Dependency Agent
+#### 任务 1：安装 Log Analytics 代理和 Dependency Agent
 
 1. 连接到 SEA-SVR2 上的控制台会话时，在显示 Azure 门户的浏览器窗口中的“代理管理”边栏选项卡中，下载 64 位 Windows Log Analytics 代理。  
 1. 使用默认设置安装代理。 当出现提示时，输入在上一练习中记录的“工作区 ID”和“工作区密钥(主密钥)”。  
@@ -134,14 +134,14 @@ lab:
    .\InstallDependencyAgent-Windows.exe /S
    ```
 
-## <a name="exercise-3-configuring-monitoring-of-azure-vms"></a>练习 3：配置对 Azure VM 的监视
+## 练习 3：配置对 Azure VM 的监视
 
 本练习的主要任务是：
 
 1. 查看基于主机的监视。
 1. 配置诊断设置和 VM 见解。
 
-#### <a name="task-1-review-host-based-monitoring"></a>任务 1：查看基于主机的监视
+#### 任务 1：查看基于主机的监视
 
 在此任务中，你将查看 Azure 虚拟机的默认监视设置。
 
@@ -157,7 +157,7 @@ lab:
 
 1. 在“az801l09-vm0 \| 指标”页上，显示说明 az801l09-vm0 的 CPU 平均使用率的图表 。
 
-#### <a name="task-2-configure-diagnostic-settings-and-vm-insights"></a>任务 2：配置诊断设置和 VM 见解
+#### 任务 2：配置诊断设置和 VM 见解
 
 在此任务中，将配置 Azure 虚拟机诊断设置。
 
@@ -203,7 +203,7 @@ lab:
 
    >注意：此选项使用运行状况模型来启用监视和警报功能，此模型包含使用适用于 VM 的 Azure Monitor 发出的指标而生成的运行状况监视器层次结构。
 
-## <a name="exercise-4-evaluating-monitoring-services"></a>练习 4：评估监视服务
+## 练习 4：评估监视服务
 
 本练习的主要任务是：
 
@@ -211,7 +211,7 @@ lab:
 1. 查看 Azure Monitor VM 见解功能。
 1. 查看 Azure Log Analytics 功能。
 
-#### <a name="task-1-review-azure-monitor-monitoring-and-alerting-functionality"></a>任务 1：查看 Azure Monitor 监视和警报功能
+#### 任务 1：查看 Azure Monitor 监视和警报功能
 
 1. 在 SEA-SVR2 上，在 Azure 门户中，回到“监视 \| 指标”边栏选项卡 。
 1. 将范围设置为 az801l09-vm0 虚拟机。 
@@ -276,7 +276,7 @@ lab:
 
    >注意：可能需要等待几分钟并选择“刷新” 。
 
-#### <a name="task-2-review-azure-monitor-vm-insights-functionality"></a>任务 2：查看 Azure Monitor VM 见解功能
+#### 任务 2：查看 Azure Monitor VM 见解功能
 
 1. 在 SEA-SVR2 上，在 Azure 门户中，浏览回 az801l09-vm0 虚拟机页 。
 1. 在 az801l09-vm0 虚拟机页的左侧垂直菜单中，在“监视”部分选择“见解”  。
@@ -286,7 +286,7 @@ lab:
 
    >注意：运行状况信息的可用性取决于工作区升级的完成情况。
 
-#### <a name="task-3-review-azure-log-analytics-functionality"></a>任务 3：查看 Azure Log Analytics 功能
+#### 任务 3：查看 Azure Log Analytics 功能
 
 1. 在 SEA-SVR2 上，在 Azure 门户中，浏览回“监视”页并选择“日志”  。
 1. 在“选择范围”页上，使用“最近使用”选项卡选择之前在此实验室中创建的唯一工作区，然后选择“应用”。  
@@ -320,18 +320,18 @@ lab:
 1. 放大查看说明 SEA-SVR2 上的可用网络端口的图，选择不同的端口并查看相应的连接信息。
 1. 对于每个连接，在“摘要”和“属性”视图之间切换，后者提供了有关连接目标的更详细的信息 。
 
-## <a name="exercise-5-deprovisioning-the-azure-environment"></a>练习 5：取消预配 Azure 环境
+## 练习 5：取消预配 Azure 环境
 
 本练习的主要任务是：
 
 1. 在 Cloud Shell 中启动一个 PowerShell 会话。
 1. 删除实验室中预配的所有 Azure 资源。
 
-#### <a name="task-1-start-a-powershell-session-in-cloud-shell"></a>任务 1：在 Cloud Shell 中启动一个 PowerShell 会话
+#### 任务 1：在 Cloud Shell 中启动一个 PowerShell 会话
 
 1. 在 SEA-SVR2 上，在显示 Azure 门户的 Microsoft Edge 窗口中，通过选择 Cloud Shell 图标打开 Cloud Shell 窗格。
 
-#### <a name="task-2-delete-all-azure-resources-provisioned-in-the-lab"></a>任务 2：删除实验室中预配的所有 Azure 资源
+#### 任务 2：删除实验室中预配的所有 Azure 资源
 
 1. 在 Cloud Shell 窗格中，运行以下命令，列出在此实验室中创建的所有资源组：
 
@@ -350,7 +350,7 @@ lab:
    >注意：该命令异步执行（由 -AsJob 参数确定）。 因此，尽管可以在同一 PowerShell 会话中立即运行另一个 PowerShell 命令，但在实际删除资源组之前将需要几分钟的时间。
 
 
-#### <a name="review"></a>审阅
+#### 审阅
 
 在此实验室中，你执行了以下操作：
 

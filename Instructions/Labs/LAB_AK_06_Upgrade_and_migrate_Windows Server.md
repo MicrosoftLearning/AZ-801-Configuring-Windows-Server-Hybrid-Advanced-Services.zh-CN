@@ -7,7 +7,7 @@ lab:
 
 # 实验室答案：在 Windows Server 中升级和迁移
 
-**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Upgrading%20and%20migrating%20in%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Upgrading%20and%20migrating%20in%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
 ## 练习 1：在 Azure 中部署 AD DS 域控制器
 
@@ -17,7 +17,7 @@ lab:
 1. 在 SEA-SVR2 上，启动 Microsoft Edge，并在[创建新的 Windows VM 并创建新的 AD 林、域和 DC](https://github.com/az140mp/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain) 处访问自定义版本的快速入门模板 。 
 1. 在“创建新的 Windows VM 并创建新的 AD 林、域和 DC”页上，选择“部署到 Azure” 。 这会自动将浏览器重定向到 Azure 门户中的“使用新 AD 林创建 Azure VM”页。
 1. 在“使用新 AD 林创建 Azure VM”页上，选择“编辑模板” 。
-1. 在“编辑模板”页上，浏览到“storageProfile”部分（从第 195 行开始），并验证“sku”（第 199 行上）设置为“2022-Datacenter”且“dataDisks 缓存”（第 213 行上）设置为“无”          。
+1. 在“编辑模板”页上，浏览到“storageProfile”部分（从第 195 行开始），并验证“sku”（第 199 行）设置为“2022-Datacenter”，“版本”（第 200 行）设置为“最新”且“dataDisks 缓存”（第 213 行）设置为“无”             。
 
    > 注意：托管 AD DS 数据库和日志文件的磁盘上的缓存应设置为“无” 。
 
@@ -58,6 +58,7 @@ lab:
    | 管理员密码 | **Pa55w.rd1234** |
    | 域名 | **contoso.com** |
    | VM 大小 | **Standard_DS2_v2** |
+   | _artifacts 位置 | **`https://raw.githubusercontent.com/az140mp/azure-quickstart-templates/master/application-workloads/active-directory/active-directory-new-domain/`** |
    | 虚拟机名称 | az801l06a-dc1 |
    | 虚拟网络名称 | az801l06a-vnet |
    | 虚拟网络地址范围 | 10.6.0.0/16 |
@@ -96,7 +97,7 @@ lab:
 1. 在 Azure 门户工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择 Bastions，然后在 Bastions 页面上，选择“+ 创建”   。
 1. 在“创建 Bastion”页的“基本”标签上，指定以下设置，然后选择“查看 + 创建”  ：
 
-   | 设置 | Value | 
+   | 设置 | 值 | 
    | --- | --- |
    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
    | 资源组 | 新资源组 AZ801-L0602-RG 的名称 |
@@ -117,19 +118,19 @@ lab:
 > 注意：在本练习的第一个任务中预配的第一个域控制器所在的同一域中，可采用另一域控制器的形式完全自动执行第二个 Azure VM 的部署及其设置。 但是，在这种情况下，图形界面的使用应提供有关在本地场景和基于 Azure 的场景中预配域控制器之间的差异的其他指导。
 
 1. 在 SEA-SVR2 上，在显示 Azure 门户的 Microsoft Edge 窗口中，于工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择“虚拟机”  。 
-1. 在“虚拟机”页上，选择“+ 创建”，然后在下拉菜单中选择“+ 虚拟机”  。
+1. 在“虚拟机”页上，选择“+ 创建”，然后在下拉菜单中选择“Azure 虚拟机”  。
 1. 在“创建虚拟机”边栏选项卡的“基本信息”选项卡上，指定以下设置（将其他设置保留为默认值） ：
 
-   | 设置 | 值 |
+   | 设置 | Value |
    | --- | --- |
    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
-   | 资源组 | 新资源组 AZ801-L0601-RG 的名称 |
+   | 资源组 | 选择现有资源组 AZ801-L0601-RG |
    | 虚拟机名称 | az801l06a-dc2 |
    | 区域 | 选择之前在此练习中部署第一个虚拟机的同一 Azure 区域 |
    | 可用性选项 | **可用性集** |
    | 可用性集 | adAvailabilitySet |
    | 映像 | Windows Server 2022 Datacenter：Azure Edition - Gen2 |
-   | Azure Spot 实例 | **是** |
+   | 使用 Azure Spot 折扣运行 | **是** |
    | 大小 | Standard D2s v3 |
    | 用户名 | **学生** |
    | 密码 | **Pa55w.rd1234** |
@@ -145,7 +146,7 @@ lab:
 1. 在“创建虚拟机”边栏选项卡的“磁盘”选项卡上，在“数据磁盘”部分中，选择“创建并附加新磁盘”   。
 1. 在“创建新磁盘”页上，指定以下设置（将其他设置保留为默认值），然后选择“确定” ：
 
-   | 设置 | 值 |
+   | 设置 | Value |
    | --- | --- |
    | 名称 | az801l06a-dc2_DataDisk_0 |
    | 源类型 | **无(空磁盘)** |
@@ -153,21 +154,26 @@ lab:
 
 1. 回到“创建虚拟机”边栏选项卡的“磁盘”选项卡，选择“下一步: 网络 >”，然后在“创建虚拟机”边栏选项卡的“网络”选项卡上，指定以下设置（将其他设置保留为默认值）    ：
 
-   | 设置 | 值 |
+   | 设置 | Value |
    | --- | --- |
    | 虚拟网络 | az801l06a-vnet |
    | 子网 | adSubnet (10.6.0.0/24) |
    | 公共 IP | **无** |
    | NIC 网络安全组 | **无** |
-   | 加速网络 | enabled |
+   | 启用加速网络 | disabled |
    | 是否将此虚拟机置于现有负载均衡解决方案之后？ | disabled |
 
 1. 选择“下一步: 管理 >”，然后在“创建虚拟机”边栏选项卡的“管理”选项卡上，指定以下设置（将其他设置保留为默认值）  ：
 
    | 设置 | 值 |
    | --- | --- |
-   | 启动诊断 | 使用托管存储帐户启用（推荐） |
    | 补丁业务流程选项 | **手动更新** |
+
+1. 选择“下一步: 监视 >”，然后在“创建虚拟机”边栏选项卡的“监视”选项卡上，指定以下设置（其他设置保留默认值）：  
+
+   | 设置 | 值 |
+   | --- | --- |
+   | 启动诊断 | 使用托管存储帐户启用（推荐） |
 
 1. 选择“下一步: 高级 >”，在“创建虚拟机”页的“高级”选项卡上，查看可用的设置，而不修改任何设置，然后选择“查看 + 创建”   。
 1. 在“查看 + 创建”边栏选项卡上，选择“创建” 。
@@ -189,13 +195,14 @@ lab:
 
 1. 在 SEA-SVR2 上，在显示 Azure 门户的 Microsoft Edge 窗口中，浏览回“az801l06a-dc2”页 。
 1. 在“az801l06a-dc2”页上，选择“连接”，从下拉菜单中，选择“Bastion”  。 
-1. 在“az801l06a-dc2”\|“连接”页的的“Bastion”选项卡上，选择“使用 Bastion”  。
-1. 出现提示时，提供以下凭据，然后选择“连接”：
+1. 在 Bastion 上，提供以下凭据，然后选择“连接”：
 
    | 设置 | 值 | 
    | --- | --- |
    | 用户名 |**学生** |
    | 密码 |**Pa55w.rd1234** |
+
+> 注意：默认情况下，Microsoft Edge 阻止弹出窗口。 若要允许 Bastion 弹出窗口，请转到 Microsoft Edge 中的“设置”，在左侧选择“Cookie 和网站权限”，在“所有权限”下选择“弹出窗口和重定向”，最后关闭“阻止(推荐)”      。
 
 1. 在与 az801l06a-dc2 的远程桌面会话中，选择“启动”，然后选择“Windows PowerShell”  。
 1. 若要安装 AD DS 和 DNS 服务器角色，请在 Windows PowerShell 命令提示符处输入以下命令，然后按 Enter：
@@ -233,9 +240,8 @@ lab:
 
    > 注意：操作系统将自动重启以完成提升过程。
 
-1. 在 SEA-SVR2 上，在显示 Azure 门户的 Microsoft Edge 窗口的“az801l06a-dc2”页上，选择“连接”，从下拉菜单中，选择“Bastion”   。 
-1. 在“az801l06a-dc2”\|“连接”页的的“Bastion”选项卡上，选择“使用 Bastion”  。
-1. 出现提示时，提供以下凭据并选择“连接”：
+1. 在 SEA-SVR2 上，在显示 Azure 门户的 Microsoft Edge 窗口的“az801l06a-dc2”页上，选择“连接”，从下拉菜单中，选择“Bastion”   。  
+1. 在 Bastion 上，提供以下凭据，然后选择“连接”：
 
    | 设置 | 值 | 
    | --- | --- |
@@ -298,6 +304,11 @@ lab:
 #### 任务 3：使用存储迁移服务执行迁移
 
 1. 在 SEA-SVR2 上，启动 Microsoft Edge，然后转到 https://SEA-SVR2.contoso.com 。 
+   
+   >注意：如果链接不起作用，请在 SEA-SVR2 上打开文件资源管理器，选择“下载”文件夹，在“下载”文件夹中选择 WindowsAdminCenter.msi 文件并手动安装。   安装完成后，刷新 Microsoft Edge。
+
+   >注意：如果收到“NET::ERR_CERT_DATE_INVALID”错误，请在 Microsoft Edge 浏览器页上选择“高级”，在页面底部选择“继续访问 sea-svr2-contoso.com (不安全)”   。
+
 1. 出现提示时，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
 
    - 用户名：CONTOSO\\Administrator
@@ -312,7 +323,7 @@ lab:
 
 1. 在顶部菜单的“设置”旁边，选择下拉箭头，然后选择“服务器管理器” 。
 1. 在“所有连接”窗格中，选择“sea-svr2.contoso.com”链接 。
-1. 在“sea-svr2.contoso.com”页上的“工具”菜单中，选择“存储迁移服务”条目  。
+1.  在“sea-svr2.contoso.com”页上的“工具”菜单中，选择“存储迁移服务”条目  。
 1. 在“存储迁移服务”窗格中，选择“安装” 。
 
    >注意：这将自动安装存储迁移服务及其所需的组件。

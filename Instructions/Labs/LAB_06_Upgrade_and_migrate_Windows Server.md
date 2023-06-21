@@ -4,24 +4,24 @@ lab:
   module: 'Module 6: Upgrade and migrate in Windows Server'
 ---
 
-# <a name="lab-upgrade-and-migrate-in-windows-server"></a>实验室：在 Windows Server 中升级和迁移
+# 实验室：在 Windows Server 中升级和迁移
 
-## <a name="lab-scenario"></a>实验室方案
+## 实验室方案
 
 Contoso 正在探索适用于其基础结构服务的混合模型，该模型有助于将其本地 Windows 服务器迁移到 Azure 虚拟机 (VM)。 为协助完成此计划，你需要评估在 Azure VM 中部署 Active Directory 域服务 (AD DS) 域控制器的过程。 你的目的是确定当前用于本地部署的手动过程与 Azure 中所提供的部署方法之间的差异。 此外，你还需要测试并记录存储迁移服务功能，以验证其在本地文件服务器迁移中的使用情况。 
 
                 **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Upgrading%20and%20migrating%20in%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
-## <a name="objectives"></a>目标
+## 目标
 
 在此实验中，将执行以下操作：
 
 - 在 Azure 中部署 AD DS 域控制器。
 - 使用存储迁移服务迁移文件服务器。
 
-## <a name="estimated-time-60-minutes"></a>估计时间：60 分钟
+## 估计时间：60 分钟
 
-## <a name="lab-environment"></a>实验室环境
+## 实验室环境
   
 虚拟机：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 必须运行  。 其他 VM 可以运行，但本实验室不需要这些 VM。
 
@@ -36,7 +36,7 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
 
 对于本实验室，你将使用可用的 VM 环境和 Azure 订阅。 在开始实验室之前，请确保拥有 Azure 订阅以及具有该订阅中“所有者”角色的用户帐户。
 
-## <a name="exercise-1-deploying-ad-ds-domain-controllers-in-azure"></a>练习 1：在 Azure 中部署 AD DS 域控制器
+## 练习 1：在 Azure 中部署 AD DS 域控制器
 
 > 注意：混合方案通常涉及通过将其他域控制器从现有本地域部署到 Azure VM 来将本地 AD DS 环境扩展到 Azure。 在实验室中执行此类任务需要设置与 Azure 虚拟网络的站点到站点 VPN 连接，或者在 Azure 中预配整个实验室环境，其中一部分模拟本地站点。 为简单起见，此练习涉及到将 Azure VM 中的域控制器部署到新的林和域中。 重点在于如何发现使用 Azure VM 时域控制器配置和预配过程的独特方面。
 
@@ -48,9 +48,9 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
 1. 在 Azure VM 中手动升级域控制器。
 1. 删除练习中部署的 Azure 资源。
 
-#### <a name="task-1-deploy-a-domain-controller-by-using-an-azure-resource-manager-arm-template"></a>任务 1：使用 Azure 资源管理器 (ARM) 模板部署域控制器
+#### 任务 1：使用 Azure 资源管理器 (ARM) 模板部署域控制器
 
-1. 在 SEA-SVR2 上，启动 Microsoft Edge，转到 [Azure 门户](https://portal.azure.com)，然后使用具有所有者角色的用户帐户的凭据登录要在此实验室中使用的订阅 。
+1. 在 SEA-SVR2 上，启动 Microsoft Edge，转到 Azure 门户 (`https://portal.azure.com/`)，然后使用具有要在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录。
 1. 在 SEA-SVR2 上，启动 Microsoft Edge，并在[创建新的 Windows VM 并创建新的 AD 林、域和 DC](https://github.com/az140mp/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain) 处转到自定义版本的快速入门模板 。 
 1. 在“创建新的 Windows VM 并创建新的 AD 林、域和 DC”页上，启动到 Azure 的部署。 
 1. 在“使用新 AD 林创建 Azure VM”页上，选择“编辑模板” 。
@@ -104,7 +104,7 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
 
    > 注意：在继续下一个任务之前，请等待部署完成。 这可能需要大约 15 分钟。 
 
-#### <a name="task-2-deploy-azure-bastion"></a>任务 2：部署 Azure Bastion 
+#### 任务 2：部署 Azure Bastion 
 
 > 注意：Azure Bastion 允许在没有公共终结点（你在本练习的上一个任务中部署的终结点）的情况下连接到 Azure VM，同时提供针对暴力攻击（利用操作系统级别凭据）的保护。
 
@@ -137,7 +137,7 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
 
    > 注意：请不要等待部署完成，而是继续执行下一个任务。 部署可能需要大约 5 分钟时间。
 
-#### <a name="task-3-deploy-an-azure-vm-by-using-the-azure-portal"></a>任务 3：使用 Azure 门户部署 Azure VM
+#### 任务 3：使用 Azure 门户部署 Azure VM
 
 > 注意：在本练习的第一个任务中预配的第一个域控制器所在的同一域中，可采用另一域控制器的形式完全自动执行第二个 Azure VM 的部署及其设置。 但是，在这种情况下，图形界面的使用应提供有关在本地场景和基于 Azure 的场景中预配域控制器之间的差异的其他指导。
 
@@ -146,7 +146,7 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
    | 设置 | 值 |
    | --- | --- |
    | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
-   | 资源组 | 新资源组 AZ801-L0601-RG 的名称 |
+   | 资源组 | 选择现有资源组 AZ801-L0601-RG |
    | 虚拟机名称 | az801l06a-dc2 |
    | 区域 | 选择之前在此练习中部署第一个虚拟机的同一 Azure 区域 |
    | 可用性选项 | **可用性集** |
@@ -173,7 +173,7 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
 
    > 注意：请等待部署完成。 部署可能需要大约 3 分钟。
 
-#### <a name="task-4-manually-promote-a-domain-controller-in-an-azure-vm"></a>任务 4：在 Azure VM 中手动升级域控制器
+#### 任务 4：在 Azure VM 中手动升级域控制器
 
 1. 在 SEA-SVR2 上，在显示 Azure 门户的 Microsoft Edge 窗口中，配置分配给 az801l06a-dc2 虚拟机网络接口的专用 IP 地址，以便使用静态分配 。 
 
@@ -222,9 +222,9 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
 1. 在 SEA-SVR2 上，通过 Bastion 服务重新连接到 az801l06a-dc2 。
 1. 在与 az801l06a-dc2 的远程桌面会话中，使用服务器管理器验证本地安装的角色是否包括 AD DS 和 DNS   。
 
-#### <a name="task-5-remove-azure-resources-deployed-in-the-exercise"></a>任务 5：删除练习中部署的 Azure 资源
+#### 任务 5：删除练习中部署的 Azure 资源
 
-#### <a name="task-1-start-a-powershell-session-in-cloud-shell"></a>任务 1：在 Cloud Shell 中启动 PowerShell 会话
+#### 任务 1：在 Cloud Shell 中启动 PowerShell 会话
 
 1. 在 SEA-SVR2 上，在显示 Azure 门户的 Microsoft Edge 窗口中，通过选择 Cloud Shell 图标打开 Cloud Shell 窗格。
 1. 在 Cloud Shell 窗格中，运行以下命令，列出此练习中创建的所有资源组：
@@ -243,7 +243,7 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
 
    > 注意：该命令以异步方式执行（由 -AsJob 参数决定），因此，虽然你可以立即在同一个 PowerShell 会话中运行另一个 PowerShell 命令，但需要几分钟才能实际删除资源组。
 
-## <a name="exercise-2-migrating-file-servers-by-using-storage-migration-service"></a>练习 2：使用存储迁移服务迁移文件服务器
+## 练习 2：使用存储迁移服务迁移文件服务器
 
 本练习的主要任务是：
 
@@ -252,7 +252,7 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
 1. 使用存储迁移服务执行迁移。
 1. 验证迁移结果。
 
-#### <a name="task-1-install-windows-admin-center"></a>任务 1：安装 Windows Admin Center
+#### 任务 1：安装 Windows Admin Center
 
 1. 在 SEA-ADM1 上，以管理员身份启动 Windows PowerShell 。
 
@@ -271,7 +271,7 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
 
    > 注意：请等待安装完成。 这大约需要 2 分钟。
 
-#### <a name="task-2-set-up-file-services"></a>任务 2：设置文件服务
+#### 任务 2：设置文件服务
 
 1. 在 SEA-SVR2 上，在 Windows PowerShell ISE 中打开文件 C:\\Labfiles\\Lab06\\L06_SetupFS.ps1 。
 1. 在“Windows PowerShell ISE 脚本”窗格中，查看该脚本，然后执行该脚本。 
@@ -280,7 +280,7 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
 
    >注意：该脚本会在 SEA-SVR1 和 SEA-SVR2 上初始化一个额外的数据磁盘，在每个磁盘上创建一个 NTFS 卷，向每个卷分配“S:”驱动器号，使用 SEA-SVR1 上的 S:\Data 文件夹创建一个名为 Data 的共享，并向其中添加总大小约为 1 GB 的示例文件      。 
 
-#### <a name="task-3-perform-migration-by-using-storage-migration-service"></a>任务 3：使用存储迁移服务执行迁移
+#### 任务 3：使用存储迁移服务执行迁移
 
 1. 在 SEA-ADM1 上，启动 Microsoft Edge 并连接到 Windows Admin Center 的本地实例 (https://SEA-ADM1.contoso.com ) 。 
 1. 如果系统提示，请使用以下凭据进行身份验证：
@@ -361,7 +361,7 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
 
    >注意：切换将触发 SEA-SVR1 和 SEA-SVR2 的两次连续重启  。
 
-#### <a name="task-4-validate-migration-outcome"></a>任务 4：验证迁移结果
+#### 任务 4：验证迁移结果
 
 1. 在 SEA-ADM1 上，以管理员身份启动 Windows PowerShell 。
 1. 若要确定分配给 SEA-SVR2 的网络接口的 IPv4 地址，请在 Windows PowerShell 控制台中运行以下命令 ：
@@ -394,7 +394,7 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
    Get-ChildItem -Path 'S:\Data'
    ```
 
-#### <a name="review"></a>审阅
+#### 审阅
 
 在此实验室中，你执行了以下操作：
 

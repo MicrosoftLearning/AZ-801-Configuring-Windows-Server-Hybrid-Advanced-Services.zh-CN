@@ -4,16 +4,16 @@ lab:
   module: 'Module 7: Design for Migration'
 ---
 
-# <a name="lab-migrating-hyper-v-vms-to-azure-by-using-azure-migrate"></a>实验室：使用 Azure Migrate 将 Hyper-V VM 迁移到 Azure
+# 实验室：使用 Azure Migrate 将 Hyper-V VM 迁移到 Azure
 
-## <a name="lab-scenario"></a>实验室方案
+## 实验室方案
 
 尽管 Adatum 企业体系结构团队希望在迁移到 Azure 的过程中对其工作负载进行现代化处理，但他们意识到，由于时间安排紧张，在很多情况下，必须采用“直接迁移”方法。 为了简化此任务，该团队开始探索 Azure Migrate 的功能。 Azure Migrate 充当一个集中化中心，用于评估本地服务器、基础结构、应用程序和数据，并将它们迁移到 Azure。
 
 Azure Migrate 提供以下功能：
 
 - 统一迁移平台：用于启动、运行和跟踪到 Azure 的迁移的单一门户。
-- 工具范围：用于评估和迁移的一系列工具。 工具包括“Azure Migrate: 服务器评估和 Azure Migrate:服务器迁移。 Azure Migrate 集成了其他 Azure 服务，以及其他工具和独立软件供应商 (ISV) 产品/服务。
+- 工具范围：用于评估和迁移的一系列工具。 工具包括 Azure Migrate：服务器评估、迁移和现代化。 Azure Migrate 集成了其他 Azure 服务，以及其他工具和独立软件供应商 (ISV) 产品/服务。
 - 评估和迁移：在 Azure Migrate 中心内，可以评估和迁移以下项目：
     - 服务器：评估本地服务器并将其迁移到 Azure 虚拟机。
     - 数据库：评估本地数据库，并将其迁移到 Azure SQL 数据库或 SQL 托管实例。
@@ -25,7 +25,7 @@ Azure Migrate 提供以下功能：
 
                 **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Migrating%20Hyper-V%20VMs%20to%20Azure%20by%20using%20Azure%20Migrate)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
-## <a name="objectives"></a>目标
+## 目标
   
 完成本实验室后，你将能够：
 
@@ -33,9 +33,9 @@ Azure Migrate 提供以下功能：
 -  使用 Azure Migrate 评估 Hyper-V 的迁移。
 -  使用 Azure Migrate 迁移 Hyper-V VM。
 
-## <a name="estimated-time-120-minutes"></a>估计时间：120 分钟
+## 估计时间：120 分钟
 
-## <a name="lab-environment"></a>实验室环境
+## 实验室环境
   
 虚拟机：AZ-801T00A-SEA-DC1 和 AZ-801T00A-SEA-SVR2 必须正在运行 。 其他 VM 可以运行，但它们不是此实验室不需要这些 VM。
 
@@ -50,7 +50,7 @@ Azure Migrate 提供以下功能：
 
 对于本实验室，你将使用可用的 VM 环境和 Azure 订阅。 在开始实验室之前，请确保拥有 Azure 订阅以及具有该订阅中“所有者”角色的用户帐户。
 
-## <a name="exercise-1-prepare-the-lab-environment"></a>练习 1：准备实验室环境
+## 练习 1：准备实验室环境
 
 此练习的主要任务如下：
 
@@ -58,7 +58,7 @@ Azure Migrate 提供以下功能：
 1. 部署 Azure Bastion。
 1. 在 Azure VM 中部署嵌套 VM。
 
-#### <a name="task-1-deploy-an-azure-vm-by-using-an-azure-resource-manager-quickstart-template"></a>任务 1：使用 Azure 资源管理器快速入门模板部署 Azure VM
+#### 任务 1：使用 Azure 资源管理器快速入门模板部署 Azure VM
 
 1. 在 SEA-SVR2 上，启动 Microsoft Edge，浏览到 [301-nested-vms-in-virtual-network Azure 快速启动模板](https://github.com/az140mp/azure-quickstart-templates/tree/master/demos/nested-vms-in-virtual-network)，然后选择“部署到 Azure”。  （“部署到 Azure”按钮位于 `README.md` 文件中模板创建的资源列表的后面。）
 1. 在 Azure 门户中，出现提示时，使用你在此实验室中使用的订阅中具有所有者角色的用户帐户的凭据登录。
@@ -78,7 +78,7 @@ Azure Migrate 提供以下功能：
 
    > 注意：请等待部署完成。 部署可能需要大约 10 分钟时间。
 
-#### <a name="task-2-deploy-azure-bastion"></a>任务 2：部署 Azure Bastion 
+#### 任务 2：部署 Azure Bastion 
 
 > 注意：Azure Bastion 允许在没有公共终结点（你在本练习的上一个任务中部署的终结点）的情况下连接到 Azure VM，同时提供针对暴力攻击（利用操作系统级别凭据）的保护。
 
@@ -114,7 +114,7 @@ Azure Migrate 提供以下功能：
    
    > 注意：在继续下一个任务之前，请等待部署完成。 部署可能需要大约 5 分钟时间。
 
-#### <a name="task-3-deploy-a-nested-vm-in-the-azure-vm"></a>任务 3：在 Azure VM 中部署嵌套 VM
+#### 任务 3：在 Azure VM 中部署嵌套 VM
 
 1. 在 Azure 门户中，浏览到 az801l07a-hv-vm 虚拟机页。
 1. 在 az801l07a-hv-vm 页面中，使用以下凭据通过 Azure Bastion 连接到在虚拟机中运行的操作系统：
@@ -149,7 +149,7 @@ Azure Migrate 提供以下功能：
    Rename-Computer -NewName 'az801l07a-vm1' -Restart
    ```
 
-## <a name="exercise-2-prepare-for-assessment-and-migration-by-using-azure-migrate"></a>练习 2：使用 Azure Migrate 为评估和迁移做好准备
+## 练习 2：使用 Azure Migrate 为评估和迁移做好准备
   
 此练习的主要任务如下：
 
@@ -157,7 +157,7 @@ Azure Migrate 提供以下功能：
 1. 创建 Azure Migrate 项目。
 1. 实现目标 Azure 环境。
 
-#### <a name="task-1-configure-hyper-v-environment"></a>任务 1：配置 Hyper-V 环境
+#### 任务 1：配置 Hyper-V 环境
 
 1. 在与 az801l07a-hv-vm 的远程桌面会话中，在浏览器窗口中，转到 [https://aka.ms/migrate/script/hyperv](https://aka.ms/migrate/script/hyperv)，下载 Azure Migrate 配置 PowerShell 脚本。
 
@@ -186,9 +186,9 @@ Azure Migrate 提供以下功能：
    - 是否使用 SMB 共享来存储 VHD？
    - 是否要为 Azure Migrate 和 Hyper-V 主机通信创建非管理员本地用户？ 
 
-#### <a name="task-2-create-an-azure-migrate-project"></a>任务 2：创建 Azure Migrate 项目
+#### 任务 2：创建 Azure Migrate 项目
 
-1. 在与 az801l07a-hv-vm 的远程桌面会话中，在浏览器窗口，转到 [Azure 门户](https://portal.azure.com)，然后使用你在此实验室中使用的订阅中具有所有者角色的用户帐户的凭据登录。
+1. 在与 az801l07a-hv-vm 的远程桌面会话中，在浏览器窗口中，转到 Azure 门户 (`https://portal.azure.com/`)，然后使用具有在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录。
 1. 在 Azure 门户中，浏览到 Azure Migrate 页面，并创建具有以下设置的项目（其他设置保留其默认值）：
 
    | 设置 | 值 | 
@@ -198,7 +198,7 @@ Azure Migrate 提供以下功能：
    | 迁移项目 | **az801l07a-migrate-project** |
    | 地理位置 | 你所在国家或地区的名称 |
 
-#### <a name="task-3-implement-the-target-azure-environment"></a>任务 3：实现目标 Azure 环境
+#### 任务 3：实现目标 Azure 环境
 
 1. 在 Azure 门户中，使用以下设置创建一个虚拟网络（其他设置保留默认值）：
 
@@ -237,14 +237,14 @@ Azure Migrate 提供以下功能：
    | 为 blob 启用软删除 | disabled |
    | 启用容器软删除 | disabled |
 
-## <a name="exercise-3-assess-hyper-v-for-migration-by-using-azure-migrate"></a>练习 3：使用 Azure Migrate 评估 Hyper-V 的迁移
+## 练习 3：使用 Azure Migrate 评估 Hyper-V 的迁移
   
 此练习的主要任务如下：
 
 1. 部署并配置 Azure Migrate 设备
 1. 配置、运行和查看评估
 
-#### <a name="task-1-deploy-and-configure-the-azure-migrate-appliance"></a>任务 1：部署和配置 Azure Migrate 设备
+#### 任务 1：部署和配置 Azure Migrate 设备
 
 1. 在与 az801l07a-hv-vm 的远程桌面会话中，在浏览器窗口中浏览到新创建的 Azure Migrate 项目。 
 1. 在“Azure Migrate | 入门”页上的“服务器、数据库和 Web 应用”部分，选择“发现、评估和迁移”，然后转到“发现”页面。   
@@ -292,7 +292,7 @@ Azure Migrate 提供以下功能：
 
    >**注意**：每个主机可能需要大约 15 分钟才能发现服务器的元数据显示在 Azure 门户。
 
-#### <a name="task-2-configure-run-and-view-an-assessment"></a>任务 2：配置、运行和查看评估
+#### 任务 2：配置、运行和查看评估
 
 1. 从虚拟设备的“虚拟机连接”窗口，切换到与 az801l07a-hv-vm 的远程桌面会话 。 在显示 Azure 门户的浏览器窗口中，浏览 回“Azure Migrate | 服务器、数据库和 Web 应用”页，然后选择“刷新” 。 在“Azure Migrate: 发现和评估”部分，选择”评估”，然后在下拉菜单中选择 Azure VM  。
 1. 在“创建评估”页上，指定以下设置（其他设置保留默认值）：
@@ -321,7 +321,7 @@ Azure Migrate 提供以下功能：
 
    >**注意**：在真实场景中，应考虑安装 Dependency Agent，以在评估阶段提供对服务器依赖项的更多见解。
 
-## <a name="exercise-4-migrate-hyper-v-vms-by-using-azure-migrate"></a>练习 4：使用 Azure Migrate 迁移 Hyper-V VM
+## 练习 4：使用 Azure Migrate 迁移 Hyper-V VM
   
 此练习的主要任务如下：
 
@@ -330,10 +330,10 @@ Azure Migrate 提供以下功能：
 1. 执行 Hyper-V VM 的迁移。
 1. 删除实验室中部署的 Azure 资源。
 
-#### <a name="task-1-prepare-for-migration-of-hyper-v-vms"></a>任务 1：为迁移 Hyper-V VM 做好准备
+#### 任务 1：为迁移 Hyper-V VM 做好准备
 
 1. 在与 az801l07a-hv-vm 的远程桌面会话中，在显示 Azure 门户的浏览器窗口中，浏览回“Azure Migrate | 服务器、数据库和 Web 应用”页面 。 
-1. 在“Azure Migrate 服务器、数据库和 Web 应用”页的“Azure Migrate: 服务器迁移”部分，选择“发现”链接  。 
+1. 在“Azure Migrate | 服务器、数据库和 Web 应用”页的“迁移和现代化”部分，选择“发现”链接  。 
 1. 在“发现”页上，通过指定以下设置来创建资源（其他设置保留默认值）：
 
    | 设置 | 值 | 
@@ -351,14 +351,14 @@ Azure Migrate 提供以下功能：
 1. 使用下载的文件，通过默认设置安装 Azure Site Recovery 提供程序。
 1. 在安装过程中，切换到 Azure 门户，然后在“发现计算机”页上，在准备本地 Hyper-V 主机的过程的步骤 1 中，选择“下载”按钮以下载保管库注册密钥，然后用它来注册 Azure Site Recovery 提供程序。  
 1. 刷新显示“发现”页的浏览器窗口。 
-1. 在“Azure Migrate 服务器、数据库和 Web 应用”页的“Azure Migrate: 服务器迁移”部分，选择“发现”链接  。 
+1. 在“Azure Migrate | 服务器、数据库和 Web 应用”页的“迁移和现代化”部分，选择“发现”链接  。 
 1. 在“发现”页上完成注册。
 
    >**注意**：完成虚拟机的发现最长可能需要 15 分钟。
 
-#### <a name="task-2-configure-replication-of-hyper-v-vms"></a>任务 2：配置 Hyper-V VM 的复制
+#### 任务 2：配置 Hyper-V VM 的复制
 
-1. 收到注册已完成的确认后，请浏览回“Azure Migrate | 服务器、数据库和 Web 应用”页，接着在“Azure Migrate: 服务器迁移”部分，选择“复制”链接。   
+1. 收到注册已完成的确认后，请浏览回“Azure Migrate | 服务器、数据库和 Web 应用”页，接着在“迁移和现代化”部分，选择“复制”链接。   
 
    >**注意**：可能需要刷新显示“Azure Migrate | 服务器、数据库和 Web 应用”页面的浏览器页面。
 
@@ -383,14 +383,14 @@ Azure Migrate 提供以下功能：
    | 子网 | **subnet0** |
 
 1. 在“复制”页的“计算”选项卡上，确保“虚拟机大小”下拉列表中已选中“Standard_D2s_v3”   。 在“OS 类型”下拉列表中，选择“Windows”。 
-1. 若要监视复制状态，请返回到“Azure Migrate | 服务器、数据库和 Web 应用”页面，选择“刷新”，然后在“Azure Migrate: 服务器迁移”部分，选择“复制服务器”条目   。 在“Azure Migrate: 服务器迁移 | 复制计算机”页上，检查复制计算机列表中的“状态”列 。 
+1. 若要监视复制状态，请返回到“Azure Migrate | 服务器、数据库和 Web 应用”页面，选择“刷新”，然后在“迁移和现代化”部分，选择“复制服务器”条目   。 在“迁移和现代化 | 复制计算机”页上，检查复制计算机列表中的“状态”列 。 
 1. 等待状态更改为“受保护”。 这可能额外需要 15 分钟时间。
 
-   >**注意**：需要刷新“Azure Migrate: 服务器迁移 | 复制计算机”才能更新状态信息。 
+   >注意：需要刷新“迁移和现代化 | 复制计算机”才能更新“状态”信息。 
 
-#### <a name="task-3-perform-migration-of-hyper-v-vms"></a>任务 3：执行 Hyper-V VM 迁移
+#### 任务 3：执行 Hyper-V VM 迁移
 
-1. 在 Azure 门户中，在“Azure Migrate: 服务器迁移 | 复制计算机”页面，选择表示 az801l07a-vm1 虚拟机的条目 。
+1. 在 Azure 门户中的“迁移和现代化 | 复制计算机”页面上，选择表示 az801l07a-vm1 虚拟机的条目 。
 1. 在 az801l07a-vm1 页中，使用 az801l07a-test-vnet 虚拟网络作为目标来启动测试迁移。  
 
    >**注意**：等待测试迁移完成。 这可能需要大约 5 分钟。
@@ -399,16 +399,16 @@ Azure Migrate 提供以下功能：
 
    > **注意：** 最初，虚拟机的名称由 asr- 前缀和随机生成的后缀组成，但最终将重命名为 az801l07a-vm1-test 。
 
-1. 在 Azure 门户中，浏览回“Azure Migrate: 服务器迁移 | 复制计算机”页面，选择“刷新”，然后验证 az801l07a-vm1 虚拟机是否以“清理测试故障转移挂起”状态列出   。
-1. 在“Azure Migrate: 服务器迁移 | 复制计算机”页面上，转到 az801l07a-vm1 复制计算机页，然后出发“清理测试迁移”操作，指定“测试已完成。删除测试虚拟机”。   
+1. 在 Azure 门户中，浏览回“迁移和现代化 | 复制计算机”页面，选择“刷新”，然后验证 az801l07a-vm1 虚拟机是否以“清理测试故障转移挂起”状态列出   。
+1. 在“迁移和现代化 | 复制计算机”页面上，转到 az801l07a-vm1 复制计算机页面，然后触发“清理测试迁移”操作，指定“测试已完成。删除测试虚拟机”。   
 1. 测试故障转移清理作业完成后，刷新显示 az801l07a-vm1 复制计算机页的浏览器页面，你将发现，工具栏中的“迁移”图标会自动变为可用 。
 1. 在 az801l07a-vm1 复制计算机页上，触发“迁移”操作。  
 1. 在“迁移”页上，确保选中“迁移前关闭计算机以最大程度地减少数据丢失?”选项。 
-1. 若要监视迁移状态，请浏览回“Azure Migrate | 服务器、数据库和 Web 应用”页面。 在“Azure Migrate: 服务器迁移”部分，选择“复制服务器”条目，然后在“Azure Migrate: 服务器迁移 | 复制计算机”页面，检查复制计算机列表中的“状态”列   。 验证状态是否显示“计划的故障转移已完成”状态。
+1. 若要监视迁移状态，请浏览回“Azure Migrate | 服务器、数据库和 Web 应用”页面。 在“迁移和现代化”部分，选择“复制服务器”条目，然后在“迁移和现代化 | 复制计算机”页面上检查复制计算机列表中的“状态”列   。 验证状态是否显示“计划的故障转移已完成”状态。
 
-   >**注意**：迁移应是不可逆的操作。 如果需要查看已完成的信息，请浏览回“Azure Migrate | 服务器、数据库和 Web 应用”页面，刷新该页面，然后验证“Azure Migrate: 服务器迁移”部分的“已迁移的服务器数”条目的值是否为 1   。
+   >**注意**：迁移应是不可逆的操作。 如果需要查看已完成的信息，请浏览回“Azure Migrate | 服务器、数据库和 Web 应用”页面，刷新该页面，然后验证“迁移和现代化”部分的“已迁移的服务器数”条目的值是否为 1   。
 
-#### <a name="task-4-remove-azure-resources-deployed-in-the-lab"></a>任务 4：删除实验室中部署的 Azure 资源
+#### 任务 4：删除实验室中部署的 Azure 资源
 
 1. 在 SEA-SVR2 上，在显示 Azure 门户的浏览器窗口中，在 Azure Cloud Shell 窗格中打开一个 PowerShell 会话。 
 1. 在 Cloud Shell 窗格中，运行以下命令，列出你在此实验室中创建的所有资源组：
