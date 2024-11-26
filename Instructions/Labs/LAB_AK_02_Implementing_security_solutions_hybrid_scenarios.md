@@ -14,7 +14,7 @@ lab:
 #### 任务 1：创建 Azure Log Analytics 工作区 
 
 1. 连接到 SEA-SVR2，然后根据需要，以 CONTOSO\\Administrator 的身份，使用密码 Pa55w.rd 登录  。
-1. 在 SEA-SVR2 上，启动 Microsoft Edge，转到 [Azure 门户](https://portal.azure.com)，然后使用具有要在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录 。
+1. 在 SEA-SVR2 上，启动 Microsoft Edge，转到 Azure 门户 (`https://portal.azure.com/`)，然后使用具有要在此实验室中使用的订阅的“所有者”角色的用户帐户的凭据登录。
 1. 在 SEA-SVR2 上，在 Azure 门户的工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择“Log Analytics 工作区”，然后从“Log Analytics 工作区”页中选择“+ 创建”    。
 1. 在“创建 Log Analytics 工作区”页的“基本信息”选项卡上，输入以下设置，选择“查看 + 创建”，然后选择“创建”   ：
 
@@ -72,14 +72,15 @@ lab:
 
    > 备注：注意，可以选择性地禁用同一页面上列出的单个 Microsoft Defender 计划。
 
-1. 将所有计划（第一个计划除外，它代表 Microsoft Defender for Servers）设置为“关闭”，然后选择“保存”  。
-1. 在“设置 \| Defender 计划”页左侧垂直菜单的“设置”部分，选择“自动预配”  。
-1. 在“设置 \| 自动预配”页的扩展列表中，在“Azure VM 的 Log Analytics 代理”条目右侧，选择“编辑配置”链接  。
-1. 在“扩展部署配置”页的“工作区配置”部分，选择“将 Azure VM 连接到其他工作区”选项  。 在下拉菜单中，选择代表在上一个练习中创建的工作区的条目，然后选择“应用”。
-1. 返回“设置 \| 自动预配”页，将“Azure Arc Machine 的 Log Analytics 代理(预览版)”设置为“开”  。 这将自动显示“扩展部署配置”页。 
-1. 在“扩展部署配置”页的“选择 Log Analytics 工作区”下拉列表中，选择代表你在上一个练习中创建的工作区的条目，然后选择“应用”  。
-1. 返回“设置 \| 自动预配”页面，将“计算机的漏洞评估”设置为“开”  。 在“扩展部署配置”页中，确保选中“Microsoft 威胁和漏洞管理”选项，然后选择“应用”  。
-1. 在页面顶部选择“保存”。
+1. 将“服务器”外的所有其他计划设置为“关闭”，然后选择“保存”。
+1. 在“设置 \| Defender 计划”页上方，选择“设置和监视” 。
+1. 在“设置和监视”页的扩展列表中，在“Log Analytics 代理/Azure Monitor 代理”条目右侧，选择“编辑配置”链接  。
+1. 在“自动预配配置”的“工作区选择”部分，选择“自定义工作区”选项，在下拉菜单中，选择表示在上一练习中创建的工作区的条目，然后选择“应用”。
+1. 在“设置和监视”页的扩展列表中，将“来宾配置代理(预览)”设置为“打开”。
+1. 在“设置和监视”页的扩展列表中，将“计算机的漏洞评估”设置为“打开”。 在右侧，选择“编辑配置”链接。
+1. 在“扩展部署配置”页上，确保选中“Microsoft 威胁和漏洞管理”选项，然后选择“应用”  。
+1. 在“设置和监视”页上，选择“继续” 。   
+1. 在“Defender 计划”页上，选择“保存”，然后关闭页面。
 1. 浏览回“Microsoft Defender for Cloud | 概览”页，然后在左侧垂直菜单的“管理”部分，选择“环境设置”  。
 1. 在“环境设置”页上，展开代表你的 Azure 订阅的条目，并选择代表你在上一个练习中创建的 Log Analytics 工作区的条目。
 1. 在“设置 \| Defender 计划”页上，选择磁贴“启用所有 Microsoft Defender for Cloud 计划”，然后选择“保存”  。
@@ -142,7 +143,6 @@ lab:
 1. 在 Microsoft Monitoring Agent 安装向导的“目标文件夹”页上，选择“下一步”  。
 1. 在“Microsoft Monitoring Agent 安装”导向的“代理安装选项”页上，依次选择“将代理连接到 zure Log Analytics (OMS) 复选框”和“下一步”   。
 1. 在“Microsoft Monitoring Agent 安装”向导的 Azure Log Analytics 页上，输入你之前在此任务中记录的“工作区 ID”和“工作区密钥”的值，然后选择“下一步”    。
-1. 在“Microsoft Monitoring Agent 安装”向导的“Microsoft 更新”页上，选择“下一步”  。
 1. 在“Microsoft Monitoring Agent 安装”向导的“准备安装”页上，选择“下一步”  。
 1. 安装完成后，在“Microsoft Monitoring Agent 配置成功完成”页上，选择“完成” 。
 

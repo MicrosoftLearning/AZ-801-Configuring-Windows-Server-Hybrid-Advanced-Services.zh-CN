@@ -9,7 +9,7 @@ lab:
 ## 场景 
 为了解决有关过时操作模型、自动化使用受限以及依赖磁带备份进行还原和灾难恢复的问题，你决定使用 Microsoft 基于 Azure 的恢复服务。 第一步，你将实现 Azure Site Recovery 和 Azure 备份。
 
-                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20Azure-based%20recovery%20services)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20Azure-based%20recovery%20services)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
 ## 目标
 完成此实验室后，你将能够： 
@@ -25,7 +25,7 @@ lab:
 
 虚拟机：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 必须运行  。 其他 VM 可以运行，但此实验室不需要这些 VM。
 
-> 备注：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 虚拟机托管 SEA-DC1、SEA-SVR1 和 SEA-SVR2 的安装      
+> 备注：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 虚拟机托管 SEA-DC1、SEA-SVR1 和 SEA-SVR2 的安装
 
 1. 选择 SEA-SVR2。
 1. 使用以下凭据登录：
@@ -129,7 +129,7 @@ lab:
    |订阅|你在此实验室中使用的 Azure 订阅的名称|
    |资源组|AZ801-L0502-RG|
    |存储帐户名称|长度在 3 到 24 之间的任何全局唯一名称，由字母和数字组成，以字母开头|
-   |区域|你在此实验室前面部署了恢复服务保管库的 Azure 区域的名称|
+   |区域|你在本实验室前面部署了恢复服务保管库的 Azure 区域的名称|
    |性能|标准|
    |冗余|本地冗余存储 (LRS)|
    |为 blob 启用软删除|disabled|

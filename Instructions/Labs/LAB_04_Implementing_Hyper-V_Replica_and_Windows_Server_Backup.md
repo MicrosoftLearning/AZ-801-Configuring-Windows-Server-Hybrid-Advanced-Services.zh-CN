@@ -4,28 +4,28 @@ lab:
   module: 'Module 4: Disaster Recovery in Windows Server'
 ---
 
-# <a name="lab-implementing-hyper-v-replica-and-windows-server-backup"></a>实验室：实现 Hyper-V 副本和 Windows Server 备份
+# 实验室：实现 Hyper-V 副本和 Windows Server 备份
 
-## <a name="scenario"></a>场景
+## 场景
 
 你在 Contoso, Ltd. 担任管理员。Contoso 希望评估和配置新的灾难恢复与备份的功能和技术。 作为系统管理员，你的任务是执行该评估和实现。 你决定评估 Hyper-V 副本和 Windows Server 备份。
 
-                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20Hyper-V%20Replica%20and%20Windows%20Server%20Backup)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20Hyper-V%20Replica%20and%20Windows%20Server%20Backup)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
-## <a name="objectives"></a>目标
+## 目标
 
 完成本实验室后，你将能够：
 
 - 配置和实现 **Hyper-V 副本**。
 - 使用 Windows Server 备份配置和实现备份。
 
-## <a name="estimated-time-45-minutes"></a>估计时间：45 分钟
+## 估计时间：45 分钟
 
-## <a name="lab-setup"></a>实验室设置
+## 实验室设置
 
 虚拟机：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 必须运行  。 其他 VM 可以运行，但此实验室不需要这些 VM。
 
-> 备注：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 虚拟机托管 SEA-DC1、SEA-SVR1 和 SEA-SVR2 的安装      
+> 备注：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 虚拟机托管 SEA-DC1、SEA-SVR1 和 SEA-SVR2 的安装
 
 1. 选择 SEA-SVR2。
 1. 使用以下凭据登录：
@@ -36,9 +36,9 @@ lab:
 
 对于本实验室，你将使用可用的 VM 环境。
 
-## <a name="exercise-1-implementing-hyper-v-replica"></a>练习 1：实现 Hyper-V 副本
+## 练习 1：实现 Hyper-V 副本
 
-### <a name="scenario"></a>场景
+### 场景
 
 在开始群集部署之前，你已决定评估 Hyper-V 中用于在主机之间复制 VM 的新技术。 如果活动副本或主机出现故障，你希望能够在另一台主机上手动装载 VM 的副本。
 
@@ -48,7 +48,7 @@ lab:
 1. 配置 Hyper-V 复制。
 1. 验证故障转移。
 
-#### <a name="task-1-install-and-configure-hyper-v-replica"></a>任务 1：安装和配置 Hyper-V 副本
+#### 任务 1：安装和配置 Hyper-V 副本
 
 1. 在 SEA-SVR2 上，以管理员身份启动 Windows PowerShell。
 1. 要识别 SEA-SVR2 上具有高级安全性 Hyper-V 副本 HTTP 侦听器 (TCP-In) 规则的 Windows Defender 防火墙的状态，请在 Windows PowerShell 提示符处运行以下命令 ：
@@ -126,7 +126,7 @@ lab:
 
    > 注意：请将第二个“Administrator: Windows PowerShell”窗口保持打开状态 。
 
-#### <a name="task-2-configure-hyper-v-replication"></a>任务 2：配置 Hyper-V 复制
+#### 任务 2：配置 Hyper-V 复制
 
 1. 在 SEA-SVR2 上，切换到显示本地 PowerShell 会话的“Administrator: Windows PowerShell”窗口 。
 1. 要将虚拟机 SEA-CORE1 从 SEA-SVR2 复制到 SEA-SVR1，请在 SEA-SVR2 上，在本地会话的 Windows PowerShell 提示符处运行以下命令   ：
@@ -160,7 +160,7 @@ lab:
 
    > 注意：请让两个 Windows PowerShell 会话保持打开状态。
 
-##### <a name="task-3-validate-a-failover"></a>任务 3：验证故障转移
+##### 任务 3：验证故障转移
 
 1. 在 SEA-SVR2 上，切换到显示本地 PowerShell 会话的“Administrator: Windows PowerShell”窗口 。
 1. 要准备将 SEA-CORE1 虚拟机故障转移到 SEA-SVR1，请在 SEA-SVR2 上，在托管本地会话的 Windows PowerShell 窗口中，运行以下命令  ：
@@ -216,9 +216,9 @@ lab:
 
    > 注意：如果要使用图形工具验证本练习的结果，可以在 SEA-SVR2 上使用 Hyper-V 管理器，然后将 SEA-SVR1 和 SEA-SVR2 服务器添加到 Hyper-V 控制台    。 然后，你可以验证 SEA-CORE1 VM 是否存在于 SEA-SVR1 和 SEA-SVR2 上，并且正在运行从 SEA-SVR2 到 SEA-SVR1 的复制    。
 
-## <a name="exercise-2-implementing-backup-and-restore-with-windows-server-backup"></a>练习 2：使用 Windows Server Backup 实现备份和还原
+## 练习 2：使用 Windows Server Backup 实现备份和还原
 
-### <a name="scenario"></a>场景
+### 场景
 
 你需要评估成员服务器的 Windows Server 备份。 你已决定配置 SEA-SVR2 服务器的 Windows Server 备份，并尝试备份到 SEA-SVR2 上的网络共享 。
 
@@ -227,14 +227,14 @@ lab:
 1. 配置 Windows Server 备份设置。
 1. 备份到网络共享。
 
-#### <a name="task-1-configure-windows-server-backup-settings"></a>任务 1：配置 Windows Server 备份设置
+#### 任务 1：配置 Windows Server 备份设置
 
 1. 在 SEA-SVR2 上，使用文件资源管理器在 SEA-SVR2 上创建 C:\\BackupShare 文件夹  。 共享文件夹，使经过身份验证的用户具有读/写权限。
 1. 在 SEA-SVR2 上，切换到显示 SEA-SVR1 的 PowerShell 远程会话的“Administrator: Windows PowerShell”窗口  。
 1. 在 SEA-SVR1 的 PowerShell 远程会话中，使用 Install-WindowsFeature cmdlet 在 SEA-SVR1 上安装 Windows Server 备份功能   。
-1. 在 SEA-SVR1 的 PowerShell 远程会话中，使用 wbadmin /?  和 Get-Command 命令查看 wbadmin 实用工具的功能和 WindowsServerBackup 模块的 cmdlet  。
+1. 在 SEA-SVR1 的 PowerShell 远程会话中，使用 wbadmin /? 和 Get-Command 命令查看 wbadmin 实用工具的功能和 WindowsServerBackup 模块的 cmdlet  。
 
-#### <a name="task-2-perform-a-backup-to-a-network-share"></a>任务 2：备份到网络共享
+#### 任务 2：备份到网络共享
 
 1. 在 SEA-SVR2 中，使用 SEA-SVR1 的 PowerShell 远程会话运行以下命令，创建要在 SEA-SVR1 上备份的文件夹和文件  ：
 

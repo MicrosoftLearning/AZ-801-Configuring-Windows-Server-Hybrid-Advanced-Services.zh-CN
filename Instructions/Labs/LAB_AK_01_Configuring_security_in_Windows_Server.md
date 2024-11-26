@@ -7,7 +7,7 @@ lab:
 
 # 实验室解答：配置 Windows Server 中的安全性
 
-                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Configuring%20security%20in%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Configuring%20security%20in%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
 ## 练习 1：配置 Windows Defender Credential Guard
 
@@ -21,7 +21,7 @@ lab:
 1. 在“组策略管理”控制台中，依次展开“林: contoso.com”、“域”和“contoso.com”，右键单击或访问“IT”组织单位 (OU) 的上下文菜单，然后选择“在这个域中创建 GPO 并在此处链接”      。
 1. 在“新建 GPO”对话框中，在“名称”文本框中输入“CredentialGuard_GPO”，然后选择“确定”   。
 1. 在“组策略管理”窗口中，在“IT”下，右键单击或访问“CredentialGuard_GPO”的“上下文”菜单，然后选择“编辑”    。
-1. 在“组策略管理编辑器”中，浏览到 Computer Configuration\\Policies\\Administrative Templates\\System\\Device Guard。 
+1. 在“组策略管理编辑器”中，浏览到 Computer Configuration\\Policies\\Administrative Templates\\System\\Device Guard。
 1. 选择“打开基于虚拟化的安全”，然后选择“策略设置”链接 。
 1. 在“打开基于虚拟化的安全”窗口中，选择“已启用”选项 。
 1. 在“选择平台安全级别”下拉列表中，确保已选中“安全启动和 DMA 保护”条目 。
