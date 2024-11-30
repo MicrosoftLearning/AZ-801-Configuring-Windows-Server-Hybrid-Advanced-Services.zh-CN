@@ -4,17 +4,17 @@ lab:
   module: 'Module 3: High availability in Windows Server'
 ---
 
-# <a name="lab-implementing-failover-clustering"></a>实验室：实现故障转移集群
+# 实验室：实现故障转移集群
 
-## <a name="scenario"></a>场景
+## 场景
 
 随着 Contoso, Ltd. 业务的增长，其网络上许多应用程序和服务始终可用变得越来越重要。 Contoso 有许多服务和应用程序，这些服务和应用程序必须可供在世界各地的不同时区工作的内部和外部用户使用。 许多此类应用程序无法通过使用 NLB 负载均衡 (NLB) 获得高可用性。 因此，应使用其他技术使这些应用程序高度可用。
 
 作为 Contoso 的高级网络管理员之一，你负责在运行 Windows Server 的服务器上实现故障转移群集，为网络服务和应用程序提供高可用性。 你还负责规划故障转移群集配置，以及部署故障转移群集上的应用程序和服务。
 
-                **注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20Failover%20Clustering)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
+**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20Failover%20Clustering)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
 
-## <a name="objectives"></a>目标
+## 目标
 
 完成本实验室后，你将能够：
 
@@ -22,13 +22,13 @@ lab:
 - 在故障转移群集上部署和配置高度可用的文件服务器。
 - 验证高可用性文件服务器的部署。
 
-## <a name="estimated-time-60-minutes"></a>估计时间：60 分钟
+## 估计时间：60 分钟
 
-## <a name="lab-setup"></a>实验室设置
+## 实验室设置
 
 虚拟机：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 必须运行  。 其他 VM 可以运行，但此实验室不需要这些 VM。
 
-> 备注：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 虚拟机托管 SEA-DC1、SEA-SVR1 和 SEA-SVR2 的安装      
+> 备注：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 虚拟机托管 SEA-DC1、SEA-SVR1 和 SEA-SVR2 的安装
 
 1. 选择 SEA-SVR2。
 1. 使用以下凭据登录：
@@ -39,9 +39,9 @@ lab:
 
 对于本实验室，你将使用可用的 VM 环境。
 
-## <a name="exercise-1-configuring-iscsi-storage"></a>练习 1：配置 iSCSI 存储
+## 练习 1：配置 iSCSI 存储
 
-### <a name="scenario"></a>场景
+### 场景
 
 Contoso 有重要的应用程序和服务，它希望这些应用程序和服务高度可用。 其中一些服务不能使用 NLB，因此你已决定实现故障转移群集。 你决定使用 Internet 小型计算机系统接口 (iSCSI) 进行故障转移群集。 首先，将 iSCSI 存储配置为支持故障转移群集。
 
@@ -50,13 +50,13 @@ Contoso 有重要的应用程序和服务，它希望这些应用程序和服务
 - 安装故障转移群集。
 - 配置 iSCSI 虚拟磁盘。
 
-#### <a name="task-1-install-failover-clustering"></a>任务 1：安装故障转移群集
+#### 任务 1：安装故障转移群集
 
 1. 在 SEA-SVR2 上，以管理员身份启动 Windows PowerShell。
 1. 在 SEA-SVR2 上，使用 Windows PowerShell 安装故障转移群集功能，包括 SEA-SVR1 和 SEA-SVR2 上的管理工具   。
 1. 在 SEA-SVR2 上，使用 Windows PowerShell 在 SEA-DC1 上安装 FS-iSCSITarget-Server 功能  。
  
-#### <a name="task-2-configure-iscsi-virtual-disks"></a>任务 2：配置 iSCSI 虚拟磁盘
+#### 任务 2：配置 iSCSI 虚拟磁盘
 
 > 重要提示：实验室使用 SEA-DC1 作为 Active Directory 域服务 (AD DS) 域控制器来托管基于 Windows Server 的群集的共享 iSCI 存储 。 这不是为了以任何方式表示建议的配置，而是为了简化实验室配置并尽量减少实验室虚拟机的数量。 在任何生产环境中，域控制器都不应用于承载故障转移群集的共享存储。 相反，此类存储应托管在高可用性基础结构上。 
 
@@ -85,13 +85,13 @@ Contoso 有重要的应用程序和服务，它希望这些应用程序和服务
       - **"IQN:iqn.1991-05.com.microsoft:sea-svr1.contoso.com"**
       - **"IQN:iqn.1991-05.com.microsoft:sea-svr2.contoso.com"**
 
-### <a name="results"></a>结果
+### 结果
 
 完成本练习后，应成功在 SEA-SVR1 和 SEA-SVR2 上安装故障转移群集功能，在 SEA-DC1、 SEA-SVR1 和 SEA-SVR2 上初始化 iSCSI 组件    。
 
-## <a name="exercise-2-configuring-a-failover-cluster"></a>练习 2：配置故障转移群集
+## 练习 2：配置故障转移群集
 
-### <a name="scenario"></a>场景
+### 场景
 
 在此练习中，你将为群集安装做好准备，然后创建群集。
 
@@ -101,7 +101,7 @@ Contoso 有重要的应用程序和服务，它希望这些应用程序和服务
 1. 初始化磁盘。
 1. 验证并创建故障转移群集。
 
-#### <a name="task-1-connect-clients-to-the-iscsi-targets"></a>任务 1：将客户端连接到 iSCSI 目标
+#### 任务 1：将客户端连接到 iSCSI 目标
 
 1. 在 **SEA-SVR2** 上，使用**托管** PowerShell 远程处理会话的 Windows PowerShell 窗口将 iSCSI 磁盘装载到 **SEA-DC1**，以运行 **Add-IscsiVirtualDiskTargetMapping** cmdlet。****
 1. 在 SEA-SVR2 上，使用本地 Windows PowerShell 会话运行以下命令，以便从 SEA-SVR2 连接到 SEA-DC1 上托管的 iSCSI 目标  ：
@@ -125,7 +125,7 @@ Contoso 有重要的应用程序和服务，它希望这些应用程序和服务
    > 注意：在运行最后一个命令后，验证 IsConnected 变量的值为 True 。
 
 
-#### <a name="task-2-initialize-the-disks"></a>任务 2：初始化磁盘
+#### 任务 2：初始化磁盘
 
 1. 在 SEA-SVR2 上，使用本地 Windows PowerShell 会话运行 Get-Disk cmdlet 以列出本地磁盘 。
 1. 在 SEA-SVR2 上，使用本地 Windows PowerShell 会话通过以下设置初始化这三个 iSCSI 磁盘：
@@ -135,18 +135,18 @@ Contoso 有重要的应用程序和服务，它希望这些应用程序和服务
    - 文件系统：NTFS
    - 分配驱动器号：分别为 E、F 和 G  。
 
-#### <a name="task-3-create-a-failover-cluster"></a>任务 3：创建故障转移群集
+#### 任务 3：创建故障转移群集
 
 1. 在 SEA-SVR2 上，使用本地 Windows PowerShell 会话创建名为 SEA-CL03 的故障转移群集，并将 IP 地址设置为 172.16.10.125，将 SEA-SVR2.contoso.com 作为第一个节点   。
 1. 在 SEA-SVR2 上，使用本地 Windows PowerShell 会话将 SEA-SVR1 作为第二个节点添加到新创建的群集 。
 
-### <a name="results"></a>结果
+### 结果
 
 完成本练习后，应配置磁盘并创建了故障转移群集。
 
-## <a name="exercise-3-deploying-and-configuring-a-highly-available-file-server"></a>练习 3：部署和配置高可用性文件服务器
+## 练习 3：部署和配置高可用性文件服务器
 
-### <a name="scenario"></a>场景
+### 场景
 
 在 Contoso 中，文件服务是必须高度可用的重要服务。 创建群集基础结构后，你决定配置高度可用的文件服务器，然后实现故障转移和故障回复的设置。
 
@@ -156,7 +156,7 @@ Contoso 有重要的应用程序和服务，它希望这些应用程序和服务
 1. 将共享文件夹添加到高度可用的文件服务器。
 1. 配置故障转移和故障回复设置。
 
-#### <a name="task-1-add-the-file-server-application-to-the-failover-cluster"></a>任务 1：将文件服务器应用程序添加到故障转移群集
+#### 任务 1：将文件服务器应用程序添加到故障转移群集
 
 1. 在 SEA-SVR2 上，打开“故障转移群集管理器”控制台，并验证是否已自动连接到 SEA-CL03.contoso.com 群集  。
 1. 在“节点”节点中，验证 SEA-SVR2 和 SEA-SVR1 节点是否都在运行  。
@@ -167,27 +167,27 @@ Contoso 有重要的应用程序和服务，它希望这些应用程序和服务
    - 地址：172.16.0.130
    - 存储：群集磁盘 1、群集磁盘 2
 
-#### <a name="task-2-add-a-shared-folder-to-a-highly-available-file-server"></a>任务 2：将共享文件夹添加到高度可用的文件服务器
+#### 任务 2：将共享文件夹添加到高度可用的文件服务器
 
 1. 在 SEA-SVR2 上，在“故障转移群集管理器”控制台中，使用以下设置将文件共享添加到 FSCluster 角色中（其他设置保留默认值）  ：
 
    - 文件共享配置文件：SMB 共享 - 快速
    - 名称：Docs
 
-#### <a name="task-3-configure-the-failover-and-failback-settings"></a>任务 3：配置故障转移和故障回复设置
+#### 任务 3：配置故障转移和故障回复设置
 
 1. 在 SEA-SVR2 上，在“故障转移群集管理器”控制台中，使用 FSCluster 群集角色的“属性”对话框来配置以下设置   ：
 
    - 故障回复：4 到 5 小时
-   - 首选所有者：SEA-SVR2 和 SEA-SVR1，并且 SEA-SVR1 位于列表顶部  
+   - 首选所有者：SEA-SVR2 和 SEA-SVR1，并且 SEA-SVR1 位于列表顶部
 
-### <a name="results"></a>结果
+### 结果
 
 完成本练习后，你应该配置了高度可用的文件服务器。
 
-## <a name="exercise-4-validating-the-deployment-of-the-highly-available-file-server"></a>练习 4：验证高可用性文件服务器的部署
+## 练习 4：验证高可用性文件服务器的部署
 
-### <a name="scenario"></a>场景
+### 场景
 
 在实现故障转移群集时，你需要执行故障转移和故障回复测试。 此外，还需要更改仲裁中的见证磁盘。
 
@@ -196,14 +196,14 @@ Contoso 有重要的应用程序和服务，它希望这些应用程序和服务
 1. 验证高可用文件服务器部署。
 1. 验证文件服务器角色的故障转移和仲裁配置。
 
-#### <a name="task-1-validate-the-highly-available-file-server-deployment"></a>任务 1：验证高可用文件服务器部署
+#### 任务 1：验证高可用文件服务器部署
 
 1. 在 SEA-SVR2 上，打开文件资源管理器并验证是否可以访问 \\\\FSCluster\\Docs 共享 。
 1. 在共享中创建测试文本文档。
 1. 在 SEA-SVR2 上，使用“故障转移群集管理器”控制台将 FSCluster 角色转移到另一个节点  。
 1. 在 SEA-SVR2 上，在文件资源管理器中验证是否仍可以访问 \\\\FSCluster\\Docs 共享 。
 
-#### <a name="task-2-validate-the-failover-and-quorum-configuration-for-the-file-server-role"></a>任务 2：验证文件服务器角色的故障转移和仲裁配置
+#### 任务 2：验证文件服务器角色的故障转移和仲裁配置
 
 1. 在 SEA-SVR2 上，在“故障转移群集管理器”控制台中，确定 FSCluster 角色的当前所有者  。
 1. 停止节点上的群集服务，这是 FSCluster 角色的当前所有者。
@@ -214,7 +214,7 @@ Contoso 有重要的应用程序和服务，它希望这些应用程序和服务
 1. 在 SEA-SVR2 上，使用文件资源管理器验证 \\\\FSCluster\\Docs 共享是否仍然可用 。
 1. 将见证磁盘联机。
 
-### <a name="results"></a>结果
+### 结果
 
 完成本练习后，你应使用故障转移群集验证了高可用性。
 
