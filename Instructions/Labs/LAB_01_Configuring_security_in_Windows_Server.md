@@ -29,11 +29,7 @@ Contoso Pharmaceuticals 是一家在世界各地约有 5000 名员工的医疗�
 > 注意：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 虚拟机托管 SEA-DC1、SEA-SVR1 和 SEA-SVR2 的安装      。
 
 1. 选择“SEA-SVR2”。
-1. 使用以下凭据登录：
-
-   - 用户名：Administrator
-   - 密码：Pa55w.rd
-   - 域名：CONTOSO
+1. 使用讲师提供的凭据进行登录。
 
 对于本实验室，你将使用可用的 VM 环境。
 
@@ -77,7 +73,7 @@ Contoso Pharmaceuticals 是一家在世界各地约有 5000 名员工的医疗�
    ```
 
 1. 等到工具完成运行，并按照提示重新启动操作系统。
-1. 重启完成后，使用密码 Pa55w.rd 以 CONTOSO\\Administrator 身份重新登录 SEA-SVR2  。
+1. 重启完成后，使用讲师提供的凭据重新登录到 **SEA-SVR2**。
 
 ### 结果
 
@@ -205,7 +201,7 @@ Contoso Pharmaceuticals 是一家在世界各地约有 5000 名员工的医疗�
 
 #### 任务 3：部署 LAPS 客户端扩展
 
-1. 将控制台会话切换到 SEA-SVR1，然后根据需要使用密码 Pa55w.rd 以 CONTOSO\\Administrator 身份登录  。
+1. 切换到 **SEA-SVR1** 的控制台会话，然后根据需要使用讲师提供的凭据登录。
 
    > 注意：系统会提示你更改密码，因为上一练习中运行了启用密码过期的脚本。 选择任意密码，并在整个实验室的其余部分中使用它。
 

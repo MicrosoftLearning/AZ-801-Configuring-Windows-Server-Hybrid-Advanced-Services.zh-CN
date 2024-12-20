@@ -28,11 +28,7 @@ lab:
 > 备注：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 虚拟机托管 SEA-DC1、SEA-SVR1 和 SEA-SVR2 的安装
 
 1. 选择 SEA-SVR2。
-1. 使用以下凭据登录：
-
-   - 用户名：Administrator
-   - 密码：Pa55w.rd
-   - 域名：CONTOSO
+1. 使用讲师提供的凭据进行登录。
 
 对于本实验室，你将使用可用的 VM 环境和 Azure 订阅。 在开始实验室之前，请确保拥有 Azure 订阅以及具有该订阅中“所有者”或“参与者”角色的用户帐户。
 

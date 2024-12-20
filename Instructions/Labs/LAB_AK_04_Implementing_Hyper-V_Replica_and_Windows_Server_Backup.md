@@ -13,7 +13,7 @@ lab:
 
 #### 任务 1：安装和配置 Hyper-v 副本
 
-1. 连接到 SEA-SVR2，然后，根据需要，以 Contoso\\Administrator 身份，使用密码 Pa55w.rd 登录  。
+1. 连接到 **SEA-SVR2**，然后根据需要使用讲师提供的凭据登录。
 1. 在 SEA-SVR2 上，选择“开始”，然后选择 Windows PowerShell (Admin)  。
 1. 要识别 SEA-SVR2 上具有高级安全性 Hyper-V 副本 HTTP 侦听器 (TCP-In) 规则的 Windows Defender 防火墙的状态，请在 Windows PowerShell 提示符下，输入以下命令并按 Enter ：
 
@@ -237,7 +237,7 @@ lab:
    Add-WBFileSpec -Policy $policy -FileSpec $fileSpec
    ```
 
-1. 要使用你在上一个任务中创建的网络共享在 SEA-SVR2 上配置备份位置，请在 SEA-SVR2 上，在托管与 SEA-SVR1 的 PowerShell 远程会话的 Windows PowerShell 窗口中，输入以下命令，并在输入每个命令后按 Enter（当提示登录时，输入 \\Administrator 用户名和 Pa55w.rd 密码）    ：
+1. 要使用在上一个任务中创建的网络共享在 **SEA-SVR2** 上配置备份位置，请在 **SEA-SVR2** 上，在托管与 **SEA-SVR1** 的 PowerShell 远程会话的 Windows PowerShell 窗口中，输入以下命令，并在输入每个命令后按 Enter（当提示登录时，输入讲师提供的凭据）：
 
    ```powershell
    $cred = Get-Credential

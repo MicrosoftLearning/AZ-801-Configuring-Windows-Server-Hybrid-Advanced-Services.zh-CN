@@ -28,11 +28,7 @@ lab:
 > 备注：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 虚拟机托管 SEA-DC1、SEA-SVR1 和 SEA-SVR2 的安装
 
 1. 选择 SEA-SVR2。
-1. 使用以下凭据登录：
-
-   - 用户名：Administrator
-   - 密码：Pa55w.rd
-   - 域名：CONTOSO
+1. 使用讲师提供的凭据进行登录。
 
 对于本实验室，你将使用可用的 VM 环境。
 
@@ -259,7 +255,7 @@ lab:
    Add-WBFileSpec -Policy $policy -FileSpec $fileSpec
    ```
 
-1. 要在 SEA-SVR2 上使用你在上一个任务中创建的网络共享配置一个备份位置，请在 SEA-SVR2 上使用 SEA-SVR1 的 PowerShell 远程会话运行以下命令（当提示登录时，输入用户名 CONTOSO\\Administrator 和密码 Pa55w.rd）    ：
+1. 要使用在上一个任务中创建的网络共享在 **SEA-SVR2** 上配置备份位置，请在 **SEA-SVR2** 上，使用到 **SEA-SVR1** 的 PowerShell 远程会话，运行以下命令（当提示登录时，输入讲师提供的凭据）：
 
    ```powershell
    $cred = Get-Credential

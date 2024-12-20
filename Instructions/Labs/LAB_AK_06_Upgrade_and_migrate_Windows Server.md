@@ -13,7 +13,7 @@ lab:
 
 #### 任务 1：使用 Azure 资源管理器 (ARM) 模板部署域控制器
 
-1. 连接到 SEA-SVR2，然后根据需要，以 CONTOSO\\Administrator 的身份，使用密码 Pa55w.rd 登录  。
+1. 连接到 **SEA-SVR2**，然后根据需要使用讲师提供的凭据登录。
 1. 在 SEA-SVR2 上，启动 Microsoft Edge，并在[创建新的 Windows VM 并创建新的 AD 林、域和 DC](https://github.com/az140mp/azure-quickstart-templates/tree/master/application-workloads/active-directory/active-directory-new-domain) 处访问自定义版本的快速入门模板 。 
 1. 在“创建新的 Windows VM 并创建新的 AD 林、域和 DC”页上，选择“部署到 Azure” 。 这会自动将浏览器重定向到 Azure 门户中的“使用新 AD 林创建 Azure VM”页。
 1. 在“使用新 AD 林创建 Azure VM”页上，选择“编辑模板” 。
@@ -309,10 +309,7 @@ lab:
 
    >注意：如果收到“NET::ERR_CERT_DATE_INVALID”错误，请在 Microsoft Edge 浏览器页上选择“高级”，在页面底部选择“继续访问 sea-svr2-contoso.com (不安全)”   。
 
-1. 出现提示时，请在“Windows 安全”对话框中输入以下凭据，然后选择“确定” ：
-
-   - 用户名：CONTOSO\\Administrator
-   - 密码：Pa55w.rd
+1. 出现提示时，请在“**Windows 安全**”对话框中输入讲师提供的凭据，然后选择“**确定**”。
 
 1. 查看“此版本中的新增功能”弹出窗口，然后在其右上角选择“关闭” 。
 1. 在 Windows Admin Center 的“所有连接”窗格的右上角，选择“设置”图标（齿轮） 。
@@ -336,10 +333,7 @@ lab:
 1. 在“清单服务器”选项卡上的“安装所需功能”窗格中，选择“下一步”  。
 1. 在“清单服务器”选项卡上的“添加和扫描设备”窗格中，选择“+ 添加设备”  。
 1. 在“添加源设备”上，确保选中“设备名称”选项，在“名称”文本框中，输入“SEA-SVR1.contoso.com”，然后选择“添加”    。
-1. 在“指定凭据”窗格中，选择“对此连接使用另一个帐户”选项，输入以下凭据，选择“对所有连接使用这些凭据”，然后选择“继续”   ：
-
-   - 用户名：CONTOSO\\Administrator
-   - 密码：Pa55w.rd
+1. 在“**指定凭据**”窗格中，选择“**对此连接使用另一个帐户**”选项，输入讲师提供的凭据，选择“**对所有连接使用这些凭据**”，然后选择“**继续**”。
 
    > 注意：若要执行单一登录，你需要设置 Kerberos 约束委派<!--Marcin can this be 'a Kerberos constrained delegation'?-->。
 
@@ -399,7 +393,7 @@ lab:
 
 #### 任务 4：验证迁移结果
 
-1. 在 SEA-SVR2 上，以 CONTOSO\\Administrator 的身份，使用密码 Pa55w.rd 登录  。
+1. 在 **SEA-SVR2** 上，使用讲师提供的凭据登录。
 1. 在 SEA-SVR2 上，选择“开始”，然后选择“Windows PowerShell”  。
 1. 若要确定分配给 SEA-SVR2 的网络接口的 IPv4 地址，请在 Windows PowerShell 控制台中输入以下命令，然后按 Enter ：
     
