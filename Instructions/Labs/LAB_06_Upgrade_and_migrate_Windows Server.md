@@ -28,11 +28,7 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
 > 备注：AZ-801T00A-SEA-DC1、AZ-801T00A-SEA-SVR1 和 AZ-801T00A-SEA-SVR2 虚拟机分别托管 SEA-DC1、SEA-SVR1 和 SEA-SVR2 的安装      。
 
 1. 选择 SEA-SVR2。
-1. 使用以下凭据登录：
-
-   - 用户名：Administrator
-   - 密码：Pa55w.rd
-   - 域名：CONTOSO
+1. 使用讲师提供的凭据进行登录。
 
 对于本实验室，你将使用可用的 VM 环境和 Azure 订阅。 在开始实验室之前，请确保拥有 Azure 订阅以及具有该订阅中“所有者”角色的用户帐户。
 
@@ -283,10 +279,7 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
 #### 任务 3：使用存储迁移服务执行迁移
 
 1. 在 SEA-ADM1 上，启动 Microsoft Edge 并连接到 Windows Admin Center 的本地实例 (https://SEA-ADM1.contoso.com ) 。 
-1. 如果系统提示，请使用以下凭据进行身份验证：
-
-   - 用户名：CONTOSO\\Administrator
-   - 密码：Pa55w.rd
+1. 如果系统提示，请使用讲师提供的凭据进行验证。
 
 1. 在 SEA-ADM1 上，在 Windows Admin Center 中，查看已安装的扩展并验证列表中是否包含“存储迁移服务”扩展 。
 
@@ -301,10 +294,7 @@ Contoso 正在探索适用于其基础结构服务的混合模型，该模型有
 1. 在“存储迁移服务”窗格中，创建名为 SVR1toSVR2 的迁移作业，并将源设备设置为“Windows 服务器和群集”   。
 1. 在“存储迁移服务 > SVR1toSVR2”窗格的“清单服务器”选项卡上，查看“检查先决条件”窗格  。
 1. 在“清单服务器”选项卡上的“输入凭据”窗格中，如有必要，输入 CONTOSO\\Administrator 用户帐户的凭据，清除“从故障转移群集迁移”复选框   。
-1. 在“库存服务器”选项卡的“添加和扫描设备”窗格中，使用以下凭据添加 SEA-SVR1.contoso.com 服务器  ：
-
-   - 用户名：CONTOSO\\Administrator
-   - 密码：Pa55w.rd
+1. 在“**库存服务器**”选项卡的“**添加和扫描设备**”窗格中，使用讲师提供的凭据添加 **SEA-SVR1.contoso.com** 服务器。
 
    > 注意：若要执行单一登录，你需要设置 Kerberos 约束委派。
 

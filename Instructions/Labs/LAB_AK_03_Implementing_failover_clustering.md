@@ -13,7 +13,7 @@ lab:
 
 #### 任务 1：安装故障转移群集
 
-1. 连接到 SEA-SVR2，然后根据需要，以 Contoso\\Administrator 的身份，使用密码 Pa55w.rd 登录  。
+1. 连接到 **SEA-SVR2**，然后根据需要使用讲师提供的凭据登录。
 1. 在 SEA-SVR2 上，选择“开始”，然后选择“Windows PowerShell (管理员)”  。
 1. 若要安装故障转移群集服务器功能（包括 SEA-SVR1 和 SEA-SVR2 上的管理工具），请在 Windows PowerShell 命令提示符下，输入以下命令，并在输入每个命令后按 Enter ：
 

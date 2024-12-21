@@ -15,7 +15,7 @@ lab:
 
 #### 任务 1：使用 Azure 资源管理器快速入门模板部署 Azure VM
 
-1. 连接到 SEA-SVR2，然后根据需要，以 CONTOSO\\Administrator 的身份，使用密码 Pa55w.rd 登录  。
+1. 连接到 **SEA-SVR2**，然后根据需要使用讲师提供的凭据登录。
 1. 在 SEA-SVR2 上，启动 Microsoft Edge，转至 [301-nested-vms-in-virtual-network Azure 快速启动模板](https://github.com/az140mp/azure-quickstart-templates/tree/master/demos/nested-vms-in-virtual-network)，然后选择“部署到 Azure”  。 （你会在模板创建的资源列表之后的 `README.md` 文件中找到“部署到 Azure”按钮。）这会自动将浏览器重定向到 Azure 门户中的“具有嵌套 VM 的 Hyper-V 主机虚拟机”页面 。
 1. 在 Azure 门户中，出现提示时，使用你在此实验室中使用的订阅中具有所有者角色的用户帐户的凭据登录。
 1. 在 Azure 门户的“具有嵌套 VM 的 Hyper-V 主机虚拟机”页面上，指定以下设置（保留其他设置为默认值。）：
