@@ -36,61 +36,57 @@ lab:
 
    > **注意**：等待部署完成。 部署可能需要大约 10 分钟时间。
 
-#### 任务 2：部署 Azure Bastion 
+#### 任务 2：提供远程访问
 
-> **注意**：Azure Bastion 允许在没有公共终结点（你在本练习的上一个任务中部署的终结点）的情况下连接到 Azure VM，同时提供针对暴力攻击（利用操作系统级别凭据）的保护。
+**注意**：我们始终建议使用堡垒主机访问敏感 VM（例如部署的 VM），以获得最安全、最强大的功能，但出于本实验室的演示目的，我们将配置直接远程访问。
 
-1. 在 SEA-SVR2 上，在显示 Azure 门户的浏览器窗口中，通过选择 Azure 门户中的 Cloud Shell 按钮打开“Azure Cloud Shell”窗格  。
-1. 如果系统提示选择“Bash”或“PowerShell”，请选择“PowerShell”  。
+1. 在 **SEA-SVR2** 上，启动 Microsoft Edge 并浏览 **[whatismyipaddress](https://whatismyipaddress.com/)**。 将 IP 地址保存在记事本中，以便在后面的步骤中使用。
+1. 在 Azure 门户中，单击页面顶部搜索文本框右侧的 Cloud Shell 图标。
+1. 如果系统提示选择“Bash”或“PowerShell”，请选择“Bash”。
 
-   > **注意：** 如果这是你第一次启动 Cloud Shell 且向你显示了“未装载任何存储”消息，请选择要在此实验室中使用的订阅，然后选择“创建存储”  。
+   >**注意**：如果这是第一次启动 Cloud Shell，并看到“未装载任何存储”消息，请选择在本实验室中使用的订阅，然后选择“创建存储”  。
 
-1. 在 Cloud Shell 窗格上的 PowerShell 会话中，运行以下命令以将名为 AzureBastionSubnet 的子网添加到你在本练习前面创建的虚拟网络 az801l07a-hv-vnet 中  ：
+1. 从 **Cloud Shell** 窗格中的 **Bash** 提示符运行以下命令以创建一个新的公共 IP 地址：
 
-   ```powershell
-   $resourceGroupName = 'AZ801-L0701-RG'
-   $vnet = Get-AzVirtualNetwork -ResourceGroupName $resourceGroupName -Name 'az801l07a-hv-vnet'
-   $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
-    -Name 'AzureBastionSubnet' `
-    -AddressPrefix 10.0.7.0/24 `
-    -VirtualNetwork $vnet
-   $vnet | Set-AzVirtualNetwork
+   ```bash
+      az network public-ip create --name RDP --resource-group AZ801-L0701-RG
+      ```
+1. 运行以下命令，将新的公共 IP 地址链接到 VM 的网络接口 nic1：
+   ```bash
+      az network nic ip-config update \
+      --name ipconfig \
+      --nic-name az801l07a-hv-vm-nic1 \
+      --resource-group AZ801-L0701-RG \
+      --public-ip-address RDP
+   ```
+1. 运行以下命令以创建新的 NSG 规则，以便从 **SEA-SVR2** 进行远程访问。 将 **WHATS-MY-IP-ADDRESS** 占位符替换为上一步中保存的 IP 地址。
+   ```bash
+      az network nsg rule create \
+      --name RDP \
+      --nsg-name NATNSG \
+      --priority 100 \
+      --resource-group AZ801-L0701-RG \
+      --access Allow \
+      --description "RDPIn" \
+      --destination-port-ranges 3389 \
+      --direction Inbound \
+      --protocol TCP \
+      --source-address-prefixes WHATS-MY-IP-ADDRESS/32
    ```
 
-1. 关闭 Cloud Shell 窗格。
-1. 在 Azure 门户工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择 Bastions，然后在 Bastions 页面上，选择“+ 创建”   。
-1. 在“创建 Bastion”页面的基本标签上，指定以下设置并选择“查看 + 创建”  ：
 
-   | 设置 | 值 | 
-   | --- | --- |
-   | 订阅 | 你在此实验室中使用的 Azure 订阅的名称 |
-   | 资源组 | **AZ801-L0701-RG** |
-   | 名称 | **az801l07a-bastion** |
-   | 区域 | 在本练习的先前任务中部署资源的同一 Azure 区域 |
-   | 层 | **基本** |
-   | 虚拟网络 | **az801l07a-hv-vnet** |
-   | 子网 | **AzureBastionSubnet (10.0.7.0/24)** |
-   | 公共 IP 地址 | **新建** |
-   | 公共 IP 名称 | **az801l07a-hv-vnet-ip** |
-
-   > **注意**：必须在与虚拟网络相同的 Azure 区域创建 Bastion。
-
-1. 在“创建 Bastion”页面的“查看 + 创建”标签上，选择“创建”  ：
-
-   > **注意**：在继续下一个任务之前，请等待部署完成。 部署可能需要大约 5 分钟时间。
 
 #### 任务 3：在 Azure VM 中部署嵌套 VM
 
 1. 在 Azure 门户工具栏上的“搜索资源、服务和文档”文本框中，搜索并选择“虚拟机”，然后在“虚拟机”页面上，选择 az801l07a-hv-vm   。
-1. 在 az801l07a-hv-vm 页面上，选择“连接”，然后在下拉菜单中选择“Bastion”  。
+1. 在 **az801l07a-hv-vm** 页上的**概览**中，记下公共 IP 地址的值。
+1. 选择“**连接**”，再选择“**下载 RDP 文件**”。
 1. 出现提示时，提供以下凭据，然后选择“连接”：
 
    | 设置 | 值 | 
    | --- | --- |
    | 用户名 |**学生** |
    | 密码 |**Pa55w.rd1234** |
-
-   > 注意：默认情况下，Microsoft Edge 阻止弹出窗口。 若要允许 Bastion 弹出窗口，请转到 Microsoft Edge 中的“设置”，在左侧选择“Cookie 和网站权限”，在“所有权限”下选择“弹出窗口和重定向”，最后关闭“阻止(推荐)”      。
 
 1. 在与 az801l07a-hv-vm 的远程桌面会话中，在“服务器管理器”窗口中，选择“本地服务器”，然后选择“IE 增强的安全配置”标签旁边的“开启”链接    。 在“IE 增强的安全配置”对话框中，选择两个“关闭”选项，然后选择“确定”  。
 1. 在远程桌面会话中，打开文件资源管理器并浏览到“F:”盘。 创建两个文件夹“F:\\VHD”和“F:\\VM” 。 
