@@ -57,7 +57,7 @@ lab:
    | 管理员用户名 | **学生** |
    | 管理员密码 | **Pa55w.rd1234** |
    | 域名 | **contoso.com** |
-   | VM 大小 | **Standard_DS2_v2** |
+   | VM 大小 | **Standard_D2s_v3** |
    | _artifacts 位置 | **`https://raw.githubusercontent.com/az140mp/azure-quickstart-templates/master/application-workloads/active-directory/active-directory-new-domain/`** |
    | 虚拟机名称 | az801l06a-dc1 |
    | 虚拟网络名称 | az801l06a-vnet |
