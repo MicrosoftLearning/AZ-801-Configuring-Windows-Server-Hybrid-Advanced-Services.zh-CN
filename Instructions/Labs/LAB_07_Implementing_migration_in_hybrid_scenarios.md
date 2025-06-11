@@ -23,8 +23,6 @@ Azure Migrate 提供以下功能：
 
 虽然在迁移计划的下一阶段才会处理数据库、Web 应用和虚拟桌面，但 Adatum 企业体系结构团队希望先评估使用 Azure Migrate 将其本地 Hyper-V 虚拟机迁移到 Azure VM 的情况。
 
-**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Migrating%20Hyper-V%20VMs%20to%20Azure%20by%20using%20Azure%20Migrate)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
-
 ## 目标
   
 完成本实验室后，你将能够：

@@ -7,8 +7,6 @@ lab:
 
 # 实验室答案：在 Windows Server 中升级和迁移
 
-**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Upgrading%20and%20migrating%20in%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
-
 ## 练习 1：在 Azure 中部署 AD DS 域控制器
 
 #### 任务 1：使用 Azure 资源管理器 (ARM) 模板部署域控制器

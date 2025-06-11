@@ -9,8 +9,6 @@ lab:
 ## 场景 
 为了解决有关过时操作模型、自动化使用受限以及依赖磁带备份进行还原和灾难恢复的问题，你决定使用 Microsoft 基于 Azure 的恢复服务。 第一步，你将实现 Azure Site Recovery 和 Azure 备份。
 
-**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20Azure-based%20recovery%20services)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
-
 ## 目标
 完成此实验室后，你将能够： 
 
