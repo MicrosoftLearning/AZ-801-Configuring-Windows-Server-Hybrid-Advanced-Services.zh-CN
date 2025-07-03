@@ -7,8 +7,6 @@ lab:
 
 # 实验室解答：实现故障转移群集
 
-**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20Failover%20Clustering)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
-
 ## 练习 1：配置 iSCSI 存储
 
 #### 任务 1：安装故障转移群集

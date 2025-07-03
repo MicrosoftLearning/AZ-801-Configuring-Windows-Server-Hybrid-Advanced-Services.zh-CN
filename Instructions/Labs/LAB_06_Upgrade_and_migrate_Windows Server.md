@@ -10,8 +10,6 @@ lab:
 
 Contoso 正在探索适用于其基础结构服务的混合模型，该模型有助于将其本地 Windows 服务器迁移到 Azure 虚拟机 (VM)。 为协助完成此计划，你需要评估在 Azure VM 中部署 Active Directory 域服务 (AD DS) 域控制器的过程。 你的目的是确定当前用于本地部署的手动过程与 Azure 中所提供的部署方法之间的差异。 此外，你还需要测试并记录存储迁移服务功能，以验证其在本地文件服务器迁移中的使用情况。 
 
-**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Upgrading%20and%20migrating%20in%20Windows%20Server)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
-
 ## 目标
 
 在此实验中，将执行以下操作：

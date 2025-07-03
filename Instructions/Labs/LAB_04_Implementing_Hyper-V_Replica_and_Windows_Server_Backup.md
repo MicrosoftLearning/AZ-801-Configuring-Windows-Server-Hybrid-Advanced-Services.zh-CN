@@ -10,8 +10,6 @@ lab:
 
 你在 Contoso, Ltd. 担任管理员。Contoso 希望评估和配置新的灾难恢复与备份的功能和技术。 作为系统管理员，你的任务是执行该评估和实现。 你决定评估 Hyper-V 副本和 Windows Server 备份。
 
-**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Implementing%20Hyper-V%20Replica%20and%20Windows%20Server%20Backup)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
-
 ## 目标
 
 完成本实验室后，你将能够：

@@ -7,8 +7,6 @@ lab:
 
 # 实验室答案：使用 Azure Migrate 将 Hyper-V VM 迁移到 Azure
 
-**注意：** 我们提供 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulation%20-%20Migrating%20Hyper-V%20VMs%20to%20Azure%20by%20using%20Azure%20Migrate)** ，让你能以自己的节奏点击浏览实验室。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。 
-
 注意：可能需要安装最新版本的 Microsoft Edge 浏览器。若要更新 Microsoft Edge 浏览器，请选择窗口右上角的三个点（省略号）图标。 从下拉菜单中选择“帮助和反馈”，然后选择“关于 Microsoft Edge” 。Microsoft Edge 会动检查更新并下载任何可用更新，下载更新后，单击“重启”
 
 ## 练习 1 - 准备实验室环境
