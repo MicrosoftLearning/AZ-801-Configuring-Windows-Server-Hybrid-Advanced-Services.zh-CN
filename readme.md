@@ -1,17 +1,7 @@
-#README
-
-We've turned off the ability to report issues directly on this repo and do not monitor PRs.
-
-Provide feedback here: https://aka.ms/provide-feedback
-
-Or, if you are a trainer with a microsoft.com email address, please create a ticket in AzDO.
-
 # AZ-801T00：配置 Windows Server 混合高级服务
 
 - **[下载最新学生手册和 AllFiles 内容](../../releases/latest)**
-- **你是 MCT 吗？** - 查看 [MCT GitHub 用户指南](https://microsoftlearning.github.io/MCT-User-Guide/)
-- **需要手动生成实验室说明？** - [MicrosoftLearning/Docker-Build ](https://github.com/MicrosoftLearning/Docker-Build) 存储库中提供了说明
-- 若要按自定进度的方式预览该课程，请查看我们提供的 **[交互式实验室模拟](https://mslabs.cloudguides.com/guides/AZ-801%20Lab%20Simulations%20-%20Configuring%20Windows%20Server%20Hybrid%20Advanced%20Services)** 。 你可能会发现交互式模拟与托管实验室之间存在细微差异，但演示的核心概念和思想是相同的。
+- **你是 MCT 吗？** - 请查看 [MCT GitHub 用户指南](https://microsoftlearning.github.io/MCT-User-Guide/)
 
 ## 我们要做什么？
 
