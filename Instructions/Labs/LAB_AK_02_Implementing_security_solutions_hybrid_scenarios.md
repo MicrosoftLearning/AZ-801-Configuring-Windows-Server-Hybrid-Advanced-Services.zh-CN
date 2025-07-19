@@ -79,7 +79,7 @@ lab:
    >注意：可以使用 (Get-AzLocation).Location 命令列出可用 Azure 区域的名称 ：
 
    ```powershell 
-   New-AzResourceGroup -Name 'AZ801-L0202-RG' -Location '<Location>'
+   New-AzResourceGroup -Name 'AZ801-L0202-RG' -Location '<Azure_region>'
    ```
 
 1. 关闭 Cloud Shell。
