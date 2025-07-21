@@ -13,7 +13,7 @@ lab:
 
 > 备注：在实验室环境中，Credential Guard 在 VM 上不可用，因为它们不符合先决条件。 但这并不妨碍你使用组策略逐步执行实现过程，并使用相应的工具评估其准备情况。
 
-#### 任务 1：使用组策略启用 Windows Defender Credential Guard
+#### 任务 1：使用组策略启用 Windows Defender Credential Guard 
 
 1. 连接到 **SEA-SVR2**，如果需要，请使用讲师提供的凭据登录。
 1. 在“启动”按钮旁的“在此键入进行搜索”文本框中，输入“组策略管理”  。
